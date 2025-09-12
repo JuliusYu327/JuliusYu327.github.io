@@ -367,7 +367,7 @@ header img {
   }
   .logo-track {
     gap: 20px;
-    animation-duration: 15s; /* 手機可稍快 */
+    animation-duration: 10s; /* 手機可稍快 */
   }
 }
 
