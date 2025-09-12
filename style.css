@@ -1,0 +1,363 @@
+#bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+ 
+  z-index: 0;
+  pointer-events: none;
+}
+body > *:not(#bg-canvas) {
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  font-family: "Microsoft JhengHei", 
+  sans-serif;
+  margin:0; 
+  padding:0; 
+  line-height:1.6; 
+  color:#ffffff;
+  font-family: Georgia, 'Times New Roman', Times, serif; /* 字體樣式 */
+}
+html { scroll-behavior: smooth; }
+
+/* ----------全局卡片樣式---------- */
+.v-card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+/*---------- Header------------ */
+header {   
+  position: fixed;              /* 固定在頁面頂部 */
+  top: 0;
+  left: 0;
+  width: 100%;                  /* 佔滿整個寬度 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5% 3%;           
+  background: linear-gradient(to bottom, rgba(255,255,255,0.95) 60%, rgba(255,255,255,0) 100%);
+  box-shadow: none;
+     
+  z-index: 1000;                /* 壓在最上層 */
+}
+
+header img {
+  height: 50px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin-left: 40px;   /* 調整選單間距 */
+}
+
+.nav-list a {
+    font-size: 16px;
+    color: #333;         /* 避免透明 header 上看不清楚 */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ----------Hero---------- */
+.hero {
+    position: relative;
+    text-align: center;
+    min-height: 100vh;    /* 讓 Hero 區塊至少佔滿一個螢幕高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:transparent;
+}
+/* Hero文字區塊 */
+.hero-text {
+    display: flex;
+    flex-direction: column; /* 讓 h1 和 p 上下排列 */
+    justify-content: center; /* 讓文字區塊在垂直方向置中 */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* 字體樣式 */
+    color: #535353;
+}
+/* Hero文字區塊第一行英文 */
+.hero-text h1 {
+  font-size: 46px;       /* 調整標題大小 */
+  font-weight: bold;
+}
+/* Hero文字區塊第二行 */
+.hero-text h2 {
+  font-size: 46px;       /* 調整字體大小 */
+  font-weight: normal;  /* h2粗體調整normal 或 bold */
+}
+/* Hero文字區塊第三行有橫線的小標題 */
+.hero-subtitle {
+  display: flex;           /* 讓 hr 和文字同一行 */
+  align-items: center;     /* 垂直置中 */
+  justify-content: center; /* 水平置中 */
+  gap: 10px;               /* 線與文字間距 */
+}
+/* Hero文字區塊第三行的橫線*/
+.hero-subtitle .line {
+  width: 80px;             /* 線長度 */
+  height: 2px;             /* 線粗細 */
+  background-color: #535353;  /* 線顏色 */
+  border: none;            /* 去掉預設邊框 */
+}
+/* Hero文字區塊第三行的小標題文字 */
+.hero-subtitle span {
+  display: inline-block;
+  line-height: 1;          /* 與線高度一致 */
+  vertical-align: middle;  /* 垂直置中 */
+  font-size: 32px;         /* 字體大小 */
+}
+
+/* ----------About---------- */
+.about-section {
+  display: grid;
+  padding-bottom: 10%;
+  grid-template-columns: 50% 50%;
+  gap: 5px;
+  max-width: 80%;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+.about-card {
+  background-color: transparent;
+  box-shadow: 0 4px 15px transparent;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  white-space: pre-line;
+}
+
+.about-left .about-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.about-left h2 {
+  font-size: clamp(28px, 3vw, 32px);
+  margin: 0;
+  text-align: center;
+}
+
+.about-right p {
+  font-size: clamp(18px, 2.2vw, 26px);
+  line-height: 1.8;
+  color: #535353;
+  margin: 0;
+}
+
+/* RWD 小螢幕上下排列，標題貼近文字卡片 */
+@media screen and (max-width: 1024px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 0;               /* 標題與文字卡片靠近 */
+    justify-items: center;
+  }
+
+  .about-card {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+  }
+
+  .about-left h2 {
+    margin: 0;
+    padding-bottom: 8px;
+    font-size: clamp(24px, 5vw, 28px);
+    text-align: center;
+  }
+}
+
+
+
+/* ----------Solutions---------- */
+.solutions {
+    background:linear-gradient(to top, rgba(179, 205, 235, 0.95) 0%, rgba(117, 117, 117, 0) 70%);/* Solutions 區塊漸層 */
+    padding: 5% 5%;
+}
+/* 九大服務標題文字 */
+.solutions h2 {
+  text-align: center;
+  font-size: 48px;
+  color: #222;
+  margin-bottom: 32px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding-bottom: 5%;
+
+}
+
+.solutions-container {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.solutions-card {
+  width: 380px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(66, 148, 255, 0.10), 0 1.5px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center ;
+  padding: 32px 30px 28px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+}
+
+.solutions-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(66, 148, 255, 0.18), 0 4px 12px rgba(0,0,0,0.10);
+}
+
+.solutions-card .overlay {
+  display: none; /* 不需要遮罩可隱藏 */
+}
+
+/* 九大服務卡的卡片規格 */
+.solutions-content {
+  padding: 2%;
+  position: relative;
+  z-index: 2;
+  
+  color: #222;
+  text-align: left;
+  width: 100%;
+}
+/* 九大服務卡的編號 */
+.solutions-number {
+  font-size: 48px;
+  font-weight: bold;
+  color: #555555;
+  margin-bottom: 16px;
+  font-family: 'Courier New';
+}
+
+
+/* 九大服務卡的英文標題 */
+.solutions-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #000000;
+}
+/* 九大服務卡的中文標題 */
+.solutions-subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #000000;
+}
+/* 九大服務卡的內容 */
+.solutions-chinesetext {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 0;
+  color: #333;
+}
+
+
+
+
+/* Testimonials */
+  .testimonials {padding: 55px 40px;background: #f9f9f9;text-align: center;}
+  .testimonials h2 {font-size: 48px;color: #222;margin-bottom: 40px;}
+  .testimonial-card {
+    padding: 20px;
+    min-height: 180px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    margin:20px auto;
+    transition:transform 0.3s, box-shadow 0.3s;
+  }
+  .testimonial-card:hover {
+    transform:scale(1.03);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  }
+  .testimonial-text {font-style: italic;font-size: 18px;margin-bottom: 15px;color: #333;}
+  .testimonial-author {font-weight: bold;color: #555;}
+
+/* Partners */
+.logos {
+  padding: 5% 40px;
+  background: rgba(110, 110, 110, 0.1);
+}
+.logos h2 {
+  font-size: 55px;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.logo-box {
+  width: 300px;           /* 固定寬度 */
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:transparent;
+  border-radius: 10px;
+}
+
+.logo-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 每個 logo 最少 300px，最大占 1fr */
+  gap: 40px;              /* logo 間距 */
+  justify-items: center;  /* logo 置中 */
+  max-width: 1320px;       /* 最多四個 logo：300*4 + gap*3 = 1320 */
+  margin: 0 auto;         /* 區塊置中 */
+}
+
+.logo-box img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+/* Contact */
+
+.contact {
+  padding: 60px 40px;
+  background: rgba(124, 76, 76, 0.1);
+  text-align: center;
+}
+.contact h2 { font-size: 36px; margin-bottom: 20px; color: #333; }
+.comtact p { font-size: 32px; margin: 10px 0; color: #555; }
+
+/* Footer */
+footer { text-align:center; padding:20px; background:#aaaaaa; color:#555555; }
+
+/* AOS 特效 */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(50px);
+  transition-property: opacity, transform;
+  transition-duration: 0.6s;
+  transition-timing-function: ease-in-out;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;   
+  transform: translateY(0);
+}
