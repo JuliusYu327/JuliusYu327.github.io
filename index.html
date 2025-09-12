@@ -122,12 +122,22 @@
             <section class="logos" data-aos="fade-up" data-aos-delay="200">
             <h2>{{ logos.title }}</h2>
             <p class="logos-subtitle">{{ logos.subtitle }}</p>
-            <div class="logo-row">
+
+            <div class="logo-marquee">
+                <div class="logo-track">
+                <!-- 原始 partners -->
                 <div v-for="(partner, index) in partners" :key="index" class="logo-box">
-                <img :src="partner.src" :alt="partner.alt" />
+                    <img :src="partner.src" :alt="partner.alt" />
+                </div>
+                <!-- 重複一次 partners，形成無縫循環 -->
+                <div v-for="(partner, index) in partners" :key="'dup-'+index" class="logo-box">
+                    <img :src="partner.src" :alt="partner.alt" />
+                </div>
                 </div>
             </div>
-            </section>  
+            </section>
+
+ 
     
             <!-- Contact -->
        

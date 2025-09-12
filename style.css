@@ -300,41 +300,79 @@ header img {
   .testimonial-text {font-style: italic;font-size: 18px;margin-bottom: 15px;color: #333;}
   .testimonial-author {font-weight: bold;color: #555;}
 
-/* Partners */
+/* ----------Partners ---------- */
 .logos {
   padding: 5% 40px;
   background: rgba(110, 110, 110, 0.1);
+  text-align: center;
 }
+
 .logos h2 {
   font-size: 55px;
   color: #000000;
-  text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
+
+.logo-marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.logo-track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 40px;
+  width: max-content; /* 寬度自動擴展 */
+  animation: marquee 20s linear infinite; /* 可調整速度 */
+  
+}
+.logo-marquee:hover .logo-track {
+  animation-play-state: paused; /* 滑鼠停在區塊上暫停 */
+}
+
 .logo-box {
-  width: 300px;           /* 固定寬度 */
-  height: 150px;
+  flex: 0 0 auto;
+  width: 200px;   /* logo格子寬度 */
+  height: 150px;  /* logo格子高度 */
   display: flex;
   align-items: center;
   justify-content: center;
-  background:transparent;
+  background: transparent;
   border-radius: 10px;
-}
-
-.logo-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 每個 logo 最少 300px，最大占 1fr */
-  gap: 40px;              /* logo 間距 */
-  justify-items: center;  /* logo 置中 */
-  max-width: 1320px;       /* 最多四個 logo：300*4 + gap*3 = 1320 */
-  margin: 0 auto;         /* 區塊置中 */
+  overflow: hidden; /* 超出格子部分隱藏 */
 }
 
 .logo-box img {
-  max-width: 80%;
-  max-height: 80%;
-  object-fit: contain;
+  max-width: 100%;   /* 寬度不能超過格子 */
+  max-height: 100%;  /* 高度不能超過格子 */
+  object-fit: contain; /* 保持比例，不變形 */
+  display: block;
 }
+
+/* 無縫滑動動畫 */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* 移動整列一半，正好接上重複列 */
+  }
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+  .logo-box {
+    width: 120px;
+    height: 90px;
+  }
+  .logo-track {
+    gap: 20px;
+    animation-duration: 15s; /* 手機可稍快 */
+  }
+}
+
+
+
 /* Contact */
 
 .contact {
