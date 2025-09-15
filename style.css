@@ -78,6 +78,7 @@ header img {
   width: 25px;
   height: 20px;
   cursor: pointer;
+  margin-left: auto;  /* 靠右 */
 }
 
 .hamburger span {
@@ -92,7 +93,8 @@ header img {
   .nav-list {
     display: none;
     flex-direction: column;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255);
+    justify-content: flex-end; /* 選單靠右 */
     position: absolute;
     top: 100%;
     right: 0;
@@ -106,6 +108,7 @@ header img {
 
   .hamburger {
     display: flex;
+    margin-left: auto;  /* 靠右 */
   }
 }
 
