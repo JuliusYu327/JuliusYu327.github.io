@@ -31,13 +31,14 @@ html { scroll-behavior: smooth; }
 /*---------- Header------------ */
 header {   
   position: fixed; /* 固定在頁面頂部 */ 
+  justify-content: space-between; /* LOGO 左、漢堡右 */
+  padding: 2.5% 3%;
   top: 0; 
   left: 0; 
   width: 100%; /* 佔滿整個寬度 */ 
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  padding: 2.5% 3%; 
   background: linear-gradient(to bottom, rgba(255,255,255,0.95) 60%, rgba(255,255,255,0) 100%); 
   box-shadow: none; z-index: 1000; /* 壓在最上層 */
 }
@@ -78,7 +79,7 @@ header img {
   width: 25px;
   height: 20px;
   cursor: pointer;
-  margin-left: auto;  /* 靠右 */
+  
 }
 
 .hamburger span {
@@ -86,6 +87,29 @@ header img {
   height: 3px;
   background: #333;
   border-radius: 2px;
+}
+
+/* 選單 */
+nav {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin-left: 40px;
+}
+
+.nav-list a {
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 /* 響應式選單 */
@@ -104,6 +128,7 @@ header img {
 
   nav.active .nav-list {
     display: flex;
+    margin-left: auto;  /* 靠右 */
   }
 
   .hamburger {
