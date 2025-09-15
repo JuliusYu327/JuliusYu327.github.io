@@ -17,7 +17,7 @@ const app = createApp({
       ],
       //--------hero--------//
       hero: {
-        companyname: "KAIMAU INFOTMATION CO.,LTD",
+        companyname: "KAIMAU INFORMATION CO.,LTD",
         title: "提供企業級 GPU 伺服器與 AI 運算平台",
         subtitle: '專注於 IT 整合服務與解決方案',
       },
@@ -97,7 +97,7 @@ const app = createApp({
         title: "凱茂資訊股份有限公司", 
         email: "Email: service@kmau.com.tw", 
         phone: "電話: (04) 2375-8388" , 
-        address: "地址: 台中市西區忠明南路270號10樓之1",
+        address: "地址: 台中市西區忠明南路270號10樓之4",
         company:"",
       },
 
