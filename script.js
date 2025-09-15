@@ -8,6 +8,7 @@ const app = createApp({
     return {
       //--------menu--------//
       hover: null,
+      menuActive: false,
       header: { logoSrc: "images/kmau-logo-color.png", logoAlt: "Kmau" },
       menuItems: [
         { name: "關於我們", link: "#about" },
@@ -110,9 +111,10 @@ const app = createApp({
     // 等 Vue 完全渲染 v-for 元素後再初始化 AOS
     this.$nextTick(() => {
       AOS.init({
-        duration: 1200,
+        duration: 600,
         once: true,
-        // easing: 'ease-in-out'
+        offset: 100,
+        easing: 'ease-in-out'
       });
       AOS.refresh();
     });

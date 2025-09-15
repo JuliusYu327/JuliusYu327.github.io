@@ -79,7 +79,7 @@
 
 
 
-            <!-- solutions-->
+            <!-- solutions -->
             <section id="solutions" class="solutions">
             <h2 data-aos="fade-up">{{ solutionsTitle }}</h2>
             <div class="solutions-container">
@@ -87,8 +87,9 @@
                 v-for="(solution, index) in solutions"
                 :key="index"
                 class="solutions-card"
-                data-aos="zoom-in"
-                :data-aos-delay="index * 40" 
+                data-aos="fade-up"
+                data-aos-delay="100"
+                style="will-change: transform, opacity;"
                 >
                 <div class="solutions-content">
                     <div class="solutions-number">{{ (index + 1).toString().padStart(2, '0') }}</div>
@@ -96,11 +97,11 @@
                     <div class="solutions-subtitle">{{ solution.subtitle }}</div>
                     <div class="solutions-text">{{ solution.englishtext }}</div>
                     <div class="solutions-text">{{ solution.chinesetext }}</div>
-                    
                 </div>
                 </div>
             </div>
             </section>
+
 
 
             <!-- Partners -->

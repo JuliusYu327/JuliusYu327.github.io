@@ -33,6 +33,7 @@ git status
 # 4. 加入有修改的檔案
 git add .
 
+----主要----
 # 5. 建立提交
 git commit -m "更新網站內容"
 
