@@ -117,7 +117,7 @@ const app = createApp({
     // 等 Vue 完全渲染 v-for 元素後再初始化 AOS
     this.$nextTick(() => {
       AOS.init({
-        duration: 600,
+        duration: 10,
         once: true,
         offset: 100,
         easing: 'ease-in-out'
