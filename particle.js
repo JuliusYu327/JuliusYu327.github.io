@@ -18,38 +18,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 粒子參數
   const particles = [];
-  const PARTICLE_NUM = 25;
-  const colors = ['#c6c8caff', '#ddebf7af', '#e0efffff', '#f5f8fb'];
+  const PARTICLE_NUM = 50; // 數量多
+  const MAX_DIST = 120;
 
   for (let i = 0; i < PARTICLE_NUM; i++) {
-    // 集中在中間偏右
-    const xCenter = width * 0.6 + (Math.random() - 0.5) * width * 0.2;
-    const yCenter = height * 0.5 + (Math.random() - 0.5) * height * 0.4;
-
     particles.push({
-      x: xCenter,
-      y: yCenter,
-      r: 20 + Math.random() * 40,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      alpha: 0.1 + Math.random() * 0.3,
-      dx: 0.3 + Math.random() * 0.2,  // 整體偏右
-      dy: (Math.random() - 0.5) * 0.3, // 上下微幅漂浮
-      t: Math.random() * Math.PI * 2
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: 2 + Math.random() * 2, // 小點
+      dx: (Math.random() - 0.5) * 1,
+      dy: (Math.random() - 0.5) * 1
     });
   }
 
   function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    // 粒子連線
+    // 畫粒子
+    for (const p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = "#ffffffcc"; // 淡白色點
+      ctx.fill();
+
+      p.x += p.dx;
+      p.y += p.dy;
+
+      // 邊界反彈
+      if (p.x < 0 || p.x > width) p.dx *= -1;
+      if (p.y < 0 || p.y > height) p.dy *= -1;
+    }
+
+    // 畫連線
     for (let i = 0; i < PARTICLE_NUM; i++) {
       for (let j = i + 1; j < PARTICLE_NUM; j++) {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 150) {
-          ctx.strokeStyle = `rgba(200,200,255,${0.1 * (1 - dist/150)})`;
-          ctx.lineWidth = 1;
+        if (dist < MAX_DIST) {
+          ctx.strokeStyle = `rgba(200,200,255,${1 - dist / MAX_DIST})`;
+          ctx.lineWidth = 5;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
@@ -58,27 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // 畫粒子
-    for (const p of particles) {
-      p.t += 0.01;
-      ctx.globalAlpha = p.alpha + 0.05 * Math.sin(p.t);
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r + 5 * Math.sin(p.t), 0, Math.PI * 2);
-      ctx.fillStyle = p.color;
-      ctx.fill();
-
-      // 移動
-      p.x += p.dx;
-      p.y += p.dy;
-
-      // 邊界循環
-      if (p.x < -p.r) p.x = width + p.r;
-      if (p.x > width + p.r) p.x = -p.r;
-      if (p.y < -p.r) p.y = height + p.r;
-      if (p.y > height + p.r) p.y = -p.r;
-    }
-
-    ctx.globalAlpha = 1;
     requestAnimationFrame(animate);
   }
 
