@@ -91,7 +91,7 @@ const app = createApp({
       { src: "logos/fortinet.png", alt: "品牌3" },
       { src: "logos/lenovo.png", alt: "品牌4" },
       { src: "logos/nvidia.png", alt: "品牌5" },
-      { src: "logos/kmauk.png", alt: "品牌6" },
+      
       { src: "logos/paloauto.png", alt: "品牌7" },
       { src: "logos/hp.png", alt: "品牌8" },
      
