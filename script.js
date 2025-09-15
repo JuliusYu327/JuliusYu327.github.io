@@ -107,6 +107,7 @@ const app = createApp({
       footer: { text: "© 2025 Kmau. All rights reserved." }
     }
   },
+  //漢堡選單模式
   methods: {
   toggleMenu() {
     this.menuActive = !this.menuActive;

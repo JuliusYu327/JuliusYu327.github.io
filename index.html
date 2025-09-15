@@ -28,20 +28,17 @@
             <img :src="header.logoSrc" :alt="header.logoAlt" />
             
             <!-- 漢堡按鈕 -->
-            <div class="hamburger" @click="toggleMenu">
+            <div class="hamburger" @click="toggleMenu" :class="{ open: menuActive }">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
 
-            <nav :class="{ 'active': menuActive }">
+            <nav :class="{ active: menuActive }">
                 <ul class="nav-list">
-                <li v-for="(item,index) in menuItems" :key="index">
-                    <a :href="item.link" 
-                    @mouseover="hover = index"
-                    @mouseleave="hover = null"
-                    :class="{ 'hovered': hover === index }">
-                    {{ item.name }}
+                <li v-for="(item, index) in menuItems" :key="index">
+                    <a :href="item.link" @click="menuActive = false">
+                        {{ item.name }}
                     </a>
                 </li>
                 </ul>

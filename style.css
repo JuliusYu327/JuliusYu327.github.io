@@ -28,75 +28,53 @@ html { scroll-behavior: smooth; }
   box-shadow: none !important;
   border: none !important;
 }
+
+
+
 /*---------- Header------------ */
-header {   
-  position: fixed; /* 固定在頁面頂部 */ 
-  justify-content: space-between; /* LOGO 左、漢堡右 */
+header.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 2.5% 3%;
-  top: 0; 
-  left: 0; 
-  width: 100%; /* 佔滿整個寬度 */ 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  background: linear-gradient(to bottom, rgba(255,255,255,0.95) 60%, rgba(255,255,255,0) 100%); 
-  box-shadow: none; z-index: 1000; /* 壓在最上層 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.95) 60%, rgba(255,255,255,0) 100%);
+  z-index: 1000;
 }
 
 header img {
   height: 50px;
 }
 
-.nav-list {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-list li {
-  margin-left: 40px;
-}
-
-.nav-list a {
-  font-size: 16px;
-  color: #333;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-list a.hovered,
-.nav-list a:hover {
-  color: #007BFF;
-}
-
-/* 漢堡按鈕 */
 .hamburger {
-  display: none;  /* 桌機隱藏 */
+  display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 25px;
-  height: 20px;
+  width: 26px;
+  height: 16px;
   cursor: pointer;
-  
+  z-index: 1100; /* 讓按鈕在選單上層 */
 }
 
 .hamburger span {
   display: block;
   height: 3px;
-  background: #333;
+  background: #3ba0ff;
   border-radius: 2px;
+  transition: all 0.4s ease;
+  transform-origin: center;  /* 對齊中心 */
 }
 
-/* 選單 */
 nav {
   display: flex;
 }
 
 .nav-list {
   display: flex;
-  list-style: none;
+  list-style: none  ;
   margin: 0;
   padding: 0;
 }
@@ -112,28 +90,51 @@ nav {
   font-weight: 500;
 }
 
-/* 響應式選單 */
+/* -----header響應----- */
 @media (max-width: 768px) {
-  .nav-list {
-    display: none;
-    flex-direction: column;
-    background: rgba(255,255,255);
-    justify-content: flex-end; /* 選單靠右 */
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 200px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  }
-
-  nav.active .nav-list {
-    display: flex;
-    margin-left: auto;  /* 靠右 */
-  }
-
   .hamburger {
     display: flex;
-    margin-left: auto;  /* 靠右 */
+  }
+  /* 漢堡打開時變叉叉 */
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(9px);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-9px);
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255,255,255,0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 50px;
+    transition: right 0.4s ease;
+    z-index: 1050;
+  }
+
+  nav.active {
+    right: 0; /* 展開時滑入 */
+  }
+
+  .nav-list {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .nav-list li {
+    margin: 20px 0;
+  }
+  .nav-list a {
+    font-size: 24px;
   }
 }
 
@@ -149,6 +150,8 @@ nav {
     justify-content: center;
     align-items: center;
     background:transparent;
+    padding: 0 5%;        /* 小螢幕留一些內距 */
+    box-sizing: border-box;
 }
 /* Hero文字區塊 */
 .hero-text {
@@ -162,11 +165,13 @@ nav {
 .hero-text h1 {
   font-size: 46px;       /* 調整標題大小 */
   font-weight: bold;
+  margin: 0;
 }
 /* Hero文字區塊第二行 */
 .hero-text h2 {
   font-size: 46px;       /* 調整字體大小 */
   font-weight: normal;  /* h2粗體調整normal 或 bold */
+  margin: 10px 0;
 }
 /* Hero文字區塊第三行有橫線的小標題 */
 .hero-subtitle {
@@ -188,6 +193,52 @@ nav {
   line-height: 1;          /* 與線高度一致 */
   vertical-align: middle;  /* 垂直置中 */
   font-size: 32px;         /* 字體大小 */
+}
+/* ----- hero響應式 ----- */
+@media (max-width: 1200px) {
+  .hero-text h1,
+  .hero-text h2 {
+    font-size: 36px;
+  }
+  .hero-subtitle span {
+    font-size: 26px;
+  }
+  .hero-subtitle .line {
+    width: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 28px;
+  }
+  .hero-text h2 {
+    font-size: 28px;
+  }
+  .hero-subtitle span {
+    font-size: 20px;
+  }
+  .hero-subtitle .line {
+    width: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 22px;
+  }
+  .hero-text h2 {
+    font-size: 22px;
+  }
+  .hero-subtitle span {
+    font-size: 16px;
+  }
+  .hero-subtitle .line {
+    width: 30px;
+  }
+  .hero {
+    padding: 0 3%;
+  }
 }
 
 /* ----------About---------- */
@@ -433,7 +484,13 @@ nav {
 .comtact p { font-size: 32px; margin: 10px 0; color: #555; }
 
 /* Footer */
-footer { text-align:center; padding:1% 1%; background:#333333; color:#ffffff; }
+footer { 
+  position: relative;
+  text-align:center; 
+  padding:1% 1%; 
+  background:#333333; 
+  color:#ffffff; 
+}
 
 /* AOS 特效 */
 [data-aos] {

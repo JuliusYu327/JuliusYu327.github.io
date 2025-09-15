@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 粒子參數
   const particles = [];
-  const PARTICLE_NUM = 50; // 數量多
-  const MAX_DIST = 120;
+  const PARTICLE_NUM = 40; // 數量多
+  const MAX_DIST = 100;
 
   for (let i = 0; i < PARTICLE_NUM; i++) {
     particles.push({
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const p of particles) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = "#ffffffcc"; // 淡白色點
+      ctx.fillStyle = "#ffffff"; // 淡白色點
       ctx.fill();
 
       p.x += p.dx;
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < MAX_DIST) {
           ctx.strokeStyle = `rgba(200,200,255,${1 - dist / MAX_DIST})`;
-          ctx.lineWidth = 5;
+          ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
