@@ -95,9 +95,12 @@ const app = createApp({
       //--------聯絡我們--------//
       contact: { 
         title: "凱茂資訊股份有限公司", 
-        email: "Email: service@kmau.com.tw", 
-        phone: "電話: (04) 2375-8388" , 
-        address: "地址: 台中市西區忠明南路270號10樓之4",
+        emailtitle: "Email",
+        email: "service@kmau.com.tw", 
+        phonetitle: "Phone",
+        phone: "(04) 2375-8388" ,
+        addresstitle: "Address", 
+        address: "台中市西區忠明南路270號10樓之4",
         company:"",
       },
 
@@ -117,12 +120,12 @@ const app = createApp({
     // 等 Vue 完全渲染 v-for 元素後再初始化 AOS
     this.$nextTick(() => {
       AOS.init({
-        duration: 10,
+        duration: 800,
         once: true,
         offset: 0,
         easing: 'ease-in-out'
       });
-      AOS.refresh();
+      AOS.refreshHard();
     });
   }
 });

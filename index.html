@@ -147,20 +147,24 @@
             <!-- Contact -->
        
             <section id="contact" class="contact" data-aos="fade-right">
-                <h2 >{{ contact.title }}</h2>
-                
-                <p>
-                <span class="material-icons" style="vertical-align:middle;"></span>
-                {{ contact.email }}
-                </p>
-                <p>
-                <span class="material-icons" style="vertical-align:middle;"></span>
-                {{ contact.phone }}
-                </p>
-                <p>
-                <span class="material-icons" style="vertical-align:middle;"></span>
-                {{ contact.address }}
-                </p>
+                <div class="contact-icon">
+                    <h2 >{{ contact.title }}</h2>
+                    <h1 >{{ contact.emailtitle }}</h1>
+                    <p>
+                    <span class="material-icons" style="vertical-align:middle;"></span>
+                    {{ contact.email }}
+                    </p>
+                    <h1 >{{ contact.phonetitle }}</h1>
+                    <p>
+                    <span class="material-icons" style="vertical-align:middle;"></span>
+                    {{ contact.phone }}
+                    </p>
+                    <h1 >{{ contact.addresstitle }}</h1>
+                    <p>
+                    <span class="material-icons" style="vertical-align:middle;"></span>
+                    {{ contact.address }}
+                    </p>
+                </div>
             </section>
 
             <!-- Footer -->
