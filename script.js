@@ -107,6 +107,11 @@ const app = createApp({
       footer: { text: "© 2025 Kmau. All rights reserved." }
     }
   },
+  methods: {
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
+  }
+},
   mounted() {
     // 等 Vue 完全渲染 v-for 元素後再初始化 AOS
     this.$nextTick(() => {

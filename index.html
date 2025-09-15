@@ -26,7 +26,15 @@
             <!-- Header -->
             <header class="site-header">
             <img :src="header.logoSrc" :alt="header.logoAlt" />
-            <nav>
+            
+            <!-- 漢堡按鈕 -->
+            <div class="hamburger" @click="toggleMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav :class="{ 'active': menuActive }">
                 <ul class="nav-list">
                 <li v-for="(item,index) in menuItems" :key="index">
                     <a :href="item.link" 
@@ -89,7 +97,6 @@
                 class="solutions-card"
                 data-aos="fade-up"
                 data-aos-delay="100"
-                style="will-change: transform, opacity;"
                 >
                 <div class="solutions-content">
                     <div class="solutions-number">{{ (index + 1).toString().padStart(2, '0') }}</div>
