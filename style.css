@@ -90,7 +90,7 @@ nav {
   font-weight: 500;
 }
 
-/* -----header響應----- */
+/* 響應 */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -292,13 +292,13 @@ nav {
   .about-card {
     width: 100%;
     max-width: 600px;
-    padding: 0;
+    padding: 15px;
   }
 
   .about-left h2 {
     margin: 0;
-    
-    font-size: clamp(22px, 5vw, 28px);
+    padding-bottom: 8px;
+    font-size: clamp(24px, 5vw, 28px);
     text-align: center;
   }
 }
@@ -400,6 +400,45 @@ nav {
   color: #333;
 }
 
+
+/*----------map----------*/
+.map-section {
+  padding: 60px 20px;
+  text-align: center;
+  background: #f9f9f9;
+  
+}
+
+.map-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #222;
+  
+}
+
+.map-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 500px;
+  border: 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .map-wrapper iframe {
+    height: 300px;
+  }
+}
+
+
 /* ----------Partners ---------- */
 .logos {
   padding: 5% 40px;
@@ -473,15 +512,17 @@ nav {
 
 
 
+
+
 /* Contact */
 
 .contact {
-  padding: 60px 40px;
+  padding: 10% 10% 10% 10%;
   background: rgba(124, 76, 76, 0.1);
-  text-align: center;
+  text-align: left;
 }
 .contact h2 { font-size: 36px; margin-bottom: 20px; color: #333; }
-.comtact p { font-size: 32px; margin: 10px 0; color: #555; }
+.contact p { font-size: 18px; margin: 10px 0; color: #555; }
 
 /* Footer */
 footer { 

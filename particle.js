@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const p of particles) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = "#ffffff"; // 淡白色點
+      ctx.fillStyle = "#ffffffff"; // 淡白色點
       ctx.fill();
 
       p.x += p.dx;
@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const dy = particles[i].y - particles[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < MAX_DIST) {
-          ctx.strokeStyle = `rgba(200,200,255,${1 - dist / MAX_DIST})`;
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = `rgba(0,0,200,${1 - dist / MAX_DIST})`;//線的顏色
+          ctx.lineWidth = 5;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
