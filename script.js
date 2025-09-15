@@ -99,7 +99,7 @@ const app = createApp({
         email: "service@kmau.com.tw", 
         phonetitle: "Phone",
         phone: "(04) 2375-8388" ,
-        addresstitle: "Address", 
+        addresstitle: "Address:", 
         address: "台中市西區忠明南路270號10樓之4",
         company:"",
       },

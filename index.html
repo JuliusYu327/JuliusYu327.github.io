@@ -106,21 +106,7 @@
             </div>
             </section>
 
-            <!-- Google 地圖區塊 -->
-            <section id="map" class="map-section">
-                    <div class="map-wrapper">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2164.9239223532513!2d120.65680582842539!3d24.138270008070506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9f70c4f7c7%3A0x92f03742845b2fda!2z5Yex6IyC6LOH6KiK6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1757924210475!5m2!1szh-TW!2stw" 
-                            width="600" 
-                            height="450" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                        
-                    </div>
-            </section>
+
 
             <!-- Partners -->
             <section class="logos" data-aos="fade-up" data-aos-delay="200">
@@ -141,30 +127,43 @@
             </div>
             </section>
             
-
+            <!-- Google 地圖區塊 -->
+            <section id="map" class="map-section">
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2164.9239223532513!2d120.65680582842539!3d24.138270008070506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9f70c4f7c7%3A0x92f03742845b2fda!2z5Yex6IyC6LOH6KiK6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1757924210475!5m2!1szh-TW!2stw" 
+                            width="600" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        
+                    </div>
+            </section>
  
     
             <!-- Contact -->
        
             <section id="contact" class="contact" data-aos="fade-right">
-                <div class="contact-icon">
-                    <h2 >{{ contact.title }}</h2>
-                    <h1 >{{ contact.emailtitle }}</h1>
-                    <p>
-                    <span class="material-icons" style="vertical-align:middle;"></span>
-                    {{ contact.email }}
-                    </p>
-                    <h1 >{{ contact.phonetitle }}</h1>
-                    <p>
-                    <span class="material-icons" style="vertical-align:middle;"></span>
-                    {{ contact.phone }}
-                    </p>
-                    <h1 >{{ contact.addresstitle }}</h1>
-                    <p>
-                    <span class="material-icons" style="vertical-align:middle;"></span>
-                    {{ contact.address }}
-                    </p>
-                </div>
+                <h2 >{{ contact.title }}</h2>
+
+                <h1 >{{ contact.emailtitle }}</h1>
+                <p>
+                <span class="material-icons" style="vertical-align:middle;"></span>
+                {{ contact.email }}
+                </p>
+                <h1 >{{ contact.phonetitle }}</h1>
+                <p>
+                <span class="material-icons" style="vertical-align:middle;"></span>
+                {{ contact.phone }}
+                </p>
+                <h1 >{{ contact.addresstitle }}</h1>
+                <p>
+                <span class="material-icons" style="vertical-align:middle;"></span>
+                {{ contact.address }}
+                </p>
             </section>
 
             <!-- Footer -->

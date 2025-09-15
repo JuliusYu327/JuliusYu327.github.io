@@ -441,7 +441,7 @@ nav {
 
 /* ----------Partners ---------- */
 .logos {
-  padding: 5% 40px;
+  padding: 5% 0 5% 0;
   background: rgba(110, 110, 110, 0.1);
   text-align: center;
 }
@@ -519,13 +519,13 @@ nav {
 .contact {
   display: flex;
   flex-direction: column; /* 垂直排列子元素 */
-  align-items: flex-start; /* 文字靠左 */
-  gap: 20px; /* 每行間距 */
-  padding: 10% 10%;
+  align-items: center; /* 文字置中 */
+  padding: 5% 0 5% 0 ;
   background: rgba(124, 76, 76, 0.1);
 }
 .contact-icon {
   text-align: left;
+  line-height: 2.5;
 }
 .contact h2 { font-size: 36px; margin-bottom: 20px; color: #333; }
 .contact h1 { font-size: 22px; margin: 10px 0; color: #555; }
