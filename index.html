@@ -102,21 +102,6 @@
             </div>
             </section>
 
-            <!-- Testimonials -->
-            <section id="testimonials" class="testimonials">
-            <h2 data-aos="fade-up">{{ testimonialsTitle }}</h2>
-            <v-row justify="center" class="testimonial-row">
-                <v-col v-for="(feedback, index) in testimonials" :key="index" cols="12" md="4" data-aos="fade-up" :data-aos-delay="index*200">
-                <v-card class="testimonial-card" variant="outlined">
-                    <v-card-text>
-                    <p class="testimonial-text">"{{ feedback.text }}"</p>
-                    <p class="testimonial-author">— {{ feedback.author }}</p>
-                    </v-card-text>
-                </v-card>
-                </v-col>
-            </v-row>
-            </section>
-
 
             <!-- Partners -->
             <section class="logos" data-aos="fade-up" data-aos-delay="200">

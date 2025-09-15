@@ -75,12 +75,6 @@ const app = createApp({
         
       ],
 
-      testimonialsTitle: "顧客評語",
-      testimonials: [
-        { text: "服務非常專業，幫助我們公司快速導入 AI 平台。", author: "張經理 / 科技公司" },
-        { text: "反應速度快，解決問題很有效率。", author: "林主任 / 金融業" },
-        { text: "非常值得信賴的合作夥伴！", author: "王小姐 / 製造業" },
-      ],
 
 
       //--------partners--------//

@@ -275,31 +275,6 @@ header img {
   color: #333;
 }
 
-
-
-
-/* Testimonials */
-  .testimonials {padding: 55px 40px;background: #f9f9f9;text-align: center;}
-  .testimonials h2 {font-size: 48px;color: #222;margin-bottom: 40px;}
-  .testimonial-card {
-    padding: 20px;
-    min-height: 180px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    background:#fff;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    margin:20px auto;
-    transition:transform 0.3s, box-shadow 0.3s;
-  }
-  .testimonial-card:hover {
-    transform:scale(1.03);
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
-  }
-  .testimonial-text {font-style: italic;font-size: 18px;margin-bottom: 15px;color: #333;}
-  .testimonial-author {font-weight: bold;color: #555;}
-
 /* ----------Partners ---------- */
 .logos {
   padding: 5% 40px;
