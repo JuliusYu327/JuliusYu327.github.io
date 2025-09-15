@@ -1,0 +1,43 @@
+#PowerShell
+
+
+----------第一次推送-----------
+# 1. 進入專案資料夾
+cd C:\Users\Julius\Documents\kmauWeb
+
+# 2. 初始化 Git（如果已經有 .git 資料夾可省略）
+git init
+
+# 3. 綁定遠端倉庫（只需要設定一次）
+git remote add origin https://github.com/JuliusYu327/JuliusYu327.github.io.git
+
+# 4. 加入所有檔案
+git add .
+
+# 5. 建立提交
+git commit -m "首次上傳網站檔案"
+
+# 6. 推送到 main 分支
+git push -u origin main
+
+-----------------推送--------------------
+# 1. 進入專案資料夾
+cd C:\Users\Julius\Documents\kmauWeb
+
+# 2. 確認遠端 URL 是否正確（只要設定過一次就不用再跑）
+git remote set-url origin https://github.com/JuliusYu327/JuliusYu327.github.io.git
+
+# 3. 查看狀態（可選）
+git status
+
+# 4. 加入有修改的檔案
+git add .
+
+# 5. 建立提交
+git commit -m "更新網站內容"
+
+# 6. 推送更新
+git push origin main
+
+----------!!!!!!!!!強制推送!!!!!!!!!!-----------
+git push origin main --force
