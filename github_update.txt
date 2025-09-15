@@ -31,7 +31,7 @@ git remote set-url origin https://github.com/JuliusYu327/JuliusYu327.github.io.g
 git status
 
 # 4. 加入有修改的檔案
-git add .
+git add --all
 
 ----主要----
 # 5. 建立提交
