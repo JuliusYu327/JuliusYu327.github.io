@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let width = 0, height = 0;
 
   function resize() {
-    width = canvas.offsetWidth;
-    height = canvas.offsetHeight;
+    width = window.innerWidth;//寬度擷取視窗大小
+    height = window.innerHeight;//高度擷取視窗大小
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const dy = particles[i].y - particles[j].y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < MAX_DIST) {
-          ctx.strokeStyle = `rgba(0,0,200,${1 - dist / MAX_DIST})`;//線的顏色
-          ctx.lineWidth = 5;
+          ctx.strokeStyle = `rgba(0,0,25,${1 - dist / MAX_DIST})`;//線的顏色
+          ctx.lineWidth = 3;//線的寬度
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);

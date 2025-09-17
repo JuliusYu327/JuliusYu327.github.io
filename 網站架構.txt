@@ -16,29 +16,11 @@
 │    ├─ Consulting, Training & Compliance
 │    └─ AI SaaS Platforms
 │
-├─ 3. 解決方案 (Solutions / Use Cases)
-│    ├─ 行業案例 (Manufacturing, Finance, Healthcare, Education, Government)
-│    └─ 案例詳情頁 (Challenge → Solution → Results)
-│
-├─ 4. 成功案例 / 客戶見證 (Case Studies / Testimonials)
-│    ├─ 客戶 Logo & 引言
-│    └─ 案例故事詳情
-│
-├─ 5. 技術資源 (Resources / Blog)
-│    ├─ 技術文章 / 新聞分享
-│    ├─ 白皮書下載
-│    └─ FAQ
-│
-├─ 6. 團隊專業 (Team / Certification)
-│    ├─ 核心團隊介紹
-│    └─ 專業證照與技能
-│
-├─ 7. 維運支援 (Support / SLA)
-│    ├─ 服務流程說明
-│    ├─ 線上報修 / 客戶入口
-│    └─ SLA 保證條款
 │
 └─ 10. 聯絡我們 (Contact)
      ├─ 聯絡表單
      ├─ Email / 電話 / Line / WhatsApp
      └─ Google Maps 公司位置
+
+
+最新消息
