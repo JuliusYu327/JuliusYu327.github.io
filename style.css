@@ -41,7 +41,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.95) 60%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
   z-index: 1000;
 }
 
@@ -166,12 +166,19 @@ nav {
 .hero-bg {
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  height: 55%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   z-index: -1; /* 在文字後面 */
   opacity: 1;           /* 可調整透明度 */
   pointer-events: none; /* 不影響點擊 */
+}
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to top, rgba(97, 97, 97, 0.466) 40%, rgba(167, 167, 167, 0) 100%); /* 遮罩顏色可調整 */
+  z-index: 0;
 }
 /* Hero文字區塊 */
 
@@ -181,7 +188,7 @@ nav {
     flex-direction: column; /* 讓 h1 和 p 上下排列 */
     justify-content: center; /* 讓文字區塊在垂直方向置中 */
     font-family: Georgia, 'Times New Roman', Times, serif; /* 字體樣式 */
-    color: #535353;
+    color: #ffffff;
 }
 /* Hero文字區塊第一行英文 */
 .hero-text h1 {
@@ -614,6 +621,13 @@ nav {
   font-size: 20px;
   margin: 2px 0 0;
   color: #555;
+}
+/* 手機優化 */
+@media (max-width: 768px) {
+  .contact {
+    background-size: auto 100%; /* 高度全滿，寬度自動縮放 */
+    padding: 10% 5%;            /* 調整內距 */
+  }
 }
 
 /* Footer */

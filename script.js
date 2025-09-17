@@ -17,7 +17,7 @@ const app = createApp({
       ],
       //--------hero--------//
       hero: {
-        bg: "background/earth.png",
+        bg: "background/architecture.jpg",
         companyname: "KAIMAU INFORMATION CO.,LTD",
         title: "提供企業級 GPU 伺服器與 AI 運算平台",
         subtitle: '專注於 IT 整合服務與解決方案',
