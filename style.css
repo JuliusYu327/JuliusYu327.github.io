@@ -41,7 +41,8 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+  background:rgb(255, 255, 255) 70%;
+  /* background: linear-gradient(to bottom, rgb(255, 255, 255) 70%, rgba(145, 145, 145, 0) 100%); */
   z-index: 1000;
 }
 
@@ -102,6 +103,7 @@ nav {
   background: rgba(255, 255, 255, 0);
   z-index: 1000;
   }
+  
   .hamburger {
     display: flex;
   }
@@ -177,7 +179,7 @@ nav {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to top, rgba(97, 97, 97, 0.466) 40%, rgba(167, 167, 167, 0) 100%); /* 遮罩顏色可調整 */
+  background: linear-gradient(to top, rgba(58, 58, 58, 0.466) 40%, rgba(167, 167, 167, 0) 100%); /* 遮罩顏色可調整 */
   z-index: 0;
 }
 /* Hero文字區塊 */
@@ -273,7 +275,7 @@ nav {
 /* ----------About---------- */
 .about-section {
   display: grid;
-  padding-bottom: 10%;
+  padding: 10% 5% 5% 5%;
   grid-template-columns: 50% 50%;
   gap: 5px;
   max-width: 80%;
@@ -553,82 +555,97 @@ nav {
 .contact {
   display: flex;
   flex-direction: column;
-  
-  padding: 5% 5% 5% 5%;
-  /* 背景圖相關 */
-  background-size: cover;       /* 讓背景圖覆蓋整個區塊 */
+  align-items: flex-start;
+  padding: 5% 5%;
+  background-size: cover;       /* 背景圖覆蓋整個區塊 */
   background-position: center;  /* 背景圖置中 */
   background-repeat: no-repeat; /* 不重複 */
-  color: #fff;                  /* 如果文字要白色 */
-  position: relative;           /* 若要加遮罩用 */
+  color: #fff;
+  position: relative;           /* 遮罩需要 */
 }
-/*遮罩*/
+
+/* 遮罩 */
 .contact::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to bottom, rgba(224, 224, 224, 0.466) 60%, rgba(255,255,255,0) 100%); /* 遮罩顏色可調整 */
+  background: rgba(207, 207, 207, 0.4); /* 遮罩透明黑色，可調整 */
   z-index: 0;
 }
+
 .contact > * {
   position: relative;
   z-index: 1;
 }
 
+/* Contact 上方圖片 */
 .icon-title {
-  width: 18%;     /* 寬度是父容器的一半 */
+  width: 100%;       /* 滿寬 */
+  max-width: 20%;  /* 最大寬度，可調整 */
   height: auto;
-  display: block; /* 讓圖片成為區塊元素 */
-  padding-bottom: 5%;
-  background-size: cover;
-  background-position: center;
-  color: #333;
+  display: block;
+  margin-bottom:100px; /* 置中並加下方間距 */
 }
+
+/* Contact 標題 */
 .contact h2 {
   font-size: 36px;
   margin-bottom: 30px;
-  color: #333;
+  color: #fff;
 }
 
+/* 各 contact 項目 */
 .contact-section {
   display: flex;
-  text-align: center;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;      /* 不同標題間距 */
   line-height: 1.8;
-  gap: 50px;
- 
+  width: 100%;
+  max-width: 600px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap : 20px;
+  gap: 20px;     /* icon 與文字間距 */
+  text-align: left;
+  width: 100%;
 }
 
 .contact-item img {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
 }
-
 
 .contact-item h1 {
   font-size: 22px;
   margin: 0;
-  color: #555;
+  color: #1b1b1b;
 }
 
 .contact-item p {
-  font-size: 20px;
+  font-size: 18px;
   margin: 2px 0 0;
-  color: #555;
+  color: #1b1b1b;
 }
-/* 手機優化 */
+
+/* contact響應 */
 @media (max-width: 768px) {
   .contact {
     background-size: auto 100%; /* 高度全滿，寬度自動縮放 */
-    padding: 10% 5%;            /* 調整內距 */
+    padding: 10% 5%;
+  }
+  .icon-title {
+    max-width: 250px;
+  }
+  .contact-item img {
+    width: 32px;
+    height: 32px;
   }
 }
+
 
 /* Footer */
 footer { 

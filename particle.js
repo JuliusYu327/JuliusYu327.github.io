@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
+    // 判斷螢幕寬度，如果小於768px，就不初始化粒子
+  if (window.innerWidth <= 768) {
+    canvas.style.display = 'none'; // 隱藏畫布
+    return;
+  }
   const ctx = canvas.getContext('2d');
   const dpr = window.devicePixelRatio || 1;
   let width = 0, height = 0;
