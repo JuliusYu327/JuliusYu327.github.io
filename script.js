@@ -17,6 +17,7 @@ const app = createApp({
       ],
       //--------hero--------//
       hero: {
+        bg: "background/earth.png",
         companyname: "KAIMAU INFORMATION CO.,LTD",
         title: "提供企業級 GPU 伺服器與 AI 運算平台",
         subtitle: '專注於 IT 整合服務與解決方案',
@@ -94,15 +95,26 @@ const app = createApp({
 
       //--------聯絡我們--------//
       contact: { 
-        title: "凱茂資訊股份有限公司", 
-        emailtitle: "Email",
+        titleSrc: "images/kmau-logo-color.png", titleAlt: "Contact Us", title: "聯絡我們",
+        background: "background/contact-bg.png", // 背景圖片路徑
+
+        mailSrc: "icon/mail.png", mailAlt: "Email Icon",
+        // emailtitle: "Email:",
         email: "service@kmau.com.tw", 
-        phonetitle: "Phone",
-        phone: "(04) 2375-8388" ,
-        addresstitle: "Address:", 
-        address: "台中市西區忠明南路270號10樓之4",
-        company:"",
+
+        telSrc: "icon/tel.png", telAlt: "Phone Icon",
+        // teltitle: "TEL:",
+        tel: "TEL:(04) 2375-8388",
+        fex: "FAX:(04) 2375-9399",
+
+        locationSrc: "icon/location.png", locationAlt: "Location Icon",
+        location: "台中市西區忠明南路270號10樓之4",
+        // locationtitle: "Location:",  
+
+        time: "營業時間週一至週五09:00 - 18:00(國定假日除外)"
       },
+
+
 
 
 
@@ -129,7 +141,6 @@ const app = createApp({
     });
   }
 });
-
 
 
 
