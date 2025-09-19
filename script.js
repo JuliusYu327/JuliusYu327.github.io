@@ -16,7 +16,7 @@ const app = createApp({
         logoScrolled: "images/kmau-logo-color.png" // 滑到 About 後要換的圖片
       
       },
-      isScrolled: false, // 用於追蹤是否已經滾動過 About 區塊
+      isScrolled: false, // 追蹤是否已經滾動過 About 區塊
 
       menuActive: false,
       menuItems: [
