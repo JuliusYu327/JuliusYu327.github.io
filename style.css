@@ -507,6 +507,10 @@ nav {
 .logo-marquee {
   overflow: hidden;
   width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
+  width: 100%;
+  background: transparent; /* 你可以換成透明或其他顏色 */
 }
 
 .logo-track {
@@ -514,9 +518,10 @@ nav {
   flex-wrap: nowrap;
   gap: 40px;
   width: max-content; /* 寬度自動擴展 */
-  animation: marquee 20s linear infinite; /* 可調整速度 */
+  animation: marquee 40s linear infinite; /* 可調整速度 */
   
 }
+
 .logo-marquee:hover .logo-track {
   animation-play-state: paused; /* 滑鼠停在區塊上暫停 */
 }
@@ -667,9 +672,11 @@ nav {
 footer { 
   position: relative;
   text-align:center; 
-  padding:1% 1%; 
-  background:#333333; 
-  color:#ffffff; 
+  padding:2% 2%; 
+  font-size: large;
+  font-weight: bold;
+  background:rgb(108, 193, 250); 
+  color:#353535; 
 }
 
 /* AOS 特效 */

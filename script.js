@@ -82,15 +82,16 @@ const app = createApp({
       //--------partners--------//
       logos: { title: "Partners" },
       partners: [
-      { src: "logos/asus.png", alt: "品牌1" },
-      { src: "logos/aruba.png", alt: "品牌2" },
-      { src: "logos/fortinet.png", alt: "品牌3" },
-      { src: "logos/lenovo.png", alt: "品牌4" },
-      { src: "logos/nvidia.png", alt: "品牌5" },
-      
-      { src: "logos/paloauto.png", alt: "品牌7" },
-      { src: "logos/hp.png", alt: "品牌8" },
-     
+      { src: "logos/asus.png", alt: "asus" },
+      { src: "logos/aruba.png", alt: "aruba" },
+      { src: "logos/fortinet.png", alt: "fortinet" },
+      { src: "logos/lenovo.png", alt: "lenovo" },
+      { src: "logos/nvidia.png", alt: "nvidia" },
+      { src: "logos/microsoft.png", alt: "minecrosoft" },
+      { src: "logos/paloauto.png", alt: "paloauto" },
+      { src: "logos/hp.png", alt: "hp" },
+      { src: "logos/hpe.png", alt: "hpe" },
+      { src: "logos/synology.png", alt: "synology" },
       ],
 
       //--------聯絡我們--------//
