@@ -658,8 +658,14 @@ nav {
     background-size: auto 100%; /* 高度全滿，寬度自動縮放 */
     padding: 10% 5%;
   }
+
   .icon-title {
-    max-width: 250px;
+    /*max-width: 250px;*/
+    width: 100%;       /* 滿寬 */
+    max-width: 80%;  /* 最大寬度，可調整 */
+    height: auto;
+    display: block;
+    margin-bottom:2%; /* 置中並加下方間距 */
   }
   .contact-item img {
     width: 32px;
