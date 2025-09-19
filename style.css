@@ -352,6 +352,7 @@ nav {
 .solutions {
     background:linear-gradient(to top, rgba(179, 205, 235, 0.95) 0%, rgba(117, 117, 117, 0) 70%);/* Solutions 區塊漸層 */
     padding: 5% 5%;
+    scroll-margin-top: 70px; /* header 高度 */
 }
 /* 九大服務標題文字 */
 .solutions h2 {
