@@ -41,15 +41,14 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  /* background:rgb(255, 255, 255) 70%; */
-  background: linear-gradient(to bottom, rgb(255, 255, 255) 90%, rgba(145, 145, 145, 0) 100%); 
+  background:transparent; /*透明*/
+  /* background: linear-gradient(to bottom, rgb(255, 255, 255) 90%, rgba(145, 145, 145, 0) 100%);  */
   z-index: 1000;
 }
 
 header img {
   height: 50px;
 }
-
 
 
 .hamburger {
@@ -88,11 +87,14 @@ nav {
 
 .nav-list a {
   font-size: 18px;
-  color: #333;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
-  
+}
+
+nav.scrolled .nav-list a {
+  color: #000000; /* 捲動後顏色 */
 }
 
 /* 響應 */
@@ -101,14 +103,17 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5% 3%;
+  padding: 2.5% 3% 2.5% 3%;
   position: fixed;
   width: 100%;
   
   z-index: 1000;
   background:linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(252, 252, 252, ) 100%);/* About 區塊漸層 */
   }
-  
+  header img {
+  height: auto;
+  width: 30%;
+  }
   .hamburger {
     display: flex;
   }
@@ -129,7 +134,7 @@ nav {
     right: -100%;
     width: 100vw;
     height: 100vh;
-    background: rgba(255,255,255,0.98);
+    background: rgba(63, 63, 63, 0.98);
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
@@ -287,7 +292,7 @@ nav {
 
 .about-section {
   display: grid;
-  padding: 10% 5% 5% 5%;
+  padding: 5% 5% 5% 5%;
   grid-template-columns: 50% 50%;
   gap: 5px;
   max-width: 80%;
@@ -666,6 +671,7 @@ nav {
     height: auto;
     display: block;
     margin-bottom:2%; /* 置中並加下方間距 */
+    padding-bottom: 12%;
   }
   .contact-item img {
     width: 32px;

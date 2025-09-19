@@ -47,19 +47,24 @@
 
             <!-- Hero -->
             <section class="hero" data-aos="fade-up" data-aos-delay="0">
-            <div class="hero-bg" :style="{ backgroundImage: 'url(' + hero.bg + ')' }"></div>
-            <div class="hero-content">
-                <div class="hero-text" data-aos="fade-up" data-aos-delay="200">
+  <!-- 背景圖 -->
+  <div class="hero-bg" :style="{ backgroundImage: 'url(' + hero.bg + ')' }"></div>
 
-                <h1>{{ hero.companyname }}</h1>
-                <h2>{{ hero.title }}</h2>
-                <div class="hero-subtitle">
-                    <hr class="line">
-                    <span>{{ hero.subtitle }}</span>
-                </div>
-                </div>
-            </div>
-            </section>
+  <!-- 粒子容器 -->
+  <div id="particles-js"></div>
+
+  <!-- Hero 文字 -->
+  <div class="hero-content">
+    <div class="hero-text" data-aos="fade-up" data-aos-delay="200">
+      <h1>{{ hero.companyname }}</h1>
+      <h2>{{ hero.title }}</h2>
+      <div class="hero-subtitle">
+        <hr class="line">
+        <span>{{ hero.subtitle }}</span>
+      </div>
+    </div>
+  </div>
+</section>
 
         
             <!-- about -->

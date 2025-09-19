@@ -9,7 +9,20 @@ const app = createApp({
       //--------menu--------//
       hover: null,
       menuActive: false,
-      header: { logoSrc: "images/kmau-logo-color.png", logoAlt: "Kmau" },
+      header: { 
+        logoSrc: "images/kmau-logo-white.png", 
+        logoAlt: "Kmau" ,
+        logoDefault: "images/kmau-logo-white.png",
+        logoScrolled: "images/kmau-logo-color.png" // 滑到 About 後要換的圖片
+      
+      },
+      isScrolled: false, // 用於追蹤是否已經滾動過 About 區塊
+
+      menuActive: false,
+      menuItems: [
+      { name: "About", link: "#about" },
+      { name: "Solutions", link: "#solutions" },
+      ],
       menuItems: [
         { name: "關於我們", link: "#about" },
         { name: "服務項目", link: "#solutions" },
@@ -124,14 +137,31 @@ const app = createApp({
     }
   },
   //漢堡選單模式
-  methods: {
-  toggleMenu() {
-    this.menuActive = !this.menuActive;
-  }
-  
-},
+ methods: {
+    toggleMenu() {
+      this.menuActive = !this.menuActive;
+    },
+
+    // 滑動更換 logo
+    handleScroll() {
+      const aboutSection = document.querySelector('#about');
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      if (aboutSection) {
+        const aboutTop = aboutSection.getBoundingClientRect().top + window.scrollY;
+
+        if (scrollY >= aboutTop - 70) { // 滾到 about
+          this.header.logoSrc = this.header.logoScrolled;
+          document.querySelector("nav").classList.add("scrolled"); // ✅ 文字顏色變
+        } else {
+          this.header.logoSrc = this.header.logoDefault;
+          document.querySelector("nav").classList.remove("scrolled"); // ✅ 還原
+        }
+      }
+    }
+  },
+
   mounted() {
-    // 等 Vue 完全渲染 v-for 元素後再初始化 AOS
     this.$nextTick(() => {
       AOS.init({
         duration: 800,
@@ -142,7 +172,11 @@ const app = createApp({
       AOS.refreshHard();
     });
 
-    
+    window.addEventListener("scroll", this.handleScroll, { passive: true });
+  },
+
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 });
 
