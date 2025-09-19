@@ -41,8 +41,8 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background:rgb(255, 255, 255) 70%;
-  /* background: linear-gradient(to bottom, rgb(255, 255, 255) 70%, rgba(145, 145, 145, 0) 100%); */
+  /* background:rgb(255, 255, 255) 70%; */
+  background: linear-gradient(to bottom, rgb(255, 255, 255) 90%, rgba(145, 145, 145, 0) 100%); 
   z-index: 1000;
 }
 
@@ -327,6 +327,9 @@ nav {
 
 /* RWD 小螢幕上下排列，標題貼近文字卡片 */
 @media screen and (max-width: 768px) {
+  .about {
+    padding: 10% 0%;
+  }
   .about-section {
     grid-template-columns: 1fr;
     justify-items: center;
