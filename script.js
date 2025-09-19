@@ -111,7 +111,7 @@ const app = createApp({
         location: "台中市西區忠明南路270號10樓之4",
         // locationtitle: "Location:",  
 
-        time: "營業時間週一至週五09:00 - 18:00(國定假日除外)"
+        time: "營業時間週一至週五09:00 - 18:00"
       },
 
 
@@ -127,6 +127,7 @@ const app = createApp({
   toggleMenu() {
     this.menuActive = !this.menuActive;
   }
+  
 },
   mounted() {
     // 等 Vue 完全渲染 v-for 元素後再初始化 AOS

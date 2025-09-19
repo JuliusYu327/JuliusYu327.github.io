@@ -18,7 +18,7 @@ body {
   padding:0; 
   line-height:1.6; 
   color:#ffffff;
-  font-family: 'Times New Roman', Times, serif; /*全域字體樣式*/
+  font-family: Arial, Helvetica, sans-serif; /*全域字體樣式*/
 }
 html { scroll-behavior: smooth; }
 
@@ -392,8 +392,8 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center ;
-  padding: 32px 30px 28px 28px;
+  justify-content: center;
+  padding: 32px 30px 10px 28px;
   position: relative;
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -415,7 +415,7 @@ nav {
   padding: 2%;
   position: relative;
   z-index: 2;
-  
+  ;
   color: #222;
   text-align: left;
   width: 100%;
@@ -543,7 +543,7 @@ nav {
 /* 無縫滑動動畫 */
 @keyframes marquee {
   0% {
-    transform: translateX(0);
+    transform: translateX(0); 
   }
   100% {
     transform: translateX(-50%); /* 移動整列一半，正好接上重複列 */
@@ -558,7 +558,7 @@ nav {
   }
   .logo-track {
     gap: 20px;
-    animation-duration: 10s; /* 手機可稍快 */
+    animation-duration: 20s; /* 手機可稍快 */
   }
 }
 
@@ -600,7 +600,7 @@ nav {
   max-width: 20%;  /* 最大寬度，可調整 */
   height: auto;
   display: block;
-  margin-bottom:100px; /* 置中並加下方間距 */
+  margin-bottom:2%; /* 置中並加下方間距 */
 }
 
 /* Contact 標題 */
@@ -616,7 +616,7 @@ nav {
   flex-direction: column;
   align-items: flex-start;
   gap: 50px;      /* 不同標題間距 */
-  line-height: 1.8;
+  line-height: 1.8; /*行高*/
   width: 100%;
   max-width: 600px;
 }
