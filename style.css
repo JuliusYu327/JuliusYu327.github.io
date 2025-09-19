@@ -104,8 +104,9 @@ nav {
   padding: 2.5% 3%;
   position: fixed;
   width: 100%;
-  background: rgba(255, 255, 255, 0);
+  
   z-index: 1000;
+  background:linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(252, 252, 252, ) 100%);/* About 區塊漸層 */
   }
   
   .hamburger {
@@ -279,6 +280,11 @@ nav {
 }
 
 /* ----------About---------- */
+.about {
+    padding: 5% 5%;
+    
+}
+
 .about-section {
   display: grid;
   padding: 10% 5% 5% 5%;
@@ -288,6 +294,7 @@ nav {
   justify-content: center;
   margin: 0 auto;
   background-color: transparent;
+  
 }
 
 .about-card {
@@ -319,22 +326,20 @@ nav {
 }
 
 /* RWD 小螢幕上下排列，標題貼近文字卡片 */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .about-section {
     grid-template-columns: 1fr;
-    gap: 0;               /* 標題與文字卡片靠近 */
     justify-items: center;
+    
   }
 
   .about-card {
     width: 100%;
-    max-width: 600px;
-    padding: 15px;
+    max-width: 800px;
   }
 
   .about-left h2 {
     margin: 0;
-    
     font-size: clamp(22px, 5vw, 28px); 
     text-align: left;
   }
@@ -342,7 +347,7 @@ nav {
   .about-right p {
     font-size: clamp(16px, 4vw, 20px);
     text-align: left;
-    margin-top: 10px; /* 與標題保持距離 */
+    margin-top: 5%; /* 與標題保持距離 */
   }
 }
 
