@@ -53,39 +53,53 @@ const app = createApp({
           chinesetext: `
           企業級 GPU 伺服器，採用 NVIDIA H100/H200、L40S 與 RTX 6000 Ada，
           支援 AI 訓練、推理與高效視覺化。
-          ` },
-        { title: "企業網路與高可用架構", 
-          chinesetext: `
-          設計雙核心、負載平衡、BGP/OSPF 與 QoS 的企業網路，確保穩定與不中斷營運。
-          ` },
-        { title: "零信任資安與防護", 
-          chinesetext: `
-          導入 MFA、ZTNA/SASE、EDR/XDR 與 DLP，打造零信任資安架構，確保 IT 環境安全。
-          ` },
-        { title: "全快閃儲存與資料管理", 
-          chinesetext: `
-          部署 NVMe All-Flash 儲存，搭配去重、壓縮、快照與異地備援，兼顧效能與安全。
-          ` },
-        { title: "雲端整合與混合雲架構", 
-          chinesetext: `
-          整合 Azure、AWS、GCP 與私有雲，打造彈性可擴充的混合雲環境。
-          ` },
-        { title: "IT 維運與委外服務", 
-          chinesetext: `
-          年度 / 季度巡檢、主動監控與委外維運，確保 IT 系統持續營運。
-          ` },
-        { title: "災難復原與營運持續性", 
-          chinesetext: `
-          規劃 RTO/RPO、備份與演練，確保意外事件發生時企業仍能持續營運。
-          `},
-        { title: "顧問、教育訓練與法規遵循", 
-          chinesetext: `
-          協助導入 ISO 27001/42001 與內部教育訓練，符合國際標準與法規要求。
-          `},
-        { title: "AI SaaS 平台服務", 
-          chinesetext: `
-          打造專屬 AI SaaS 平台，包括視覺檢測、資安監控與 GPU 雲服務，協助企業建立訂閱制商業模式。
-          `},
+          ` ,
+          img: "solutions-image/A21.jpg"
+        },
+
+        { 
+          title: "企業網路與高可用架構", 
+          chinesetext: `設計雙核心、負載平衡、BGP/OSPF 與 QoS 的企業網路，確保穩定與不中斷營運。` ,
+          img: "solutions-image/A17.jpg"
+        },
+
+        { 
+          title: "零信任資安與防護", 
+          chinesetext: `導入 MFA、ZTNA/SASE、EDR/XDR 與 DLP，打造零信任資安架構，確保 IT 環境安全。` ,
+          img: "solutions-image/A16.jpg",
+        },
+
+        { 
+          title: "全快閃儲存與資料管理", 
+          chinesetext: `部署 NVMe All-Flash 儲存，搭配去重、壓縮、快照與異地備援，兼顧效能與安全。` ,
+          img: "solutions-image/A09.jpg",
+        },
+
+        { 
+          title: "雲端整合與混合雲架構", 
+          chinesetext: `整合 Azure、AWS、GCP 與私有雲，打造彈性可擴充的混合雲環境。` ,
+          img: "solutions-image/A14.jpg",
+        },
+        { 
+          title: "IT 維運與委外服務", 
+          chinesetext: `年度 / 季度巡檢、主動監控與委外維運，確保 IT 系統持續營運。` ,
+          img: "solutions-image/A03.jpg",
+        },
+        { 
+          title: "災難復原與營運持續性", 
+          chinesetext: `規劃 RTO/RPO、備份與演練，確保意外事件發生時企業仍能持續營運。`,
+          img: "solutions-image/A11.jpg",
+        },
+        { 
+          title: "顧問、教育訓練與法規遵循", 
+          chinesetext: `協助導入 ISO 27001/42001 與內部教育訓練，符合國際標準與法規要求。`,
+          img: "solutions-image/A25.jpg",
+        },
+        { 
+          title: "AI SaaS 平台服務", 
+          chinesetext: `打造專屬 AI SaaS 平台，包括視覺檢測、資安監控與 GPU 雲服務，協助企業建立訂閱制商業模式。`,
+          img: "solutions-image/A01.jpg",
+        },
           
         
       ],

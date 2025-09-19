@@ -101,6 +101,12 @@
                 data-aos="fade-up"
                 data-aos-delay="100"
                 >
+                <!-- 圖片區 -->
+                <div class="solutions-img">
+                    <img :src="solution.img" :alt="solution.title" />
+                </div>
+
+                <!-- 文字區 -->
                 <div class="solutions-content">
                     <div class="solutions-number">{{ (index + 1).toString().padStart(2, '0') }}</div>
                     <div class="solutions-title">{{ solution.title }}</div>
