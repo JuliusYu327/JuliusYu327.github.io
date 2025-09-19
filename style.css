@@ -610,7 +610,7 @@ nav.scrolled .nav-list a {
   max-width: 20%;  /* 最大寬度，可調整 */
   height: auto;
   display: block;
-  margin-bottom:2%; /* 置中並加下方間距 */
+  margin-bottom:3%; /* 置中並加下方間距 */
 }
 
 /* Contact 標題 */
