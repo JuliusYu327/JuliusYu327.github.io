@@ -30,7 +30,7 @@ const app = createApp({
       ],
       //--------hero--------//
       hero: {
-        bg: "background/city.jpg",
+        bg: "hero-image/hero03.png", // 背景圖片路徑
         companyname: "KAIMAU INFORMATION CO.,LTD",
         title: "提供企業級 GPU 伺服器與 AI 運算平台",
         subtitle: '專注於 IT 整合服務與解決方案',
