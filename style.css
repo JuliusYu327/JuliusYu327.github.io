@@ -18,7 +18,7 @@ body {
   padding:0; 
   line-height:1.6; 
   color:#ffffff;
-  font-family: Georgia, 'Times New Roman', Times, serif; /*字體樣式*/
+  font-family: 'Times New Roman', Times, serif; /*全域字體樣式*/
 }
 html { scroll-behavior: smooth; }
 
@@ -49,6 +49,8 @@ header {
 header img {
   height: 50px;
 }
+
+
 
 .hamburger {
   display: none;
@@ -89,6 +91,8 @@ nav {
   color: #333;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s;
+  
 }
 
 /* 響應 */
@@ -164,6 +168,7 @@ nav {
     background:transparent;
     padding: 0 5%;        /* 小螢幕留一些內距 */
     box-sizing: border-box;
+    
 } 
 .hero-bg {
   position: absolute;
@@ -171,6 +176,7 @@ nav {
   height: 100%;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   z-index: -1; /* 在文字後面 */
   opacity: 1;           /* 可調整透明度 */
   pointer-events: none; /* 不影響點擊 */
@@ -551,7 +557,8 @@ nav {
 
 
 
-/* ----------Contact----------- */
+/* --------------------Contact--------------------- */
+
 .contact {
   display: flex;
   flex-direction: column;
