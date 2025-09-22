@@ -10,10 +10,10 @@ const app = createApp({
       hover: null,
       menuActive: false,
       header: { 
-        logoSrc: "images/kmau-logo-white.png", 
+        logoSrc: "images/kmau-logo-white.png", // 初始圖片
         logoAlt: "Kmau" ,
-        logoDefault: "images/kmau-logo-white.png",
-        logoScrolled: "images/kmau-logo-color.png" // 滑到 About 後要換的圖片
+        logoDefault: "images/kmau-logo-white.png",// 預設圖片
+        logoScrolled: "images/kmau-logo-color.png", // 滑到 About 後要換的圖片
       
       },
       isScrolled: false, // 追蹤是否已經滾動過 About 區塊
@@ -119,7 +119,7 @@ const app = createApp({
       { src: "logos/hp.png", alt: "hp" },
       { src: "logos/hpe.png", alt: "hpe" },
       { src: "logos/synology.png", alt: "synology" },
-
+      //跟上面一樣//
       { src: "logos/asus.png", alt: "asus" },
       { src: "logos/aruba.png", alt: "aruba" },
       { src: "logos/fortinet.png", alt: "fortinet" },
@@ -131,6 +131,7 @@ const app = createApp({
       { src: "logos/hpe.png", alt: "hpe" },
       { src: "logos/synology.png", alt: "synology" },
       ],
+
 
       //--------聯絡我們--------//
       contact: { 

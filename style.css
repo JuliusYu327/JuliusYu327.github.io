@@ -243,7 +243,7 @@ nav.scrolled .nav-list a {
 /* ----- hero響應式 ----- */
 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .hero-text h1 {
     font-size: 24px;
   }
@@ -256,9 +256,9 @@ nav.scrolled .nav-list a {
   .hero-subtitle .line {
     width: 32px;
   }
-}
+} */
 
-/* @media (max-width: 480px) {
+@media (max-width: 480px) {
   .hero-text h1 {
     font-size: 20px;
   }
@@ -274,7 +274,7 @@ nav.scrolled .nav-list a {
   .hero {
     padding: 0 3%;
   }
-} */
+}
 
 /* ----------About---------- */
 .about {
