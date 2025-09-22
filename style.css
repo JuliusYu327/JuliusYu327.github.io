@@ -230,7 +230,7 @@ nav.scrolled .nav-list a {
 .hero-subtitle .line {
   width: 80px;             /* 線長度 */
   height: 2px;             /* 線粗細 */
-  background-color: #535353;  /* 線顏色 */
+  background-color: #ffffff;  /* 線顏色 */
   border: none;            /* 去掉預設邊框 */
 }
 /* Hero文字區塊第三行的小標題文字 */
@@ -241,18 +241,7 @@ nav.scrolled .nav-list a {
   font-size: 32px;         /* 字體大小 */
 }
 /* ----- hero響應式 ----- */
-@media (max-width: 1200px) {
-  .hero-text h1,
-  .hero-text h2 {
-    font-size: 36px;
-  }
-  .hero-subtitle span {
-    font-size: 26px;
-  }
-  .hero-subtitle .line {
-    width: 60px;
-  }
-}
+
 
 @media (max-width: 768px) {
   .hero-text h1 {

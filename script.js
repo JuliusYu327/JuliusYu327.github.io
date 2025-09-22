@@ -119,6 +119,17 @@ const app = createApp({
       { src: "logos/hp.png", alt: "hp" },
       { src: "logos/hpe.png", alt: "hpe" },
       { src: "logos/synology.png", alt: "synology" },
+
+      { src: "logos/asus.png", alt: "asus" },
+      { src: "logos/aruba.png", alt: "aruba" },
+      { src: "logos/fortinet.png", alt: "fortinet" },
+      { src: "logos/lenovo.png", alt: "lenovo" },
+      { src: "logos/nvidia.png", alt: "nvidia" },
+      { src: "logos/microsoft.png", alt: "minecrosoft" },
+      { src: "logos/paloauto.png", alt: "paloauto" },
+      { src: "logos/hp.png", alt: "hp" },
+      { src: "logos/hpe.png", alt: "hpe" },
+      { src: "logos/synology.png", alt: "synology" },
       ],
 
       //--------聯絡我們--------//
