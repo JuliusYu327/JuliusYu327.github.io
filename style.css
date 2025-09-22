@@ -245,13 +245,13 @@ nav.scrolled .nav-list a {
 
 @media (max-width: 768px) {
   .hero-text h1 {
-    font-size: 22px;
+    font-size: 24px;
   }
   .hero-text h2 {
-    font-size: 22px;
+    font-size: 24px;
   }
   .hero-subtitle span {
-    font-size: 14px;
+    font-size: 18px;
   }
   .hero-subtitle .line {
     width: 32px;
