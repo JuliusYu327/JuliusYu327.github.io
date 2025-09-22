@@ -258,23 +258,23 @@ nav.scrolled .nav-list a {
   }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .hero-text h1 {
-    font-size: 22px;
+    font-size: 20px;
   }
   .hero-text h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
   .hero-subtitle span {
-    font-size: 16px;
+    font-size: 14px;
   }
   .hero-subtitle .line {
-    width: 30px;
+    width: 28px;
   }
   .hero {
     padding: 0 3%;
   }
-}
+} */
 
 /* ----------About---------- */
 .about {
