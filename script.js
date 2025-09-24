@@ -30,7 +30,7 @@ const app = createApp({
       ],
       //--------hero--------//
       hero: {
-        bg: "hero-image/hero03.png", // 背景圖片路徑
+        bg: "hero-image/hero09.png", // 背景圖片路徑
         companyname: "KAIMAU INFORMATION CO.,LTD",
         title: "提供企業級 GPU 伺服器與 AI 運算平台",
         subtitle: '專注於 IT 整合服務與解決方案',
@@ -152,6 +152,9 @@ const app = createApp({
         // locationtitle: "Location:",  
 
         time: "營業時間週一至週五09:00 - 18:00"
+
+
+
       },
 
 
@@ -162,8 +165,9 @@ const app = createApp({
       footer: { text: "© 2025 Kmau. All rights reserved." }
     }
   },
-  //漢堡選單模式
+  
  methods: {
+    //漢堡選單模式
     toggleMenu() {
       this.menuActive = !this.menuActive;
     },
@@ -178,15 +182,22 @@ const app = createApp({
 
         if (scrollY >= aboutTop - 70) { // 滾到 about
           this.header.logoSrc = this.header.logoScrolled;
-          document.querySelector("nav").classList.add("scrolled"); // ✅ 文字顏色變
+          document.querySelector("nav").classList.add("scrolled"); // 文字顏色變
         } else {
           this.header.logoSrc = this.header.logoDefault;
-          document.querySelector("nav").classList.remove("scrolled"); // ✅ 還原
+          document.querySelector("nav").classList.remove("scrolled"); // 還原
         }
       }
-    }
+    },
+    //回到頂部
+    scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // 平滑滾動
+    });
+  }
+    
   },
-
   mounted() {
     this.$nextTick(() => {
       AOS.init({

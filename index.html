@@ -157,49 +157,49 @@
  
     
             <!-- Contact -->
-            <section id="contact" class="contact" data-aos="fade-right" :style="{ backgroundImage: 'url(' + contact.background + ')' }">
+            <section id="contact" class="contact" :style="{ backgroundImage: 'url(' + contact.background + ')' }">
             <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title"/>
-            
-            <div class="contact-section">
 
-                <!-- Email -->
+            <div class="contact-wrapper">
+                
+                <!-- 左邊：聯絡資訊 -->
+                <div class="contact-left">
                 <div class="contact-item">
-                <img :src="contact.mailSrc" :alt="contact.mailAlt" class="icon-mail"/>
-                <div>
+                    <img :src="contact.mailSrc" :alt="contact.mailAlt" class="icon-mail"/>
+                    <div>
                     <h1>{{ contact.emailtitle }}</h1>
                     <p style="color:rgb(121, 157, 255);">{{ contact.email }}</p>
-                </div>
+                    </div>
                 </div>
 
-                <!-- TEL -->
                 <div class="contact-item">
-                <img :src="contact.telSrc" :alt="contact.telAlt" class="icon-tel"/>
-                <div >
+                    <img :src="contact.telSrc" :alt="contact.telAlt" class="icon-tel"/>
+                    <div>
                     <h1>{{ contact.teltitle }}</h1>
                     <p style="color:rgb(230, 121, 211);">{{ contact.tel }}</p>
                     <p style="color:rgb(230, 121, 211);">{{ contact.fex }}</p>
-                </div>
+                    </div>
                 </div>
 
-                <!-- Location -->
                 <div class="contact-item">
-                <img :src="contact.locationSrc" :alt="contact.locationAlt" class="icon-location"/>
-                <div>
+                    <img :src="contact.locationSrc" :alt="contact.locationAlt" class="icon-location"/>
+                    <div>
                     <h1>{{ contact.locationtitle }}</h1>
                     <p style="color:rgb(236, 142, 0)">{{ contact.location }}</p>
-                </div>
-                </div>
-
-
-                <!-- Time -->
-                <div class="contact-item">
-                    <div>
-                        <p>{{ contact.time }}</p>
                     </div>
-                    
+                </div>
                 </div>
 
-            
+                <!-- 右邊：說明文字 -->
+                <div class="contact-right">
+                
+
+
+                <!-- 回到頂端按鈕 -->
+                <button class="scroll-top-btn" @click="scrollToTop">回到頂端 ↑</button>
+                </div>
+
+            </div>
             </section>
 
 

@@ -36,13 +36,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5% 3%;
+  padding: 2.5% 5%  2.5% 5%;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background:transparent; /*透明*/
-  /* background: linear-gradient(to bottom, rgb(255, 255, 255) 90%, rgba(145, 145, 145, 0) 100%);  */
   z-index: 1000;
 }
 
@@ -79,6 +78,7 @@ nav {
   list-style: none  ;
   margin: 0;
   padding: 0;
+
 }
 
 .nav-list li {
@@ -91,10 +91,17 @@ nav {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
+  padding: 6px 12px; /* 給點空間讓底色看起來舒適 */
+  border-radius: 6px; /* 可選，讓底色圓角 */
+}
+
+.nav-list a:hover {
+  background-color: rgba(100, 100, 100, 0.5); ; /* 半透明白色底 */
+  color: #ffffff; /* 可保留文字白色 */
 }
 
 nav.scrolled .nav-list a {
-  color: #000000; /* 捲動後顏色 */
+  color: #535353; /* 捲動後顏色 */
 }
 
 /* 響應 */
@@ -108,7 +115,7 @@ nav.scrolled .nav-list a {
   width: 100%;
   height: 100px;   /* 可以設一個最小高度 */
   z-index: 1000;
-  background:linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(252, 252, 252, ) 100%);/* About 區塊漸層 */
+  background:linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(252, 252, 252, ) 100%);/* About 區塊漸層 */
   }
   header img {
   height: auto;
@@ -177,6 +184,7 @@ nav.scrolled .nav-list a {
     background:transparent;
     padding: 0 5%;        /* 小螢幕留一些內距 */
     box-sizing: border-box;
+
     
 } 
 .hero-bg {
@@ -189,12 +197,13 @@ nav.scrolled .nav-list a {
   z-index: -1; /* 在文字後面 */
   opacity: 1;           /* 可調整透明度 */
   pointer-events: none; /* 不影響點擊 */
+  border-radius: 0 0 100px 100px; /* 左上與右上圓角 */
 }
 .hero-bg::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to top, rgba(8, 8, 8, 0.466) 60%, rgba(10, 10, 10, 0) 100%); /* 遮罩顏色可調整 */
+  background: linear-gradient(to bottom, rgba(8, 8, 8, 0.466) 40%, rgba(10, 10, 10, 0) 100%); /* 遮罩顏色可調整 */
   z-index: 0;
 }
 /* Hero文字區塊 */
@@ -243,7 +252,7 @@ nav.scrolled .nav-list a {
 /* ----- hero響應式 ----- */
 
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .hero-text h1 {
     font-size: 24px;
   }
@@ -256,7 +265,7 @@ nav.scrolled .nav-list a {
   .hero-subtitle .line {
     width: 32px;
   }
-} */
+}
 
 @media (max-width: 480px) {
   .hero-text h1 {
@@ -275,13 +284,17 @@ nav.scrolled .nav-list a {
 
 /* ----------About---------- */
 .about {
-    padding: 5% 5%;
+    
+    position: relative;
+    background:transparent;         /* 區塊底色 */
+
+    z-index: 2;               /* 確保蓋在上一個區塊上 */
     
 }
 
 .about-section {
   display: grid;
-  padding: 5% 5% 5% 5%;
+  padding: 5% 0% 5% 0%;
   grid-template-columns: 50% 50%;
   gap: 5px;
   max-width: 80%;
@@ -322,7 +335,7 @@ nav.scrolled .nav-list a {
 /* RWD 小螢幕上下排列，標題貼近文字卡片 */
 @media screen and (max-width: 768px) {
   .about {
-    padding: 10% 0%;
+    padding: 20% 0% 10% 0%;
   }
   .about-section {
     grid-template-columns: 1fr;
@@ -355,11 +368,12 @@ nav.scrolled .nav-list a {
     background:linear-gradient(to top, rgba(179, 205, 235, 0.95) 0%, rgba(117, 117, 117, 0) 70%);/* Solutions 區塊漸層 */
     padding: 5% 5%;
     scroll-margin-top: 70px; /* header 高度 */
+    border-radius: 0 0 200px 200px; /* 左下與右下圓角 */
 }
 /* 九大服務標題文字 */
 .solutions h2 {
   text-align: center;
-  font-size: 48px;
+  font-size: 34px;
   color: #222;
   margin-bottom: 32px;
   font-weight: bold;
@@ -379,7 +393,7 @@ nav.scrolled .nav-list a {
 
 .solutions-img {
   width: 100%;
-  height: 150px; /* 可調整 */
+  height: 200px; /* 可調整 */
   overflow: hidden;
   border-radius: 12px 12px 0 0;
   margin-bottom: 16px;
@@ -393,21 +407,14 @@ nav.scrolled .nav-list a {
 }
 
 .solutions-card {
-  width: 380px;
-  height: 400px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(66, 148, 255, 0.10), 0 1.5px 4px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 32px 30px 10px 28px;
-  position: relative;
+   width: 100%;
+  max-width: 350px;         /* 最大寬度 */
+  min-height: 450px;       /* 最小高度 */
+  background-color: #ffffff; /* 深色背景 */
+  border-radius: 30px;      /* 圓角 */
   overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
-  border: none;
-  will-change: transform, opacity;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 陰影 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 滑鼠 hover 動畫 */
 }
 
 .solutions-card:hover {
@@ -421,17 +428,17 @@ nav.scrolled .nav-list a {
 
 /* 九大服務卡的卡片規格 */
 .solutions-content {
-  padding: 2%;
+  padding: 2%   10% 5% 10%;
   position: relative;
   z-index: 2;
-  ;
+
   color: #222;
   text-align: left;
   width: 100%;
 }
 /* 九大服務卡的編號 */
 .solutions-number {
-  font-size: 48px;
+  font-size: 42px;
   font-weight: bold;
   color: #555555;
   margin-bottom: 16px;
@@ -459,6 +466,23 @@ nav.scrolled .nav-list a {
   line-height: 1.7;
   margin-bottom: 0;
   color: #333;
+  padding: 0% 5% 0% 5%;
+}
+@media screen and (max-width: 768px){
+  .solutions {
+    padding: 20% 5% 10% 5%;
+    border-radius: 0 0 100px 100px; /* 左下與右下圓角 */
+  }
+  .solutions h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 32px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding-bottom: 5%;
+
+}
 }
 
 
@@ -503,8 +527,9 @@ nav.scrolled .nav-list a {
 /* ----------Partners ---------- */
 .logos {
   padding: 5% 0 5% 0;
-  background: rgba(110, 110, 110, 0.1);
+  background: transparent;
   text-align: center;
+  
 }
 
 .logos h2 {
@@ -527,7 +552,7 @@ nav.scrolled .nav-list a {
   flex-wrap: nowrap;
   gap: 40px;
   width: max-content; /* 寬度自動擴展 */
-  animation: marquee 40s linear infinite; /* 可調整速度 */
+  animation: marquee 60s linear infinite; /* 可調整速度 */
   
 }
 
@@ -585,22 +610,20 @@ nav.scrolled .nav-list a {
 .contact {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 5% 5%;
-  background-size: cover;       /* 背景圖覆蓋整個區塊 */
-  background-position: center;  /* 背景圖置中 */
-  background-repeat: no-repeat; /* 不重複 */
+  padding: 5% 7% 5% 7%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #fff;
-  position: relative;           /* 遮罩需要 */
+  position: relative;
 }
 
-/* 遮罩 */
 .contact::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(207, 207, 207, 0.4); /* 遮罩透明黑色，可調整 */
-  z-index: 0;
+  background: rgba(207, 207, 207, 0.4);
+  z-index: -1;
 }
 
 .contact > * {
@@ -608,37 +631,51 @@ nav.scrolled .nav-list a {
   z-index: 1;
 }
 
-/* Contact 上方圖片 */
 .icon-title {
-  width: 100%;       /* 滿寬 */
-  max-width: 20%;  /* 最大寬度，可調整 */
+  width: 100%;
+  max-width: 300px;
+  align-self: flex-start;
   height: auto;
   display: block;
-  margin-bottom:3%; /* 置中並加下方間距 */
+  margin-bottom:3%;
 }
 
-/* Contact 標題 */
-.contact h2 {
-  font-size: 36px;
-  margin-bottom: 30px;
-  color: #fff;
+.contact-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+}
+
+/* 左右各自撐滿空間 */
+.contact-left,
+.contact-right {
+  flex: 1;
+}
+
+/* 左邊聯絡資訊 */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  line-height: 1.8;
+}
+
+/* 右邊文字 */
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  color: #444444;
+  position: relative; /* 讓裡面的絕對定位參考這個容器 */
 }
 
 /* 各 contact 項目 */
-.contact-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 50px;      /* 不同標題間距 */
-  line-height: 1.8; /*行高*/
-  width: 100%;
-  max-width: 600px;
-}
-
 .contact-item {
   display: flex;
-  align-items: center;
-  gap: 20px;     /* icon 與文字間距 */
+  align-items: flex-start;
+  gap: 20px;
   text-align: left;
   width: 100%;
 }
@@ -661,34 +698,51 @@ nav.scrolled .nav-list a {
   color: #1b1b1b;
 }
 
-/* contact響應 */
+.scroll-top-btn {
+  
+position: absolute; 
+  right: 0;    /* 靠右 */
+  bottom: -10px; /* 距離 p 底部一點 */
+  padding: 6px 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 12px;
+ 
+  color: #808080;
+  cursor: pointer;
+ 
+}
+
+.scroll-top-btn:hover {
+  background-color: #ffffff;
+}
+
+/* 響應式 */
 @media (max-width: 768px) {
-  .contact {
-    background-size: auto 100%; /* 高度全滿，寬度自動縮放 */
-    padding: 10% 5%;
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 30px;
   }
 
-  .icon-title {
-    /*max-width: 250px;*/
-    width: 100%;       /* 滿寬 */
-    max-width: 80%;  /* 最大寬度，可調整 */
-    height: auto;
-    display: block;
-    margin-bottom:2%; /* 置中並加下方間距 */
-    padding-bottom: 12%;
-  }
   .contact-item img {
     width: 32px;
     height: 32px;
   }
+  
+  .icon-title {
+    max-width: 80%;
+    margin-bottom: 2%;
+    padding-bottom: 12%;
+  }
 }
+
 
 
 /* Footer */
 footer { 
   position: relative;
   text-align:center; 
-  padding:2% 2%; 
+  padding:1.5% 1.5%; 
   font-size: large;
   
   background:rgb(108, 193, 250); 
