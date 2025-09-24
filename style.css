@@ -471,7 +471,7 @@ nav.scrolled .nav-list a {
 @media screen and (max-width: 768px){
   .solutions {
     padding: 20% 5% 10% 5%;
-    border-radius: 0 0 50px 50px; /* 左下與右下圓角 */
+    border-radius: 0 0 20px 20px; /* 左下與右下圓角 */
   }
   .solutions h2 {
   text-align: center;
