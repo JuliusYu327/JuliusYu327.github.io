@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>凱茂資訊股份有限公司</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Vuetify & Vue -->
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@3.6.0/dist/vuetify.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@3.6.0/dist/vuetify.min.js"></script>
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <canvas id="bg-canvas"></canvas>
+      <v-main>
+        
+            <!-- Header -->
+            <header class="header">
+            <img :src="header.logoSrc" :alt="header.logoAlt" />
+            
+            <!-- solutions01內容 -->
+                
+
+            
+            <!-- Google 地圖區塊 -->
+            <section id="map" class="map-section">
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2164.9239223532513!2d120.65680582842539!3d24.138270008070506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9f70c4f7c7%3A0x92f03742845b2fda!2z5Yex6IyC6LOH6KiK6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1757924210475!5m2!1szh-TW!2stw" 
+                            width="600" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        
+                    </div>
+            </section>
+ 
+    
+            <!-- Contact -->
+            <section id="contact" class="contact" :style="{ backgroundImage: 'url(' + contact.background + ')' }">
+            <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title"/>
+            <!-- 回到頂端按鈕 -->
+            <button class="scroll-top-btn" @click="scrollToTop">回到頂端 ↑</button>
+            <div class="contact-wrapper">
+                
+                <!-- 左邊：聯絡資訊 -->
+                <div class="contact-left">
+                <div class="contact-item">
+                    <img :src="contact.mailSrc" :alt="contact.mailAlt" class="icon-mail"/>
+                    <div>
+                    <h1>{{ contact.emailtitle }}</h1>
+                    <p style="color:rgb(121, 157, 255);">{{ contact.email }}</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <img :src="contact.telSrc" :alt="contact.telAlt" class="icon-tel"/>
+                    <div>
+                    <h1>{{ contact.teltitle }}</h1>
+                    <p style="color:rgb(230, 121, 211);">{{ contact.tel }}</p>
+                    <p style="color:rgb(230, 121, 211);">{{ contact.fex }}</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <img :src="contact.locationSrc" :alt="contact.locationAlt" class="icon-location"/>
+                    <div>
+                    <h1>{{ contact.locationtitle }}</h1>
+                    <p style="color:rgb(236, 142, 0)">{{ contact.location }}</p>
+                    </div>
+                </div>
+                </div>
+
+                <!-- 右邊：說明文字 -->
+                <div class="contact-right">
+                
+
+
+                
+                </div>
+
+            </div>
+            </section>
+
+
+
+            <!-- Footer -->
+            <footer>
+                <p>{{ footer.text }}</p>
+            </footer>
+
+      </v-main>
+    </v-app>
+  </div>
+
+  <!-- Vue App -->
+  <script src="script.js"></script>
+  <!-- particle -->
+  <script src="particle.js"></script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ 
+      duration: 80, 
+      once: false,easing: 
+      'ease-in-out-back',
+      offset: window.innerHeight / 8 }
+    );
+  </script>
+</body>
+</html>
