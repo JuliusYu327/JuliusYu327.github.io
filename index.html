@@ -159,7 +159,8 @@
             <!-- Contact -->
             <section id="contact" class="contact" :style="{ backgroundImage: 'url(' + contact.background + ')' }">
             <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title"/>
-
+            <!-- 回到頂端按鈕 -->
+            <button class="scroll-top-btn" @click="scrollToTop">回到頂端 ↑</button>
             <div class="contact-wrapper">
                 
                 <!-- 左邊：聯絡資訊 -->
@@ -195,8 +196,7 @@
                 
 
 
-                <!-- 回到頂端按鈕 -->
-                <button class="scroll-top-btn" @click="scrollToTop">回到頂端 ↑</button>
+                
                 </div>
 
             </div>

@@ -471,7 +471,7 @@ nav.scrolled .nav-list a {
 @media screen and (max-width: 768px){
   .solutions {
     padding: 20% 5% 10% 5%;
-    border-radius: 0 0 100px 100px; /* 左下與右下圓角 */
+    border-radius: 0 0 50px 50px; /* 左下與右下圓角 */
   }
   .solutions h2 {
   text-align: center;
@@ -674,7 +674,7 @@ nav.scrolled .nav-list a {
 /* 各 contact 項目 */
 .contact-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
   text-align: left;
   width: 100%;
@@ -700,16 +700,17 @@ nav.scrolled .nav-list a {
 
 .scroll-top-btn {
   
-position: absolute; 
-  right: 0;    /* 靠右 */
-  bottom: -10px; /* 距離 p 底部一點 */
-  padding: 6px 10px;
+position: absolute;   /* 相對於 .contact */
+  right: 0px;          /* 離右邊 20px */
+  bottom: 0px;         /* 離底部 20px */
+  padding: 0 0;
   font-size: 12px;
   border: none;
   border-radius: 12px;
- 
+  background: #fff;
   color: #808080;
   cursor: pointer;
+
  
 }
 
