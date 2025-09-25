@@ -139,26 +139,20 @@ const app = createApp({
         background: "../background/contact-bg.png", // 背景圖片路徑
 
         mailSrc: "../icon/mail.png", mailAlt: "Email Icon",
-        // emailtitle: "Email:",
+
         email: "service@kmau.com.tw", 
 
         telSrc: "../icon/tel.png", telAlt: "Phone Icon",
-        // teltitle: "TEL:",
+
         tel: "TEL:(04) 2375-8388",
         fex: "FAX:(04) 2375-9399",
 
         locationSrc: "../icon/location.png", locationAlt: "Location Icon",
-        location: "台中市西區忠明南路270號10樓之4",
-        // locationtitle: "Location:",  
+        location: "台中市西區忠明南路270號10樓之4",  
 
         time: "營業時間週一至週五09:00 - 18:00"
 
-
-
       },
-
-
-
 
 
       //--------footer--------//

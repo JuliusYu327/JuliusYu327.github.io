@@ -6,7 +6,7 @@
   <title>凱茂資訊股份有限公司</title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../02.CSS/solutions01.css">
 
   <!-- Vuetify & Vue -->
   <link href="https://cdn.jsdelivr.net/npm/vuetify@3.6.0/dist/vuetify.min.css" rel="stylesheet">
@@ -27,9 +27,98 @@
             <header class="header">
             <img :src="header.logoSrc" :alt="header.logoAlt" />
             
-            <!-- solutions01內容 -->
-                
+            <!-- 漢堡按鈕 -->
+            <div class="hamburger" @click="toggleMenu" :class="{ open: menuActive }">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
+            <nav :class="{ active: menuActive }">
+                <ul class="nav-list">
+                <li v-for="(item, index) in menuItems" :key="index">
+                    <a :href="item.link" @click="menuActive = false">
+                        {{ item.name }}
+                    </a>
+                </li>
+                </ul>
+            </nav>
+            </header>
+
+            
+
+        
+            <!-- about -->
+            <section id="about" class="about" data-aos-delay="0">
+                <div class="about-section">
+                    <!-- 左邊卡片標題 -->
+                    <div class="about-left" data-aos="fade-right" data-aos-delay="0">
+                        <div class="about-card">
+                            <h2>{{ about.title }}</h2>
+                            <h3>{{ about.subtitle }}</h3>
+                        </div>
+                    </div>
+                    <!-- 右邊卡片文字 -->
+                    <div class="about-right" data-aos="fade-left">
+                        <div class="about-card">
+                            <p>{{ about.text }}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+            <!-- solutions -->
+            <section id="solutions" class="solutions">
+            <h2 data-aos="fade-up">{{ solutionsTitle }}</h2>
+            <div class="solutions-container">
+                <div
+                v-for="(solution, index) in solutions"
+                :key="index"
+                class="solutions-card"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                >
+                <!-- 圖片區 -->
+                <div class="solutions-img">
+                    <img :src="solution.img" :alt="solution.title" />
+                </div>
+
+                <!-- 文字區 -->
+                <div class="solutions-content">
+                    <div class="solutions-number">{{ (index + 1).toString().padStart(2, '0') }}</div>
+                    <div class="solutions-title">{{ solution.title }}</div>
+                    <div class="solutions-subtitle">{{ solution.subtitle }}</div>
+                    <div class="solutions-text">{{ solution.englishtext }}</div>
+                    <div class="solutions-text">{{ solution.chinesetext }}</div>
+                </div>
+                </div>
+            </div>
+            </section>
+
+
+
+            <!-- Partners -->
+            <section class="logos" data-aos="fade-up" data-aos-delay="200">
+            <h2>{{ logos.title }}</h2>
+            <p class="logos-subtitle">{{ logos.subtitle }}</p>
+
+            <div class="logo-marquee">
+                <div class="logo-track">
+                <!-- 原始 partners -->
+                <div v-for="(partner, index) in partners" :key="index" class="logo-box">
+                    <img :src="partner.src" :alt="partner.alt" />
+                </div>
+                <!-- 重複一次 partners，形成無縫循環 -->
+                <div v-for="(partner, index) in partners" :key="'dup-'+index" class="logo-box">
+                    <img :src="partner.src" :alt="partner.alt" />
+                </div>
+                </div>
+            </div>
+            </section>
             
             <!-- Google 地圖區塊 -->
             <section id="map" class="map-section">
@@ -106,9 +195,10 @@
   </div>
 
   <!-- Vue App -->
-  <script src="script.js"></script>
+  <script src="../03.JAVAScript/solitions01.js"></script>
+
   <!-- particle -->
-  <script src="particle.js"></script>
+  <script src="../03.JAVAScript/particle.js"></script>
 
   <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
