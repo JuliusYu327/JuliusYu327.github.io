@@ -434,6 +434,12 @@ nav.scrolled .nav-list a {
 
 /* 響應式 */
 @media (max-width: 768px) {
+  .pain-points-column h2 {
+  font-size: 28px;
+  color: #222;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
   .pain-points .container {
     flex-direction: column;
   }
