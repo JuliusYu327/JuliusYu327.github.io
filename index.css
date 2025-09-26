@@ -22,25 +22,26 @@ body {
 }
 html { scroll-behavior: smooth; }
 
-/* ----------全局卡片樣式---------- */
+/* ---------------------------------全局卡片樣式------------------------ */
 .v-card {
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
 }
 
-/*---------- Header------------ */
+
+
+/*---------------------------------- Header---------------------------- */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5% 5%  2.5% 5%;
+  padding: 1.5% 5%  1% 5%;
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  background:transparent; /*透明*/
+  background:rgba(14, 14, 14, 0.98);
   z-index: 1000;
+  /* border-radius: 0 0 30px 30px; 左下與右下圓角 */
 }
 
 header img {
@@ -99,7 +100,7 @@ nav {
 }
 
 nav.scrolled .nav-list a {
-  color: #535353; /* 捲動後顏色 */
+  color: #27a9ff; /* 捲動後顏色 */
 }
 
 /* 響應 */
@@ -175,7 +176,7 @@ nav.scrolled .nav-list a {
 
 
 
-/* ----------Hero---------- */
+/* -------------------------------Hero--------------------------------- */
 .hero {
     position: relative;
     text-align: center;
@@ -200,7 +201,6 @@ nav.scrolled .nav-list a {
   z-index: -1; /* 在文字後面 */
   opacity: 1;           /* 可調整透明度 */
   pointer-events: none; /* 不影響點擊 */
-  border-radius: 0 0 100px 100px; /* 左上與右上圓角 */
 }
 .hero-bg::before {
   content: "";
@@ -252,7 +252,7 @@ nav.scrolled .nav-list a {
   vertical-align: middle;  /* 垂直置中 */
   font-size: 32px;         /* 字體大小 */
 }
-/* ----- hero響應式 ----- */
+/* ---------------------------- hero響應式 ------------------------------ */
 
 
 @media (max-width: 768px) {
@@ -285,9 +285,9 @@ nav.scrolled .nav-list a {
   }
 }
 
-/* ----------About---------- */
+/* -------------------------------About-------------------------------- */
 .about {
-    
+    padding: 10% 0% 10% 0%;
     position: relative;
     background:transparent;         /* 區塊底色 */
 
@@ -297,7 +297,7 @@ nav.scrolled .nav-list a {
 
 .about-section {
   display: grid;
-  padding: 5% 0% 5% 0%;
+  
   grid-template-columns: 50% 50%;
   gap: 5px;
   max-width: 80%;
@@ -325,14 +325,14 @@ nav.scrolled .nav-list a {
 .about-left h2 {
   font-size: clamp(28px, 3vw, 32px);
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 
 .about-right p {
   font-size: clamp(18px, 2.2vw, 26px);
   line-height: 1.8;
   color: #535353;
-  margin: 0;
+  text-align: left;
 }
 
 /* RWD 小螢幕上下排列，標題貼近文字卡片 */
@@ -364,9 +364,86 @@ nav.scrolled .nav-list a {
   }
 }
 
+/* -------------------------------pain--------------------------------- */
+.pain-points {
+  display: flex;
+  justify-content: center;
+  padding: 5% 5%;
+  background-color: #f5f5f5;
+  
+}
+/* 卡片本體 */
+.pain-points .container {
+  display: flex;
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  z-index: 2;
+}
+
+.pain-points-column {
+  flex: 1;
+}
+
+.pain-points-column h2 {
+  font-size: 36px;
+  color: #222;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pain-points-column h3 {
+  font-size: 20px;
+  color: #555;
+  align-self: flex-end;
+  margin-bottom: 5%;
+  font-weight: normal;
+}
+
+.pain-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: #ffffff;
+  padding: 5%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  
+}
+
+.pain-point-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  align-content: center;
+  justify-content: center;
+}
+
+.pain-point-text h4 {
+  margin: 0;
+  font-size: 18px;
+  color: #1b1b1b;
+}
+
+.pain-point-text p {
+  margin: 4px 0 0;
+  color: #555;
+  font-size: 16px;
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+  .pain-points .container {
+    flex-direction: column;
+  }
+  .pain-points-column {
+    margin-bottom: 30px;
+  }
+}
 
 
-/* ----------Solutions---------- */
+/* -------------------------------Solutions---------------------------- */
 .solutions {
     background:linear-gradient(to top, rgba(179, 205, 235, 0.95) 0%, rgba(117, 117, 117, 0) 70%);/* Solutions 區塊漸層 */
     padding: 5% 5%;
@@ -381,7 +458,7 @@ nav.scrolled .nav-list a {
   margin-bottom: 32px;
   font-weight: bold;
   letter-spacing: 2px;
-  padding-bottom: 5%;
+  padding-bottom: 3%;
 
 }
 
@@ -489,7 +566,7 @@ nav.scrolled .nav-list a {
 }
 
 
-/*----------map----------*/
+/*-------------------------------------map-------------------------------*/
 .map-section {
   padding: 60px 20px;
   text-align: center;
@@ -527,7 +604,7 @@ nav.scrolled .nav-list a {
 }
 
 
-/* ----------Partners ---------- */
+/* -------------------------------------Partners ---------------------- */
 .logos {
   padding: 5% 0 5% 0;
   background: transparent;
@@ -608,7 +685,7 @@ nav.scrolled .nav-list a {
 
 
 
-/* --------------------Contact--------------------- */
+/* ---------------------------------Contact--------------------------- */
 
 .contact {
   display: flex;
@@ -637,23 +714,9 @@ nav.scrolled .nav-list a {
 .icon-title {
   width: 100%;
   max-width: 300px;
-  align-self: flex-start;
   height: auto;
   display: block;
   margin-bottom:3%;
-}
-
-.contact-wrapper {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  width: 100%;
-}
-
-/* 左右各自撐滿空間 */
-.contact-left,
-.contact-right {
-  flex: 1;
 }
 
 /* 左邊聯絡資訊 */
@@ -662,16 +725,6 @@ nav.scrolled .nav-list a {
   flex-direction: column;
   gap: 50px;
   line-height: 1.8;
-}
-
-/* 右邊文字 */
-.contact-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: right;
-  color: #444444;
-  position: relative; /* 讓裡面的絕對定位參考這個容器 */
 }
 
 /* 各 contact 項目 */
@@ -701,26 +754,6 @@ nav.scrolled .nav-list a {
   color: #1b1b1b;
 }
 
-.scroll-top-btn {
-  
-position: absolute;   /* 相對於 .contact */
-  right: 0px;          /* 離右邊 20px */
-  bottom: 0px;         /* 離底部 20px */
-  padding: 0 0;
-  font-size: 12px;
-  border: none;
-  border-radius: 12px;
-  background: #fff;
-  color: #808080;
-  cursor: pointer;
-
- 
-}
-
-.scroll-top-btn:hover {
-  background-color: #ffffff;
-}
-
 /* 響應式 */
 @media (max-width: 768px) {
   .contact-wrapper {
@@ -742,14 +775,14 @@ position: absolute;   /* 相對於 .contact */
 
 
 
-/* Footer */
+/* ----------------------------------------Footer ------------------------------*/
 footer { 
   position: relative;
   text-align:center; 
-  padding:1.5% 1.5%; 
+  padding:1% 0% 1% 0%; 
   font-size: large;
   
-  background:rgb(108, 193, 250); 
+  background:rgb(0, 0, 0); 
   color:#ffffff; 
 }
 

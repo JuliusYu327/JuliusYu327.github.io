@@ -24,9 +24,12 @@
       <v-main>
         
             <!-- Header -->
-            <header class="header">
-            <img :src="header.logoSrc" :alt="header.logoAlt" />
-            
+            <header id="header" class="header custom-header">
+            <!-- 左側 Logo -->
+            <div class="logo">
+                <img :src="header.logoSrc" :alt="header.logoAlt" @click="scrollToTop" />
+            </div>
+
             <!-- 漢堡按鈕 -->
             <div class="hamburger" @click="toggleMenu" :class="{ open: menuActive }">
                 <span></span>
@@ -34,6 +37,7 @@
                 <span></span>
             </div>
 
+            <!-- 導航選單 -->
             <nav :class="{ active: menuActive }">
                 <ul class="nav-list">
                 <li v-for="(item, index) in menuItems" :key="index">
@@ -44,6 +48,7 @@
                 </ul>
             </nav>
             </header>
+
 
             <!----------------- Hero --------------------->
             <section class="hero" data-aos="fade-up" data-aos-delay="0">
@@ -66,6 +71,8 @@
             </div>
             </section>
 
+
+
         
             <!-- about -->
             <section id="about" class="about" data-aos-delay="0">
@@ -86,8 +93,25 @@
                 </div>
             </section>
 
+            
 
+            <!-- pain -->
+            <section id="pain-points" class="pain-points">
+            <div class="container">
+                <div class="pain-points-column" v-for="(column, colIndex) in painPoints.columns" :key="colIndex">
+                <h2>{{ column.mainTitle }}</h2>
+                <h3>{{ column.subTitle }}</h3>
 
+                <div v-for="(item, index) in column.items" :key="index" class="pain-point-item">
+                    <img :src="item.icon" :alt="item.title + ' icon'" class="pain-point-icon"/>
+                    <div class="pain-point-text">
+                    <h4>{{ item.title }}</h4>
+                    <p>{{ item.text }}</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </section>
 
 
             <!-- solutions -->
@@ -159,8 +183,6 @@
             <!-- Contact -->
             <section id="contact" class="contact" :style="{ backgroundImage: 'url(' + contact.background + ')' }">
             <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title"/>
-            <!-- 回到頂端按鈕 -->
-            <button class="scroll-top-btn" @click="scrollToTop">回到頂端 ↑</button>
             <div class="contact-wrapper">
                 
                 <!-- 左邊：聯絡資訊 -->
@@ -191,18 +213,8 @@
                 </div>
                 </div>
 
-                <!-- 右邊：說明文字 -->
-                <div class="contact-right">
-                
-
-
-                
-                </div>
-
             </div>
             </section>
-
-
 
             <!-- Footer -->
             <footer>

@@ -45,6 +45,28 @@
             </nav>
             </header>
 
+            <!----------------- Hero --------------------->
+            <section class="hero" data-aos="fade-up" data-aos-delay="0">
+            <!-- 背景圖 -->
+            <div class="hero-bg" :style="{ backgroundImage: 'url(' + hero.bg + ')' }"></div>
+
+            <!-- 粒子容器 -->
+            <div id="particles-js"></div>
+
+            <!-- Hero 文字 -->
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-up" data-aos-delay="200">
+                <h1>{{ hero.companyname }}</h1>
+                <h2>{{ hero.title }}</h2>
+                <div class="hero-subtitle">
+                    <hr class="line">
+                    <span>{{ hero.subtitle }}</span>
+                </div>
+                </div>
+            </div>
+            </section>
+
+        
             <!-- about -->
             <section id="about" class="about" data-aos-delay="0">
                 <div class="about-section">
@@ -63,75 +85,7 @@
                     </div>
                 </div>
             </section>
-
-
-
-
-
-            <!-- solutions -->
-            <section id="solutions" class="solutions">
-            <h2 data-aos="fade-up">{{ solutionsTitle }}</h2>
-            <div class="solutions-container">
-                <div
-                v-for="(solution, index) in solutions"
-                :key="index"
-                class="solutions-card"
-                data-aos="fade-up"
-                data-aos-delay="100"
-                >
-                <!-- 圖片區 -->
-                <div class="solutions-img">
-                    <img :src="solution.img" :alt="solution.title" />
-                </div>
-
-                <!-- 文字區 -->
-                <div class="solutions-content">
-                    <div class="solutions-number">{{ (index + 1).toString().padStart(2, '0') }}</div>
-                    <div class="solutions-title">{{ solution.title }}</div>
-                    <div class="solutions-subtitle">{{ solution.subtitle }}</div>
-                    <div class="solutions-text">{{ solution.englishtext }}</div>
-                    <div class="solutions-text">{{ solution.chinesetext }}</div>
-                </div>
-                </div>
-            </div>
-            </section>
-
-
-
-            <!-- Partners -->
-            <section class="logos" data-aos="fade-up" data-aos-delay="200">
-            <h2>{{ logos.title }}</h2>
-            <p class="logos-subtitle">{{ logos.subtitle }}</p>
-
-            <div class="logo-marquee">
-                <div class="logo-track">
-                <!-- 原始 partners -->
-                <div v-for="(partner, index) in partners" :key="index" class="logo-box">
-                    <img :src="partner.src" :alt="partner.alt" />
-                </div>
-                <!-- 重複一次 partners，形成無縫循環 -->
-                <div v-for="(partner, index) in partners" :key="'dup-'+index" class="logo-box">
-                    <img :src="partner.src" :alt="partner.alt" />
-                </div>
-                </div>
-            </div>
-            </section>
-            
-            <!-- Google 地圖區塊 -->
-            <section id="map" class="map-section">
-                    <div class="map-wrapper">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2164.9239223532513!2d120.65680582842539!3d24.138270008070506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9f70c4f7c7%3A0x92f03742845b2fda!2z5Yex6IyC6LOH6KiK6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1szh-TW!2stw!4v1757924210475!5m2!1szh-TW!2stw" 
-                            width="600" 
-                            height="450" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                        
-                    </div>
-            </section>
+        
  
     
             <!-- Contact -->
@@ -180,8 +134,6 @@
             </div>
             </section>
 
-
-
             <!-- Footer -->
             <footer>
                 <p>{{ footer.text }}</p>
@@ -192,10 +144,9 @@
   </div>
 
   <!-- Vue App -->
-  <script src="../03.JAVAScript/solitions01.js"></script>
-
+  <script src="../03.JAVAScript/solutions01.js"></script>
   <!-- particle -->
-  <script src="../03.JAVAScript/particle.js"></script>
+  <script src="../particle.js"></script>
 
   <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
