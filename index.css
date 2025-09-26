@@ -109,7 +109,7 @@ nav.scrolled .nav-list a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5% 3% 5% 3%;
+  padding: 5% 5% 5% 5%;
   position: fixed;
   width: 100%;
   height: 100px;   /* 可以設一個最小高度 */
@@ -252,7 +252,7 @@ nav.scrolled .nav-list a {
   vertical-align: middle;  /* 垂直置中 */
   font-size: 32px;         /* 字體大小 */
 }
-/* ---------------------------- hero響應式 ------------------------------ */
+/* ----------------- hero響應式 ------------------- */
 
 
 @media (max-width: 768px) {
