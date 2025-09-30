@@ -352,28 +352,20 @@ nav.scrolled .nav-list a {
 
 /* RWD 小螢幕上下排列，標題貼近文字卡片 */
 @media screen and (max-width: 768px) {
-  .about {
-    padding: 25% 0% 10% 0%;
-    
-  }
+  .about {padding: 25% 0% 10% 0%;}
   .about-section {
     grid-template-columns: 1fr;
     justify-items: center;
-    align-items: center;
     text-align: center;
-    
   }
 
   .about-card {
     width: 100%;
-    max-width: 800px;
-    text-align: center;
   }
 
   .about-left h2 {
     margin: 0;
     font-size: 28px; 
-    text-align: center;
   }
 
   .about-right p {
