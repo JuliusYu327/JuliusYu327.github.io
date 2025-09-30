@@ -347,23 +347,25 @@ nav.scrolled .nav-list a {
 @media screen and (max-width: 768px) {
   .about {
     padding: 25% 0% 10% 0%;
-    justify-content: center;
-    align-items: center;
+    
   }
   .about-section {
     grid-template-columns: 1fr;
     justify-items: center;
+    align-items: center;
+    text-align: center;
     
   }
 
   .about-card {
     width: 100%;
     max-width: 800px;
+    text-align: center;
   }
 
   .about-left h2 {
     margin: 0;
-    font-size: 20px; 
+    font-size: 28px; 
     text-align: center;
   }
 
@@ -589,7 +591,7 @@ nav.scrolled .nav-list a {
   }
   .solutions h2 {
   text-align: center;
-  font-size: 28px;
+  font-size: 38px;
   
   margin-bottom: 32px;
   font-weight: bold;
@@ -790,8 +792,14 @@ nav.scrolled .nav-list a {
 
 /* 響應式 */
 @media (max-width: 768px) {
+  .icon-title {
+    align-items: center;
+    max-width: 80%;
+    margin-bottom: 2%;
+    padding-bottom: 12%;
+  } 
   .contact-wrapper {
-    flex-direction: column;
+    padding-bottom: 15%;
     gap: 30px;
   }
 
@@ -800,11 +808,7 @@ nav.scrolled .nav-list a {
     height: 32px;
   }
   
-  .icon-title {
-    max-width: 80%;
-    margin-bottom: 2%;
-    padding-bottom: 12%;
-  }
+
 }
 
 

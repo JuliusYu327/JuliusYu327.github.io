@@ -40,7 +40,7 @@ const app = createApp({
 
       //--------關於我們--------//
       about: { 
-        title:'專業整合 · 創新服務 · 可信賴的IT夥伴', 
+        title:'您可信賴的IT夥伴', 
         text:`
         凱茂資訊成立於2009年，迄今已成為多家知名軟、硬體大廠之大型客戶承銷商。總部設於台中，服務網絡涵蓋北中南，我們提供IT基礎建設規劃、虛擬化與雲端整合、資訊安全防護、備援備份、端點管理到網路架構與系統為運等完整解決方案，協助客戶在多變的市場環境中穩健成長。
         
@@ -93,7 +93,7 @@ const app = createApp({
           {
             //右邊標題
             mainTitle: "凱茂提供核心對應方案",
-            subTitle: "凱茂資訊如何協助?",
+            subTitle: "我們如何協助您?",
             //右邊內容
             items: [
               {
@@ -132,7 +132,7 @@ const app = createApp({
       },
 
       //--------解決方案--------//
-      solutionsTitle: "Integration Solutions ",
+      solutionsTitle: "九大服務方案 ",
       solutions: [
         { title: "GPU 伺服器與 AI 運算平台", 
           chinesetext: `
