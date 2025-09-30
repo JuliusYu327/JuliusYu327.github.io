@@ -19,6 +19,8 @@ body {
   line-height:1.6; 
   color:#2b2b2b;
   font-family: Arial, Helvetica, sans-serif; /*全域字體樣式*/
+  background: #000000; /*全域背景顏色*/
+  scroll-behavior: smooth;
 }
 html { scroll-behavior: smooth; }
 
@@ -28,8 +30,6 @@ html { scroll-behavior: smooth; }
   box-shadow: none !important;
   border: none !important;
 }
-
-
 
 /*---------------------------------- Header---------------------------- */
 header {
@@ -50,7 +50,7 @@ header img {
 
 
 .hamburger {
-  display: flex;              /* 這樣就不會消失 */
+  display: none;              /* 這樣就不會消失 */
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;    /* 線條靠左，不會黏右邊 */
@@ -116,7 +116,7 @@ nav.scrolled .nav-list a {
   padding: 1% 5% 1% 5%;
   position: fixed;
   width: 100%;
-  height: 100px;   /* 可以設一個最小高度 */
+  height: 70px;   /* 可以設一個最小高度 */
   z-index: 1000;
   background:linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(252, 252, 252, ) 100%);/* About 區塊漸層 */
   }
@@ -264,7 +264,7 @@ nav.scrolled .nav-list a {
     font-size: 24px;
   }
   .hero-text h2 {
-    font-size: 24px;
+    font-size: 20px;
   }
   .hero-subtitle span {
     font-size: 18px;
@@ -279,7 +279,7 @@ nav.scrolled .nav-list a {
     font-size: 20px;
   }
   .hero-text h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
   .hero-subtitle span {
     font-size: 18px;
@@ -292,10 +292,9 @@ nav.scrolled .nav-list a {
 /* -------------------------------About-------------------------------- */
 .about {
     padding: 10% 0% 10% 0%;
-    position: relative;
-    background:transparent;         /* 區塊底色 */
-
-    z-index: 2;               /* 確保蓋在上一個區塊上 */
+   
+    justify-content: center;
+    background:linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgb(255, 255, 255) 90%);/* Solutions 區塊漸層 */
     
 }
 
@@ -317,6 +316,7 @@ nav.scrolled .nav-list a {
   width: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   white-space: pre-line;
+  gap: 50px;
 }
 
 .about-left .about-card {
@@ -328,6 +328,7 @@ nav.scrolled .nav-list a {
 
 .about-left h2 {
   font-size: clamp(28px, 3vw, 32px);
+  color: #ffffff;
   margin: 0;
   text-align: left;
 }
@@ -335,7 +336,7 @@ nav.scrolled .nav-list a {
 .about-right p {
   font-size: clamp(18px, 2.2vw, 26px);
   line-height: 1.8;
-  color: #535353;
+  color: #ffffff;
   text-align: left;
 }
 
@@ -343,6 +344,8 @@ nav.scrolled .nav-list a {
 @media screen and (max-width: 768px) {
   .about {
     padding: 20% 0% 10% 0%;
+    justify-content: center;
+    align-items: center;
   }
   .about-section {
     grid-template-columns: 1fr;
@@ -357,12 +360,12 @@ nav.scrolled .nav-list a {
 
   .about-left h2 {
     margin: 0;
-    font-size: clamp(22px, 5vw, 28px); 
-    text-align: left;
+    font-size: 20px; 
+    text-align: center;
   }
 
   .about-right p {
-    font-size: clamp(16px, 4vw, 20px);
+    font-size: 20px;
     text-align: left;
     margin-top: 5%; /* 與標題保持距離 */
   }
@@ -373,8 +376,7 @@ nav.scrolled .nav-list a {
   display: flex;
   justify-content: center;
   padding: 5% 5%;
-  background-color: #f5f5f5;
-  
+  background: rgb(0, 0, 0);
 }
 /* 卡片本體 */
 .pain-points .container {
@@ -382,23 +384,26 @@ nav.scrolled .nav-list a {
   gap: 60px;
   max-width: 1200px;
   width: 100%;
+  
   z-index: 2;
 }
 
 .pain-points-column {
   flex: 1;
+  align-self: center;
 }
 
 .pain-points-column h2 {
   font-size: 36px;
-  color: #222;
+  color: #ffffff;
   font-weight: bold;
   margin-bottom: 10px;
+  
 }
 
 .pain-points-column h3 {
   font-size: 20px;
-  color: #555;
+  color: #ffffff;
   align-self: flex-end;
   margin-bottom: 5%;
   font-weight: normal;
@@ -408,11 +413,12 @@ nav.scrolled .nav-list a {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  background-color: #ffffff;
+  background: rgba(255, 255, 255, 1) ;
   padding: 5%;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   margin-bottom: 20px;
+  z-index: 2;
   
 }
 
@@ -438,6 +444,9 @@ nav.scrolled .nav-list a {
 
 /* 響應式 */
 @media (max-width: 768px) {
+  .pain-points {
+    padding: 20% 10% 10% 10%;
+  }
   .pain-points-column h2 {
   font-size: 28px;
   color: #222;
@@ -455,16 +464,18 @@ nav.scrolled .nav-list a {
 
 /* -------------------------------Solutions---------------------------- */
 .solutions {
-    background:linear-gradient(to top, rgba(179, 205, 235, 0.95) 0%, rgba(117, 117, 117, 0) 70%);/* Solutions 區塊漸層 */
+  
+    background:linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(179, 205, 235, 0.95) 70%);/* Solutions 區塊漸層 */
     padding: 5% 5%;
     scroll-margin-top: 70px; /* header 高度 */
     border-radius: 0 0 200px 200px; /* 左下與右下圓角 */
+   
 }
 /* 九大服務標題文字 */
 .solutions h2 {
   text-align: center;
-  font-size: 34px;
-  color: #222;
+  font-size: 42px;
+  color: #ffffff;
   margin-bottom: 32px;
   font-weight: bold;
   letter-spacing: 2px;
@@ -500,7 +511,7 @@ nav.scrolled .nav-list a {
    width: 100%;
   max-width: 350px;         /* 最大寬度 */
   min-height: 450px;       /* 最小高度 */
-  background-color: #ffffff; /* 深色背景 */
+  background-color: #ffffff; /* 背景 */
   border-radius: 30px;      /* 圓角 */
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 陰影 */
@@ -580,7 +591,7 @@ nav.scrolled .nav-list a {
 .map-section {
   padding: 60px 20px;
   text-align: center;
-  background: #f9f9f9;
+ 
   
 }
 

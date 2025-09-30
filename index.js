@@ -163,7 +163,7 @@ const app = createApp({
         { 
           title: "雲端整合與混合雲架構", 
           chinesetext: `整合 Azure、AWS、GCP 與私有雲，打造彈性可擴充的混合雲環境。` ,
-          img: "../solutions-image/A14.jpg",
+          img: "../solutions-image/A04.jpg",
         },
         { 
           title: "IT 維運與委外服務", 
