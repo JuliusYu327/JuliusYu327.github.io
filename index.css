@@ -297,7 +297,7 @@ nav.scrolled .nav-list a {
     padding: 15% 0% 10% 0%;
    
     justify-content: center;
-    background:linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(0, 0, 0) 40%);/* Solutions 區塊漸層 */
+    background:linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(0, 0, 0) 20%);/* Solutions 區塊漸層 */
     
 }
 
@@ -346,7 +346,7 @@ nav.scrolled .nav-list a {
 /* RWD 小螢幕上下排列，標題貼近文字卡片 */
 @media screen and (max-width: 768px) {
   .about {
-    padding: 25s% 0% 10% 0%;
+    padding: 25% 0% 10% 0%;
     justify-content: center;
     align-items: center;
   }
