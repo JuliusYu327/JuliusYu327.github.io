@@ -294,7 +294,7 @@ nav.scrolled .nav-list a {
     padding: 10% 0% 10% 0%;
    
     justify-content: center;
-    background:linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgb(255, 255, 255) 90%);/* Solutions 區塊漸層 */
+    background:linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(0, 0, 0) 40%);/* Solutions 區塊漸層 */
     
 }
 
@@ -449,7 +449,7 @@ nav.scrolled .nav-list a {
   }
   .pain-points-column h2 {
   font-size: 28px;
-  color: #222;
+ 
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -577,7 +577,7 @@ nav.scrolled .nav-list a {
   .solutions h2 {
   text-align: center;
   font-size: 28px;
-  color: #222;
+  
   margin-bottom: 32px;
   font-weight: bold;
   letter-spacing: 2px;
