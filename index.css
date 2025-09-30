@@ -231,6 +231,7 @@ nav.scrolled .nav-list a {
   font-size: 46px;       /* 調整標題大小 */
   font-weight: bold;
   margin: 0;
+  justify-content: center;
 }
 /* Hero文字區塊第二行 */
 .hero-text h2 {
@@ -263,6 +264,12 @@ nav.scrolled .nav-list a {
 
 
 @media (max-width: 768px) {
+  .hero {
+    border-radius: 0 0 50px 50px; /* 左下與右下圓角 */
+  }
+  .hero-bg {
+    border-radius: 0 0 50px 50px;
+  }
   .hero-text h1 {
     font-size: 24px;
   }
@@ -439,14 +446,14 @@ nav.scrolled .nav-list a {
 
 .pain-point-text h4 {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   color: #1b1b1b;
 }
 
 .pain-point-text p {
   margin: 4px 0 0;
   color: #555;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 /* 響應式 */
@@ -472,12 +479,6 @@ nav.scrolled .nav-list a {
 
   .pain-points-column h3 {
     text-align: center;
-    font-size: 16px;
-  }
-  .pain-point-text p {
-    margin: 4px 0 0;
-    color: #555;
-    font-size: 16px;
   }
 }
 
@@ -806,6 +807,7 @@ nav.scrolled .nav-list a {
   } 
   .contact-wrapper {
     padding-bottom: 15%;
+
     gap: 30px;
   }
 
