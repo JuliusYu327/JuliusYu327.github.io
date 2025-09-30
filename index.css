@@ -223,15 +223,15 @@ nav.scrolled .nav-list a {
     display: flex;
     flex-direction: column; /* 讓 h1 和 p 上下排列 */
     justify-content: center; /* 讓文字區塊在垂直方向置中 */
-    font-family: Georgia, 'Times New Roman', Times, serif; /* 字體樣式 */
     color: #ffffff;
 }
 /* Hero文字區塊第一行英文 */
 .hero-text h1 {
-  font-size: 46px;       /* 調整標題大小 */
+  font-size: 52px;       /* 調整標題大小 */
   font-weight: bold;
   margin: 0;
   justify-content: center;
+  
 }
 /* Hero文字區塊第二行 */
 .hero-text h2 {
@@ -338,9 +338,14 @@ nav.scrolled .nav-list a {
 
 .about-left h2 {
   font-size: clamp(28px, 3vw, 32px);
-  color: #ffffff;
   margin: 0;
   text-align: left;
+
+  background: linear-gradient(90deg, #ffffff, #ffda34); /* 漸層色 */
+  -webkit-background-clip: text;   /* 只套用到文字 */
+  -webkit-text-fill-color: transparent; /* 讓文字本體透明 */
+  background-clip: text;
+  color: transparent;
 }
 
 .about-right p {
@@ -399,20 +404,29 @@ nav.scrolled .nav-list a {
 
 .pain-points-column h2 {
   font-size: 36px;
-  color: #ffffff;
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
-  
+
+  background: linear-gradient(90deg, #ffffff, #ffda34); /* 漸層色 */
+  -webkit-background-clip: text;   /* 只套用到文字 */
+  -webkit-text-fill-color: transparent; /* 讓文字本體透明 */
+  background-clip: text;
+  color: transparent;
 }
 
 .pain-points-column h3 {
   font-size: 20px;
-  color: #ffffff;
   align-self: flex-end;
   margin-bottom: 5%;
   font-weight: normal;
   text-align: center;
+  
+  background: linear-gradient(90deg, #ffffff, #ffda34); /* 漸層色 */
+  -webkit-background-clip: text;   /* 只套用到文字 */
+  -webkit-text-fill-color: transparent; /* 讓文字本體透明 */
+  background-clip: text;
+  color: transparent;
 }
 
 .pain-point-item {
@@ -483,18 +497,24 @@ nav.scrolled .nav-list a {
     padding: 5% 5%;
     scroll-margin-top: 70px; /* header 高度 */
     border-radius: 0 0 200px 200px; /* 左下與右下圓角 */
+    text-align: center;
+
    
 }
 /* 九大服務標題文字 */
 .solutions h2 {
-  text-align: center;
+  display: inline-block; /* 讓背景大小跟文字一致 */
   font-size: 42px;
-  color: #ffffff;
-  margin-bottom: 32px;
   font-weight: bold;
   letter-spacing: 2px;
   padding-bottom: 3%;
 
+  /* 漸層文字 */
+  background: linear-gradient(90deg, #ffffff, #ffda34); /* 漸層色 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .solutions-container {
@@ -723,14 +743,12 @@ nav.scrolled .nav-list a {
 /* ---------------------------------Contact--------------------------- */
 
 .contact {
-  display: flex;
-  flex-direction: column;
-  padding: 5% 7% 5% 7%;
+  
+  align-items: center;      /* 水平置中 */
+  padding: 2% 7% 2% 7%;
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
-  color: #fff;
-  position: relative;
+
 }
 
 .contact::before {
@@ -750,14 +768,14 @@ nav.scrolled .nav-list a {
   width: 100%;
   max-width: 300px;
   height: auto;
-  display: block;
-  margin-bottom:3%;
+  display: flex;
+  justify-content: center;
 }
 
 /* 左邊聯絡資訊 */
 .contact-left {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   gap: 50px;
   line-height: 1.8;
 }
@@ -768,7 +786,6 @@ nav.scrolled .nav-list a {
   align-items: center;
   gap: 20px;
   text-align: left;
-  width: 100%;
 }
 
 .contact-item img {
@@ -780,13 +797,12 @@ nav.scrolled .nav-list a {
 .contact-item h1 {
   font-size: 22px;
   margin: 0;
-  color: #1b1b1b;
+  
 }
 
 .contact-item p {
   font-size: 18px;
-  margin: 2px 0 0;
-  color: #1b1b1b;
+ 
 }
 
 /* 響應式 */

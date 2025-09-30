@@ -182,11 +182,13 @@
     
             <!-- Contact -->
             <section id="contact" class="contact" :style="{ backgroundImage: 'url(' + contact.background + ')' }">
-            <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title"/>
+            
             <div class="contact-wrapper">
                 
                 <!-- 左邊：聯絡資訊 -->
                 <div class="contact-left">
+                    <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title"/>
+
                 <div class="contact-item">
                     <img :src="contact.mailSrc" :alt="contact.mailAlt" class="icon-mail"/>
                     <div>
@@ -199,8 +201,7 @@
                     <img :src="contact.telSrc" :alt="contact.telAlt" class="icon-tel"/>
                     <div>
                     <h1>{{ contact.teltitle }}</h1>
-                    <p style="color:rgb(230, 121, 211);">{{ contact.tel }}</p>
-                    <p style="color:rgb(230, 121, 211);">{{ contact.fex }}</p>
+                    <p style="color:rgb(230, 121, 211);">{{ contact.tel }} , {{ contact.fex }}</p>
                     </div>
                 </div>
 
