@@ -439,14 +439,14 @@ nav.scrolled .nav-list a {
 
 .pain-point-text h4 {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   color: #1b1b1b;
 }
 
 .pain-point-text p {
   margin: 4px 0 0;
   color: #555;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 /* 響應式 */
@@ -472,6 +472,12 @@ nav.scrolled .nav-list a {
 
   .pain-points-column h3 {
     text-align: center;
+    font-size: 16px;
+  }
+  .pain-point-text p {
+    margin: 4px 0 0;
+    color: #555;
+    font-size: 16px;
   }
 }
 
@@ -713,7 +719,7 @@ nav.scrolled .nav-list a {
   }
   .logo-track {
     gap: 20px;
-    animation-duration: 20s; /* 手機可稍快 */
+    animation-duration: 80s; /* 手機可稍快 */
   }
 }
 
