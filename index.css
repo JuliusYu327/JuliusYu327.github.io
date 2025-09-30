@@ -294,10 +294,10 @@ nav.scrolled .nav-list a {
 
 /* -------------------------------About-------------------------------- */
 .about {
-    padding: 15% 0% 10% 0%;
+    padding: 10% 0% 10% 0%;
    
     justify-content: center;
-    background:linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(0, 0, 0) 20%);/* Solutions 區塊漸層 */
+    background:linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(0, 0, 0) 10%);/* Solutions 區塊漸層 */
     
 }
 
@@ -401,6 +401,7 @@ nav.scrolled .nav-list a {
   color: #ffffff;
   font-weight: bold;
   margin-bottom: 10px;
+  text-align: center;
   
 }
 
@@ -410,11 +411,12 @@ nav.scrolled .nav-list a {
   align-self: flex-end;
   margin-bottom: 5%;
   font-weight: normal;
+  text-align: center;
 }
 
 .pain-point-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
   background: rgba(255, 255, 255, 1) ;
   padding: 5%;
