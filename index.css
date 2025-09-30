@@ -444,22 +444,30 @@ nav.scrolled .nav-list a {
 
 /* 響應式 */
 @media (max-width: 768px) {
-  .pain-points {
-    padding: 20% 10% 10% 10%;
-  }
-  .pain-points-column h2 {
-  font-size: 28px;
- 
-  font-weight: bold;
-  margin-bottom: 10px;
-}
   .pain-points .container {
     flex-direction: column;
+    gap: 30px; /* 調整間距 */
   }
+
   .pain-points-column {
-    margin-bottom: 30px;
+    width: 90%;
+    margin-bottom: 0; /* 避免重複 margin */
+  }
+
+  .pain-point-item {
+    width: 100%;
+  }
+
+  .pain-points-column h2 {
+    font-size: 28px;
+    text-align: center; /* 手機版置中比較好看 */
+  }
+
+  .pain-points-column h3 {
+    text-align: center;
   }
 }
+
 
 
 /* -------------------------------Solutions---------------------------- */
