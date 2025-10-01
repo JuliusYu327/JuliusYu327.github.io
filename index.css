@@ -207,7 +207,7 @@ nav.scrolled .nav-list a {
   z-index: -1; /* 在文字後面 */
   opacity: 1;           /* 可調整透明度 */
   pointer-events: none; /* 不影響點擊 */
-  border-radius: 0 0 500px 500px; /* 左下與右下圓角 */
+  border-radius: 0 0 200px 200px; /* 左下與右下圓角 */
 }
 .hero-bg::before {
   content: "";
@@ -341,7 +341,7 @@ nav.scrolled .nav-list a {
   margin: 0;
   text-align: left;
 
-  background: linear-gradient(90deg, #ffffff, #ffda34); /* 漸層色 */
+  background: linear-gradient(45deg, #ffffff,  #38acfa); /* 漸層色 */
   -webkit-background-clip: text;   /* 只套用到文字 */
   -webkit-text-fill-color: transparent; /* 讓文字本體透明 */
   background-clip: text;
@@ -408,7 +408,7 @@ nav.scrolled .nav-list a {
   margin-bottom: 10px;
   text-align: center;
 
-  background: linear-gradient(90deg, #ffffff, #ffda34); /* 漸層色 */
+   background: linear-gradient(90deg, #ffffff, #38acfa); /* 漸層色 */
   -webkit-background-clip: text;   /* 只套用到文字 */
   -webkit-text-fill-color: transparent; /* 讓文字本體透明 */
   background-clip: text;
@@ -422,7 +422,7 @@ nav.scrolled .nav-list a {
   font-weight: normal;
   text-align: center;
   
-  background: linear-gradient(90deg, #ffffff, #ffda34); /* 漸層色 */
+  background: linear-gradient(90deg, #ffffff, #ffffff); /* 漸層色 */
   -webkit-background-clip: text;   /* 只套用到文字 */
   -webkit-text-fill-color: transparent; /* 讓文字本體透明 */
   background-clip: text;
@@ -458,7 +458,7 @@ nav.scrolled .nav-list a {
 
 .pain-point-text p {
   margin: 4px 0 0;
-  color: #555;
+  color: #363636;
   font-size: 16px;
 }
 
@@ -510,7 +510,7 @@ nav.scrolled .nav-list a {
   padding-bottom: 3%;
 
   /* 漸層文字 */
-  background: linear-gradient(90deg, #ffffff, #ffda34); /* 漸層色 */
+  background: linear-gradient(90deg, #ffffff, #38acfa); /* 漸層色 */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -669,8 +669,11 @@ nav.scrolled .nav-list a {
 
 .logos h2 {
   font-size: 48px;
-  color: #000000;
+  
   margin-bottom: 20px;
+  /* 漸層 */
+  background: linear-gradient(90deg, #fda2da, #ffffff); /* 漸層色 */
+
 }
 
 .logo-marquee {
@@ -736,26 +739,21 @@ nav.scrolled .nav-list a {
   }
 }
 
-
-
-
-
 /* ---------------------------------Contact--------------------------- */
 
 .contact {
-  
   align-items: center;      /* 水平置中 */
   padding: 2% 7% 2% 7%;
   background-size: cover;
   background-repeat: no-repeat;
-
+  
 }
 
 .contact::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(207, 207, 207, 0.4);
+  background: rgba(0, 0, 0, 0.4);
   z-index: -1;
 }
 
@@ -765,9 +763,7 @@ nav.scrolled .nav-list a {
 }
 
 .icon-title {
-  width: 100%;
   max-width: 300px;
-  height: auto;
   display: flex;
   justify-content: center;
 }
@@ -804,28 +800,44 @@ nav.scrolled .nav-list a {
   font-size: 18px;
  
 }
-
 /* 響應式 */
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
   .icon-title {
-    align-items: center;
-    max-width: 80%;
+    align-items: flex-start;   /* 靠左 */
+    max-width: 300px;
     margin-bottom: 2%;
     padding-bottom: 12%;
   } 
+
   .contact-wrapper {
     padding-bottom: 15%;
-
     gap: 30px;
+  }
+
+  /* 手機版：改為直向排列，但每個項目內保持橫向 */
+  .contact-left {
+    flex-direction: column;   /* 整體直向排列 */
+    align-items: flex-start;  /* 左對齊 */
+    gap: 30px;
+    width: 100%;              /* 占滿容器寬度 */
+  }
+
+  .contact-item {
+    flex-direction: row;      /* icon + 文字橫向排列 */
+    align-items: center;      /* 垂直置中 */
+    justify-content: flex-start; /* 靠左 */
+    text-align: left;         /* 文字靠左 */
+    width: 100%;
+    gap: 15px;
   }
 
   .contact-item img {
     width: 32px;
     height: 32px;
   }
-  
-
 }
+
+
 
 
 

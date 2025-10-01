@@ -31,7 +31,7 @@ const app = createApp({
       ],
       //--------hero--------//
       hero: {
-        bg: "../hero-image/hero03.png", // 背景圖片路徑
+        bg: "../hero-image/hero09-b.png", // 背景圖片路徑
         companyname: "KAIMAU INFORMATION CO.,LTD",
         title: "提供企業級 GPU 伺服器與 AI 運算平台",
         subtitle: '專注於 IT 整合服務與解決方案',
@@ -220,7 +220,7 @@ const app = createApp({
 
       //--------聯絡我們--------//
       contact: { 
-        titleSrc: "../images/kmau-logo-full.png", titleAlt: "Contact Us", title: "聯絡我們",
+        titleSrc: "../images/kmau-logo-full-2.png", titleAlt: "Contact Us", title: "聯絡我們",
         background: "../background/contact-bg.png", // 背景圖片路徑
 
         mailSrc: "../icon/mail.png", mailAlt: "Email Icon",
