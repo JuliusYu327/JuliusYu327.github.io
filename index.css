@@ -621,7 +621,6 @@ nav.scrolled .nav-list a {
   .solutions h2 {
   text-align: center;
   font-size: 40px;
-  
   margin-bottom: 32px;
   font-weight: bold;
   letter-spacing: 2px;
@@ -752,6 +751,8 @@ nav.scrolled .nav-list a {
   background-repeat: no-repeat;
   background-size: cover;
   color: #000000;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-wrapper {
