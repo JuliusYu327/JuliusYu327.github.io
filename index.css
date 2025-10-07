@@ -357,28 +357,35 @@ nav.scrolled .nav-list a {
 
 /* RWD 小螢幕上下排列，標題貼近文字卡片 */
 @media screen and (max-width: 768px) {
-  .about {padding: 25% 0% 10% 0%;text-align: center}
+  .about {
+    padding: 25% 0% 10% 0%;
+    text-align: center;
+  }
+
   .about-section {
     grid-template-columns: 1fr;
     justify-items: center;
+    align-items: center;  
     text-align: center;
   }
 
   .about-card {
-    width: 100%;
+    width: 90%; 
+    margin: 0 auto; 
   }
 
   .about-left h2 {
-    margin: 0;
+    margin: 0 auto; 
     font-size: 28px; 
   }
 
   .about-right p {
     font-size: 18px;
-    text-align: left;
-    margin-top: 5%; /* 與標題保持距離 */
+    text-align: center; 
+    margin-top: 5%;
   }
 }
+
 
 /* -------------------------------pain--------------------------------- */
 .pain-points {
