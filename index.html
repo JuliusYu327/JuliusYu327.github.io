@@ -127,7 +127,7 @@
                 data-aos="fade-up"
                 data-aos-delay="100"
                 > 
-                <!-- 外層加上 a，判斷有沒有 route -->
+                
                 <a v-if="solution.route" :href="solution.route" class="solutions-link">
                     <div class="solutions-img"> 
                     <img :src="solution.img" :alt="solution.title" /> 
@@ -142,7 +142,7 @@
                     </div> 
                 </a>
 
-                <!-- 沒有 route 的就保持原樣 -->
+                
                 <div v-else>
                     <div class="solutions-img"> 
                     <img :src="solution.img" :alt="solution.title" /> 
@@ -165,7 +165,7 @@
 
 
             <!-- Partners -->
-            <section class="logos" data-aos="fade-up" data-aos-delay="200">
+            <section class="logos"  data-aos-delay="200">
             <h2>{{ logos.title }}</h2>
             <p class="logos-subtitle">{{ logos.subtitle }}</p>
 
@@ -296,7 +296,7 @@
       duration: 80, 
       once: false,easing: 
       'ease-in-out-back',
-      offset: window.innerHeight / 8 }
+      offset: window.innerHeight / 9 }
     );
   </script>
 </body>

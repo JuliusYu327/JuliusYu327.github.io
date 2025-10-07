@@ -116,7 +116,7 @@ nav.scrolled .nav-list a {
   padding: 1% 5% 1% 5%;
   position: fixed;
   width: 100%;
-  height: 70px;   /* 可以設一個最小高度 */
+  height: 60px;   /* 可以設一個最小高度 */
   z-index: 1000;
   background:linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(252, 252, 252, ) 100%);/* About 區塊漸層 */
   }
@@ -351,7 +351,7 @@ nav.scrolled .nav-list a {
 /* ----------------響應式: 小螢幕 ---------------- */
 @media screen and (max-width: 768px) {
     .about {
-        padding: 25% 5% 10% 5%;
+        padding: 25% 0% 10% 0%;
         text-align: center;
     }
 
@@ -371,13 +371,19 @@ nav.scrolled .nav-list a {
         margin: 0 auto;
         text-align: center;
         font-size: 28px;
+        
+    }
+        /* 右側文字改為置中 */
+    .about-right {
+        text-align: center;  /* 容器置中 */
+        margin: 0 auto;      /* 讓區塊居中 */
     }
 
     /* 右側文字改為置中 */
     .about-right p {
         text-align: left;
-        font-size: 18px;
-        margin-top: 5%;
+        font-size: 16px;
+        
     }
 }
 
@@ -456,14 +462,14 @@ nav.scrolled .nav-list a {
 
 .pain-point-text h4 {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   color: #1b1b1b;
 }
 
 .pain-point-text p {
   margin: 4px 0 0;
   color: #363636;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* 響應式 */
@@ -483,7 +489,7 @@ nav.scrolled .nav-list a {
   }
 
   .pain-points-column h2 {
-    font-size: 28px;
+    font-size: 26px;
     text-align: center; /* 手機版置中比較好看 */
   }
 
@@ -614,7 +620,7 @@ nav.scrolled .nav-list a {
   }
   .solutions h2 {
   text-align: center;
-  font-size: 38px;
+  font-size: 40px;
   
   margin-bottom: 32px;
   font-weight: bold;
@@ -819,6 +825,9 @@ nav.scrolled .nav-list a {
 
 /* 響應式：小螢幕改為直向排列 */
 @media (max-width: 1024px) {
+  .contact{
+    padding-bottom: 20%;
+  }
   .contact-wrapper {
     flex-direction: column;
     gap: 40px;
