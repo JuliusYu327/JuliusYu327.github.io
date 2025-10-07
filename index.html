@@ -209,17 +209,12 @@
     
     <!-- 左邊圖片 -->
     <div class="contact-left">
-      <img
-        :src="contact.imageSrc"
-        :alt="contact.imageAlt"
-        class="contact-main-img"
-      />
+      <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title" />
     </div>
 
     <!-- 右邊聯絡資訊 -->
     <div class="contact-right">
-      <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title" />
-
+      
       <!-- Email -->
       <div class="contact-item">
         <img :src="contact.mailSrc" :alt="contact.mailAlt" class="icon-mail" />
