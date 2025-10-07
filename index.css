@@ -357,7 +357,7 @@ nav.scrolled .nav-list a {
 
 /* RWD 小螢幕上下排列，標題貼近文字卡片 */
 @media screen and (max-width: 768px) {
-  .about {padding: 25% 0% 10% 0%;}
+  .about {padding: 25% 0% 10% 0%;text-align: center}
   .about-section {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -826,11 +826,11 @@ nav.scrolled .nav-list a {
   .contact-left,
   .contact-right {
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
 
   .contact-item {
-    justify-content: center;
+    justify-content: left;
   }
 }
 
