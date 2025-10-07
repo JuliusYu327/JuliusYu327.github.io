@@ -42,7 +42,7 @@ const app = createApp({
 
       //--------關於我們--------//
       about: { 
-        title:'您可信賴的IT夥伴', 
+        title:"您可信賴的IT夥伴", 
         text:`
         凱茂資訊成立於2009年，迄今已成為多家知名軟、硬體大廠之大型客戶承銷商。總部設於台中，服務網絡涵蓋北中南，我們提供IT基礎建設規劃、虛擬化與雲端整合、資訊安全防護、備援備份、端點管理到網路架構與系統為運等完整解決方案，協助客戶在多變的市場環境中穩健成長。
         
@@ -231,8 +231,8 @@ const app = createApp({
 
         telSrc: "../icon/tel.png", telAlt: "Phone Icon",
 
-        tel: "Tel/04 2375-8388",
-        fex: "Fax/04 2375-9399",
+        tel: "Tel:04 2375-8388",
+        fex: "Fax:04 2375-9399",
 
         locationSrc: "../icon/location.png", locationAlt: "Location Icon",
         location: "台中市西區忠明南路270號10樓之4",  

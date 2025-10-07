@@ -239,11 +239,11 @@
         <div>
           <h1>{{ contact.teltitle }}</h1>
           <p>
-            <a :href="'tel:' + contact.tel" class="contact-link">
+            <a :href="'Tel:' + contact.tel" class="contact-link">
               {{ contact.tel }}
             </a>
             <span v-if="contact.fex">，
-              <a :href="'tel:' + contact.fex" class="contact-link">
+              <a :href="'Fax:' + contact.fex" class="contact-link">
                 {{ contact.fex }}
               </a>
             </span>
