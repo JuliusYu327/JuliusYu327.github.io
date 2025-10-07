@@ -1,0 +1,354 @@
+#bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+ 
+  z-index: 0;
+  pointer-events: none;
+}
+body > *:not(#bg-canvas) {
+  position: relative;
+  z-index: 1;
+}
+body {
+  font-family: "Microsoft JhengHei", 
+  sans-serif;
+  margin:0; 
+  padding:0; 
+  line-height:1.6; 
+  color:#2b2b2b;
+  font-family: Arial, Helvetica, sans-serif; /*全域字體樣式*/
+  background: #000000; /*全域背景顏色*/
+  scroll-behavior: smooth;
+}
+html { scroll-behavior: smooth; }
+/* ---------------------------------全局卡片樣式------------------------ */
+.v-card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+/*---------------------------------- Header---------------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5% 5%  1% 5%;
+  position: fixed;
+  width: 100%;
+  background:black;
+  z-index: 1000;
+  
+}
+header img {
+  height: 50px;
+}
+/* 響應 */
+@media (max-width: 768px) {
+  header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% 5% 1% 5%;
+  position: fixed;
+  width: 100%;
+  height: 70px;   /* 可以設一個最小高度 */
+  z-index: 1000;
+  background:linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(252, 252, 252, ) 100%);/* About 區塊漸層 */
+  }
+  header img {
+  height: auto;
+  width: 40%;
+  }
+}
+/* -------------------------------solutions01-------------------------------- */
+.solutions01 {
+    padding: 10% 10% 0% 10%;
+    background-color: #000000;
+}
+
+.solutions01-section {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin:auto;
+}
+
+.solutions01-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.solutions01-card {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.solutions01-left img {
+  max-width: 100%;
+  height: auto;
+}
+
+.solutions01-right .solutions01-card {
+  max-width: max-content;     /* 控制文字區域寬度 */
+  text-align: left;     /* 文字靠左 */
+  
+}
+
+.solutions01-right h2{
+  padding-bottom: 2%;
+  font-size: 28px;
+  background: linear-gradient(90deg, #ffffff, #fae738); /* 漸層色 */
+  -webkit-background-clip: text;   /* 只套用到文字 */
+  -webkit-text-fill-color: transparent; /* 讓文字本體透明 */
+  background-clip: text;
+  color: transparent;
+}
+
+.solutions01-right p {
+  font-size: clamp(18px, 2.2vw, 18px);
+  max-width: 100%;
+  line-height: 1.8;
+  color: #f1f1f1;
+}
+
+/* RWD 小螢幕上下排列，標題貼近文字卡片 */
+@media screen and (max-width: 768px) {
+  .solutions01 {
+    
+    padding: 25% 5% 10% 5%; 
+   background-color: #000000;
+  }
+
+  .solutions01-left img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .solutions01-section {
+    grid-template-columns: 1fr; 
+    justify-items: center;
+    text-align: center;
+  }
+
+  .solutions01-card {
+    width: 100%;
+  }
+
+  .solutions01-left h2 {
+    padding-top: 10%;
+    margin: 0;
+    font-size: 10px; 
+  }
+
+  .solutions01-right p {
+    font-size: 18px;
+    text-align: left;
+    margin-top: 5%;
+  }
+}
+
+/* -------------------------------------Partners ---------------------- */
+.logos {background: transparent; text-align: left;position: relative;z-index: 2;}
+
+.logos h2 {
+  padding-left: 5%;
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #000000;
+  background: linear-gradient(deg, #000000, #ffffff);
+  z-index: 2; 
+}
+
+.logo-marquee {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  box-sizing: border-box;
+  width: 100%;
+  background: transparent; /* 你可以換成透明或其他顏色 */
+}
+
+.logo-track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 40px;
+  width: max-content; /* 寬度自動擴展 */
+  animation: marquee 60s linear infinite; /* 可調整速度 */
+  
+}
+
+.logo-marquee:hover .logo-track {
+  animation-play-state: paused; /* 滑鼠停在區塊上暫停 */
+}
+
+.logo-box {
+  flex: 0 0 auto;
+  width: 200px;   /* logo格子寬度 */
+  height: 150px;  /* logo格子高度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 10px;
+  overflow: hidden; /* 超出格子部分隱藏 */
+}
+
+.logo-box img {
+  max-width: 100%;   /* 寬度不能超過格子 */
+  max-height: 100%;  /* 高度不能超過格子 */
+  object-fit: contain; /* 保持比例，不變形 */
+  display: block;
+}
+
+/* 無縫滑動動畫 */
+@keyframes marquee {
+  0% {
+    transform: translateX(0); 
+  }
+  100% {
+    transform: translateX(-50%); /* 移動整列一半，正好接上重複列 */
+  }
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+  .logo-box {
+    width: 120px;
+    height: 90px;
+  }
+  .logo-track {
+    gap: 20px;
+    animation-duration: 80s; /* 手機可稍快 */
+  }
+}
+
+
+/*-------------------------------------map-------------------------------*/
+.map-section {padding: 5% 0 5% 0;}
+.map-section h2 {font-size: 36px;margin-bottom: 40px;color: #222;}
+.map-wrapper {width: 100%;max-width: 1200px;margin: 0 auto;border-radius: 12px; overflow: hidden;box-shadow: 0 4px 16px rgba(0,0,0,0.1);}
+.map-wrapper iframe {width: 100%;height: 500px;border: 0;position: relative;}
+@media (max-width: 768px) {
+  .map-wrapper iframe {
+    height: 300px;
+  }
+}
+/* ---------------------------------Contact--------------------------- */
+.contact {
+  align-items: center;      /* 水平置中 */
+  padding: 2% 7% 2% 7%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(207, 207, 207, 0.4);
+  z-index: -1;
+}
+.contact > * {
+  position: relative;
+  z-index: 1;
+}
+.icon-title {
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+/* 左邊聯絡資訊 */
+.contact-left {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  line-height: 1.8;
+}
+/* 各 contact 項目 */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+}
+.contact-item img {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+.contact-item h1 {
+  font-size: 22px;
+  margin: 0;
+}
+.contact-item p {
+  font-size: 18px;
+}
+/* 響應式 */
+@media (max-width: 1280px) {
+  .icon-title {
+    align-items: flex-start;   /* 靠左 */
+    max-width: 300px;
+    margin-bottom: 2%;
+    padding-bottom: 12%;
+  } 
+  .contact-wrapper {
+    padding-bottom: 15%;
+    gap: 30px;
+  }
+
+  /* 手機版：改為直向排列，但每個項目內保持橫向 */
+  .contact-left {
+    flex-direction: column;   /* 整體直向排列 */
+    align-items: flex-start;  /* 左對齊 */
+    gap: 30px;
+    width: 100%;              /* 占滿容器寬度 */
+  }
+
+  .contact-item {
+    flex-direction: row;      /* icon + 文字橫向排列 */
+    align-items: center;      /* 垂直置中 */
+    justify-content: flex-start; /* 靠左 */
+    text-align: left;         /* 文字靠左 */
+    width: 100%;
+    gap: 15px;
+  }
+
+  .contact-item img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
+
+
+
+/* ----------------------------------------Footer ------------------------------*/
+footer { 
+  position: relative;
+  text-align:center; 
+  padding:1% 0% 1% 0%; 
+  font-size: large;
+  
+  background:rgb(0, 0, 0); 
+  color:#ffffff; 
+}
+
+/* AOS 特效 */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(50px);
+  transition-property: opacity, transform;
+  transition-duration: 0.6s;
+  transition-timing-function: ease-in-out;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;   
+  transform: translateY(0);
+}

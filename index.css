@@ -193,7 +193,7 @@ nav.scrolled .nav-list a {
     padding: 0 5%;        /* 小螢幕留一些內距 */
     box-sizing: border-box;
     border: 0px ;
-    border-radius: 0 0 200px 200px; /* 左下與右下圓角 */
+    border-radius: 0 0 100px 100px; /* 左下與右下圓角 */
 
     
 } 
@@ -207,7 +207,7 @@ nav.scrolled .nav-list a {
   z-index: -1; /* 在文字後面 */
   opacity: 1;           /* 可調整透明度 */
   pointer-events: none; /* 不影響點擊 */
-  border-radius: 0 0 200px 200px; /* 左下與右下圓角 */
+  
 }
 .hero-bg::before {
   content: "";
@@ -660,12 +660,7 @@ nav.scrolled .nav-list a {
 
 
 /* -------------------------------------Partners ---------------------- */
-.logos {
-  padding: 5% 0 5% 0;
-  background: transparent;
-  text-align: center;
-  
-}
+.logos {padding: 5% 0 5% 0; background: transparent; text-align: center;}
 
 .logos h2 {
   font-size: 48px;
@@ -753,7 +748,7 @@ nav.scrolled .nav-list a {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(207, 207, 207, 0.4);
   z-index: -1;
 }
 
@@ -835,6 +830,11 @@ nav.scrolled .nav-list a {
     width: 32px;
     height: 32px;
   }
+  .contact-item h1 {
+  font-size: 16px;
+  margin: 0;
+  
+}
 }
 
 

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
@@ -17,6 +18,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
+
 <body>
   <div id="app">
     <v-app>
@@ -114,33 +116,51 @@
             </section>
 
 
-            <!-- solutions -->
-            <section id="solutions" class="solutions">
-            <h2 data-aos="fade-up">{{ solutionsTitle }}</h2>
-            <div class="solutions-container">
-                <div
-                v-for="(solution, index) in solutions"
-                :key="index"
-                class="solutions-card"
+            <!-- solutions --> 
+            <section id="solutions" class="solutions"> 
+            <h2 data-aos="fade-up">{{ solutionsTitle }}</h2> 
+            <div class="solutions-container"> 
+                <div 
+                v-for="(solution, index) in solutions" 
+                :key="index" 
+                class="solutions-card" 
                 data-aos="fade-up"
                 data-aos-delay="100"
-                >
-                <!-- 圖片區 -->
-                <div class="solutions-img">
-                    <img :src="solution.img" :alt="solution.title" />
-                </div>
+                > 
+                <!-- 外層加上 a，判斷有沒有 route -->
+                <a v-if="solution.route" :href="solution.route" class="solutions-link">
+                    <div class="solutions-img"> 
+                    <img :src="solution.img" :alt="solution.title" /> 
+                    </div> 
+                    <div class="solutions-content"> 
+                    <div class="solutions-number">
+                        {{ (index + 1).toString().padStart(2, '0') }}
+                    </div> 
+                    <div class="solutions-title">{{ solution.title }}</div> 
+                    <div class="solutions-subtitle">{{ solution.subtitle }}</div> 
+                    <div class="solutions-text">{{ solution.chinesetext }}</div> 
+                    </div> 
+                </a>
 
-                <!-- 文字區 -->
-                <div class="solutions-content">
-                    <div class="solutions-number">{{ (index + 1).toString().padStart(2, '0') }}</div>
-                    <div class="solutions-title">{{ solution.title }}</div>
-                    <div class="solutions-subtitle">{{ solution.subtitle }}</div>
-                    <div class="solutions-text">{{ solution.englishtext }}</div>
-                    <div class="solutions-text">{{ solution.chinesetext }}</div>
+                <!-- 沒有 route 的就保持原樣 -->
+                <div v-else>
+                    <div class="solutions-img"> 
+                    <img :src="solution.img" :alt="solution.title" /> 
+                    </div> 
+                    <div class="solutions-content"> 
+                    <div class="solutions-number">
+                        {{ (index + 1).toString().padStart(2, '0') }}
+                    </div> 
+                    <div class="solutions-title">{{ solution.title }}</div> 
+                    <div class="solutions-subtitle">{{ solution.subtitle }}</div> 
+                    <div class="solutions-text">{{ solution.chinesetext }}</div> 
+                    </div> 
                 </div>
-                </div>
-            </div>
+                </div> 
+            </div> 
             </section>
+
+
 
 
 
@@ -193,7 +213,7 @@
                     <img :src="contact.mailSrc" :alt="contact.mailAlt" class="icon-mail"/>
                     <div>
                     <h1>{{ contact.emailtitle }}</h1>
-                    <p style="color:rgb(121, 157, 255);">{{ contact.email }}</p>
+                    <p>{{ contact.email }}</p>
                     </div>
                 </div>
 
@@ -201,7 +221,7 @@
                     <img :src="contact.telSrc" :alt="contact.telAlt" class="icon-tel"/>
                     <div>
                     <h1>{{ contact.teltitle }}</h1>
-                    <p style="color:rgb(230, 121, 211);">{{ contact.tel }} , {{ contact.fex }}</p>
+                    <p>{{ contact.tel }} , {{ contact.fex }}</p>
                     </div>
                 </div>
 
@@ -209,7 +229,7 @@
                     <img :src="contact.locationSrc" :alt="contact.locationAlt" class="icon-location"/>
                     <div>
                     <h1>{{ contact.locationtitle }}</h1>
-                    <p style="color:rgb(236, 142, 0)">{{ contact.location }}</p>
+                    <p>{{ contact.location }}</p>
                     </div>
                 </div>
                 </div>

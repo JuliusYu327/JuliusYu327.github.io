@@ -1,5 +1,3 @@
-
-
 const { createApp } = Vue
 const { createVuetify } = Vuetify
 
@@ -12,37 +10,12 @@ const app = createApp({
       hover: null,
       menuActive: false,
       header: { 
-        logoSrc: "../header/kmau-logo-white-color.png", // 初始圖片
+        logoSrc: "../header/kmau-logo.png", // 初始圖片
         logoAlt: "Kmau" ,
-        logoDefault: "../header/kmau-logo-white-color.png",// 預設圖片
-        logoScrolled: "../header/kmau-logo-white-blue.png",// 滑到 About 後要換的圖片
-        
-      
       },
-      isScrolled: false, // 追蹤是否已經滾動過 About 區塊
-
-      menuActive: false,
-      menuItems: [
-      { name: "About", link: "#about" },
-      { name: "Solutions", link: "#solutions" },
-      ],
-      menuItems: [
-        { name: "關於我們", link: "#about" },
-        { name: "服務項目", link: "#solutions" },
-        { name: "聯絡我們", link: "#contact" },
-      ],
-      //--------hero--------//
-      hero: {
-        bg: "../hero-image/hero09-b.png", // 背景圖片路徑
-        companyname: "KAIMAU INFORMATION CO.,LTD",
-        title: "提供企業級 GPU 伺服器與 AI 運算平台",
-        subtitle: '專注於 IT 整合服務與解決方案',
-      },
-
-
       //--------關於我們--------//
       about: { 
-        title:'您可信賴的IT夥伴', 
+        title:'GPU 伺服器與 AI 運算平台', 
         text:`
         凱茂資訊成立於2009年，迄今已成為多家知名軟、硬體大廠之大型客戶承銷商。總部設於台中，服務網絡涵蓋北中南，我們提供IT基礎建設規劃、虛擬化與雲端整合、資訊安全防護、備援備份、端點管理到網路架構與系統為運等完整解決方案，協助客戶在多變的市場環境中穩健成長。
         
@@ -133,63 +106,7 @@ const app = createApp({
         ]
       },
 
-      //--------解決方案--------//
-      solutionsTitle: "九大服務方案 ",
-      solutions: [
-        { title: "GPU 伺服器與 AI 運算平台", 
-          chinesetext: `
-          企業級 GPU 伺服器，採用 NVIDIA H100/H200、L40S 與 RTX 6000 Ada，
-          支援 AI 訓練、推理與高效視覺化。
-          ` ,
-          img: "../solutions-image/A21.jpg",
-        },
 
-        { 
-          title: "企業網路與高可用架構", 
-          chinesetext: `設計雙核心、負載平衡、BGP/OSPF 與 QoS 的企業網路，確保穩定與不中斷營運。` ,
-          img: "../solutions-image/A17.jpg"
-        },
-
-        { 
-          title: "零信任資安與防護", 
-          chinesetext: `導入 MFA、ZTNA/SASE、EDR/XDR 與 DLP，打造零信任資安架構，確保 IT 環境安全。` ,
-          img: "../solutions-image/A16.jpg",
-        },
-
-        { 
-          title: "全快閃儲存與資料管理", 
-          chinesetext: `部署 NVMe All-Flash 儲存，搭配去重、壓縮、快照與異地備援，兼顧效能與安全。` ,
-          img: "../solutions-image/A09.jpg",
-        },
-
-        { 
-          title: "雲端整合與混合雲架構", 
-          chinesetext: `整合 Azure、AWS、GCP 與私有雲，打造彈性可擴充的混合雲環境。` ,
-          img: "../solutions-image/A04.jpg",
-        },
-        { 
-          title: "IT 維運與委外服務", 
-          chinesetext: `年度 / 季度巡檢、主動監控與委外維運，確保 IT 系統持續營運。` ,
-          img: "../solutions-image/A03.jpg",
-        },
-        { 
-          title: "災難復原與營運持續性", 
-          chinesetext: `規劃 RTO/RPO、備份與演練，確保意外事件發生時企業仍能持續營運。`,
-          img: "../solutions-image/A11.jpg",
-        },
-        { 
-          title: "顧問、教育訓練與法規遵循", 
-          chinesetext: `協助導入 ISO 27001/42001 與內部教育訓練，符合國際標準與法規要求。`,
-          img: "../solutions-image/A25.jpg",
-        },
-        { 
-          title: "AI SaaS 平台服務", 
-          chinesetext: `打造專屬 AI SaaS 平台，包括視覺檢測、資安監控與 GPU 雲服務，協助企業建立訂閱制商業模式。`,
-          img: "../solutions-image/A01.jpg",
-        },
-          
-        
-      ],
 
 
 
@@ -231,8 +148,8 @@ const app = createApp({
 
         telSrc: "../icon/tel.png", telAlt: "Phone Icon",
 
-        tel: "T/(04) 2375-8388",
-        fex: "F/(04) 2375-9399",
+        tel: "TEL:(04) 2375-8388",
+        fex: "FAX:(04) 2375-9399",
 
         locationSrc: "../icon/location.png", locationAlt: "Location Icon",
         location: "台中市西區忠明南路270號10樓之4",  
