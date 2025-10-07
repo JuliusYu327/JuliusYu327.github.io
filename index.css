@@ -213,7 +213,7 @@ nav.scrolled .nav-list a {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to bottom, rgba(8, 8, 8, 0.466) 40%, rgba(10, 10, 10, 0) 100%); /* 遮罩顏色可調整 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.466) 40%, rgba(0, 0, 0, 0) 80%); /* 遮罩顏色可調整 */
   z-index: 0;
 }
 /* Hero文字區塊 */
@@ -735,107 +735,106 @@ nav.scrolled .nav-list a {
 }
 
 /* ---------------------------------Contact--------------------------- */
-
 .contact {
-  align-items: center;      /* 水平置中 */
-  padding: 2% 7% 2% 7%;
-  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5% 7%;
+ 
   background-repeat: no-repeat;
-  
+  background-size: cover;
+  color: #000000;
 }
 
-.contact::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(207, 207, 207, 0.4);
-  z-index: -1;
-}
-
-.contact > * {
-  position: relative;
-  z-index: 1;
-}
-
-.icon-title {
-  max-width: 300px;
+.contact-wrapper {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  width: 100%;
+  max-width: 1200px;
 }
 
-/* 左邊聯絡資訊 */
+/* 左邊圖片區 */
 .contact-left {
+  flex: 1;
   display: flex;
   justify-content: center;
-  gap: 50px;
+  align-items: center;
+}
+
+.contact-main-img {
+  width: 100%;
+  max-width: 500px; /* 圖片最大寬度 */
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* 右邊聯絡資訊 */
+.contact-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
   line-height: 1.8;
 }
 
-/* 各 contact 項目 */
+.icon-title {
+  max-width: 250px;
+  margin-bottom: 10px;
+}
+
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 20px;
-  text-align: left;
+  gap: 15px;
 }
 
 .contact-item img {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
 }
 
 .contact-item h1 {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0;
-  
 }
 
 .contact-item p {
-  font-size: 18px;
- 
+  font-size: 16px;
+  margin: 0;
 }
-/* 響應式 */
-@media (max-width: 1280px) {
-  .icon-title {
-    align-items: flex-start;   /* 靠左 */
-    max-width: 300px;
-    margin-bottom: 2%;
-    padding-bottom: 12%;
-  } 
 
+/* 可點擊連結樣式 */
+.contact-link {
+  color: #000000;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.contact-link:hover {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+
+/* 響應式：小螢幕改為直向排列 */
+@media (max-width: 1024px) {
   .contact-wrapper {
-    padding-bottom: 15%;
-    gap: 30px;
+    flex-direction: column;
+    gap: 40px;
   }
 
-  /* 手機版：改為直向排列，但每個項目內保持橫向 */
-  .contact-left {
-    flex-direction: column;   /* 整體直向排列 */
-    align-items: flex-start;  /* 左對齊 */
-    gap: 30px;
-    width: 100%;              /* 占滿容器寬度 */
+  .contact-left,
+  .contact-right {
+    width: 100%;
+    text-align: center;
   }
 
   .contact-item {
-    flex-direction: row;      /* icon + 文字橫向排列 */
-    align-items: center;      /* 垂直置中 */
-    justify-content: flex-start; /* 靠左 */
-    text-align: left;         /* 文字靠左 */
-    width: 100%;
-    gap: 15px;
+    justify-content: center;
   }
+}
 
-  .contact-item img {
-    width: 32px;
-    height: 32px;
-  }
-  .contact-item h1 {
-  font-size: 16px;
-  margin: 0;
-  
-}
-}
+
 
 
 

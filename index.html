@@ -199,43 +199,86 @@
                     </div>
             </section>
  
-    
             <!-- Contact -->
-            <section id="contact" class="contact" :style="{ backgroundImage: 'url(' + contact.background + ')' }">
-            
-            <div class="contact-wrapper">
-                
-                <!-- 左邊：聯絡資訊 -->
-                <div class="contact-left">
-                    <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title"/>
+<section
+  id="contact"
+  class="contact"
+  :style="{ backgroundImage: 'url(' + contact.background + ')' }"
+>
+  <div class="contact-wrapper">
+    
+    <!-- 左邊圖片 -->
+    <div class="contact-left">
+      <img
+        :src="contact.imageSrc"
+        :alt="contact.imageAlt"
+        class="contact-main-img"
+      />
+    </div>
 
-                <div class="contact-item">
-                    <img :src="contact.mailSrc" :alt="contact.mailAlt" class="icon-mail"/>
-                    <div>
-                    <h1>{{ contact.emailtitle }}</h1>
-                    <p>{{ contact.email }}</p>
-                    </div>
-                </div>
+    <!-- 右邊聯絡資訊 -->
+    <div class="contact-right">
+      <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title" />
 
-                <div class="contact-item">
-                    <img :src="contact.telSrc" :alt="contact.telAlt" class="icon-tel"/>
-                    <div>
-                    <h1>{{ contact.teltitle }}</h1>
-                    <p>{{ contact.tel }} , {{ contact.fex }}</p>
-                    </div>
-                </div>
+      <!-- Email -->
+      <div class="contact-item">
+        <img :src="contact.mailSrc" :alt="contact.mailAlt" class="icon-mail" />
+        <div>
+          <h1>{{ contact.emailtitle }}</h1>
+          <p>
+            <a :href="'mailto:' + contact.email" class="contact-link">
+              {{ contact.email }}
+            </a>
+          </p>
+        </div>
+      </div>
 
-                <div class="contact-item">
-                    <img :src="contact.locationSrc" :alt="contact.locationAlt" class="icon-location"/>
-                    <div>
-                    <h1>{{ contact.locationtitle }}</h1>
-                    <p>{{ contact.location }}</p>
-                    </div>
-                </div>
-                </div>
+      <!-- 電話 -->
+      <div class="contact-item">
+        <img :src="contact.telSrc" :alt="contact.telAlt" class="icon-tel" />
+        <div>
+          <h1>{{ contact.teltitle }}</h1>
+          <p>
+            <a :href="'tel:' + contact.tel" class="contact-link">
+              {{ contact.tel }}
+            </a>
+            <span v-if="contact.fex">，
+              <a :href="'tel:' + contact.fex" class="contact-link">
+                {{ contact.fex }}
+              </a>
+            </span>
+          </p>
+        </div>
+      </div>
 
-            </div>
-            </section>
+      <!-- 地址 -->
+      <div class="contact-item">
+        <img
+          :src="contact.locationSrc"
+          :alt="contact.locationAlt"
+          class="icon-location"
+        />
+        <div>
+          <h1>{{ contact.locationtitle }}</h1>
+          <p>
+            <a
+              :href="'https://www.google.com/maps?q=' + encodeURIComponent(contact.location)"
+              target="_blank"
+              rel="noopener"
+              class="contact-link"
+            >
+              {{ contact.location }}
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
 
             <!-- Footer -->
             <footer>
