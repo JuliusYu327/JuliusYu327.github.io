@@ -370,7 +370,7 @@ nav.scrolled .nav-list a {
   }
 
   .about-card {
-    width: 90%; 
+    width: 100%; 
     margin: 0 auto; 
   }
 
@@ -381,7 +381,7 @@ nav.scrolled .nav-list a {
 
   .about-right p {
     font-size: 18px;
-    text-align: center; 
+    text-align: left; 
     margin-top: 5%;
   }
 }
