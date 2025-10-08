@@ -35,6 +35,9 @@ const app = createApp({
       },
 
 
+
+      //--------回到頂端按鈕顯示控制--------//
+      showBackToTop: false,
       //--------關於我們--------//
       about: { 
         title:"您可信賴的IT夥伴", 
@@ -248,23 +251,27 @@ const app = createApp({
       this.menuActive = !this.menuActive;
     },
 
-    // 滑動更換 logo
-    handleScroll() {
-      const aboutSection = document.querySelector('#about');
-      const scrollY = window.scrollY || window.pageYOffset;
+    // 滑動偵測
+handleScroll() {
+  const aboutSection = document.querySelector('#about');
+  const scrollY = window.scrollY || window.pageYOffset;
 
-      if (aboutSection) {
-        const aboutTop = aboutSection.getBoundingClientRect().top + window.scrollY;
+  // 控制 logo
+  if (aboutSection) {
+    const aboutTop = aboutSection.getBoundingClientRect().top + window.scrollY;
 
-        if (scrollY >= aboutTop - 70) { // 滾到 about
-          this.header.logoSrc = this.header.logoScrolled;
-          document.querySelector("nav").classList.add("scrolled"); // 文字顏色變
-        } else {
-          this.header.logoSrc = this.header.logoDefault;
-          document.querySelector("nav").classList.remove("scrolled"); // 還原
-        }
-      }
-    },
+    if (scrollY >= aboutTop - 70) { 
+      this.header.logoSrc = this.header.logoScrolled;
+      document.querySelector("nav").classList.add("scrolled");
+    } else {
+      this.header.logoSrc = this.header.logoDefault;
+      document.querySelector("nav").classList.remove("scrolled");
+    }
+  }
+
+  // 控制回到頂端按鈕
+  this.showBackToTop = scrollY > 300; // 滾動超過 300px 才顯示
+},
     //回到頂部
     scrollToTop() {
     window.scrollTo({

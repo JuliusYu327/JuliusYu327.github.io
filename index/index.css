@@ -273,7 +273,27 @@ nav.scrolled .nav-list a {
 }
 
 
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(59, 160, 255, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1200;
+}
 
+.scroll-top:hover {
+  background: rgba(59, 160, 255, 1);
+  transform: scale(1.1);
+}
 
 
 /* --------------------------------------------About------------------------------------------- */
@@ -770,6 +790,65 @@ nav.scrolled .nav-list a {
   .contact-item {justify-content: left;}
 }
 
+
+
+
+/* -----------back to top button -------------------*/
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background-color: #0055ff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+}
+
+.back-to-top:hover {
+  background-color: #0077ff;
+  transform: scale(1.2);
+}
+
+.back-to-top[v-cloak], .back-to-top[style*="display: none"] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* -----------響應式設定 ----------------*/
+/* 小螢幕手機、平板 */
+@media (max-width: 768px) {
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+/* 更小的手機 */
+@media (max-width: 480px) {
+  .back-to-top {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    bottom: 50px;
+    right: 30px;
+  }
+}
 
 
 

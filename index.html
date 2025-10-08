@@ -6,7 +6,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>凱茂資訊股份有限公司</title>
     <!-- 或使用 PNG -->
-    <link rel="icon" href="favicon/k.png" type="image/png">
+    <link rel="icon" href="image/favicon/k.png" type="image/png">
     <!-- CSS -->
     <link rel="stylesheet" href="index/index.css">
 
@@ -29,9 +29,12 @@
             <!-- Header -->
             <header id="header" class="header custom-header">
             <!-- 左側 Logo -->
-            <div class="logo">
-                <img :src="header.logoSrc" :alt="header.logoAlt" @click="scrollToTop" />
-            </div>
+            <img 
+              :src="header.logoSrc" 
+              :alt="header.logoAlt" 
+              @click="scrollToTop" 
+              style="cursor:pointer;"
+            />
 
             <!-- 漢堡按鈕 -->
             <div class="hamburger" @click="toggleMenu" :class="{ open: menuActive }">
@@ -52,6 +55,7 @@
             </nav>
             </header>
 
+            
 
             <!----------------- Hero --------------------->
             <section class="hero" data-aos="fade-up" data-aos-delay="0">
@@ -201,77 +205,85 @@
             </section>
  
             <!-- Contact -->
-<section
-  id="contact"
-  class="contact"
-  :style="{ backgroundImage: 'url(' + contact.background + ')' }"
->
-  <div class="contact-wrapper">
-    
-    <!-- 左邊圖片 -->
-    <div class="contact-left">
-      <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title" />
-    </div>
-
-    <!-- 右邊聯絡資訊 -->
-    <div class="contact-right">
-      
-      <!-- Email -->
-      <div class="contact-item">
-        <img :src="contact.mailSrc" :alt="contact.mailAlt" class="icon-mail" />
-        <div>
-          <h1>{{ contact.emailtitle }}</h1>
-          <p>
-            <a :href="'mailto:' + contact.email" class="contact-link">
-              {{ contact.email }}
-            </a>
-          </p>
-        </div>
-      </div>
-
-      <!-- 電話 -->
-      <div class="contact-item">
-        <img :src="contact.telSrc" :alt="contact.telAlt" class="icon-tel" />
-        <div>
-          <h1>{{ contact.teltitle }}</h1>
-          <p>
-            <a :href="contact.tel" class="contact-link">
-              {{ contact.tel }}
-            </a>
-            <span v-if="contact.fex">，
-              <a :href="contact.fex" class="contact-link">
-                {{ contact.fex }}
-              </a>
-            </span>
-          </p>
-        </div>
-      </div>
-
-      <!-- 地址 -->
-      <div class="contact-item">
-        <img
-          :src="contact.locationSrc"
-          :alt="contact.locationAlt"
-          class="icon-location"
-        />
-        <div>
-          <h1>{{ contact.locationtitle }}</h1>
-          <p>
-            <a
-              :href="'https://www.google.com/maps?q=' + encodeURIComponent(contact.location)"
-              target="_blank"
-              rel="noopener"
-              class="contact-link"
+            <section
+              id="contact"
+              class="contact"
+              :style="{ backgroundImage: 'url(' + contact.background + ')' }"
             >
-              {{ contact.location }}
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+              <div class="contact-wrapper">
+                
+                <!-- 左邊圖片 -->
+                <div class="contact-left">
+                  <img :src="contact.titleSrc" :alt="contact.titleAlt" class="icon-title" />
+                </div>
 
+                <!-- 右邊聯絡資訊 -->
+                <div class="contact-right">
+                  
+                  <!-- Email -->
+                  <div class="contact-item">
+                    <img :src="contact.mailSrc" :alt="contact.mailAlt" class="icon-mail" />
+                    <div>
+                      <h1>{{ contact.emailtitle }}</h1>
+                      <p>
+                        <a :href="'mailto:' + contact.email" class="contact-link">
+                          {{ contact.email }}
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- 電話 -->
+                  <div class="contact-item">
+                    <img :src="contact.telSrc" :alt="contact.telAlt" class="icon-tel" />
+                    <div>
+                      <h1>{{ contact.teltitle }}</h1>
+                      <p>
+                        <a :href="contact.tel" class="contact-link">
+                          {{ contact.tel }}
+                        </a>
+                        <span v-if="contact.fex">，
+                          <a :href="contact.fex" class="contact-link">
+                            {{ contact.fex }}
+                          </a>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- 地址 -->
+                  <div class="contact-item">
+                    <img
+                      :src="contact.locationSrc"
+                      :alt="contact.locationAlt"
+                      class="icon-location"
+                    />
+                    <div>
+                      <h1>{{ contact.locationtitle }}</h1>
+                      <p>
+                        <a
+                          :href="'https://www.google.com/maps?q=' + encodeURIComponent(contact.location)"
+                          target="_blank"
+                          rel="noopener"
+                          class="contact-link"
+                        >
+                          {{ contact.location }}
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- back to top button -->
+            <button 
+              class="back-to-top"
+              :class="{ show: showBackToTop }"
+              @click="scrollToTop">
+              ▲
+            </button>
 
 
 
