@@ -9,7 +9,7 @@
 }
 
 /* 讓除背景 canvas 以外的內容都顯示在前面 */
-body > :not(#bg-canvas) {position: relative;z-index: 1;}
+body > :not(#bg-canvas) {position: relative;z-index: 1;background-color: black;z-index: 0;}
  /*單間行距 跟 全域字體*/
 body {line-height:1.6; font-family: Arial, Helvetica, sans-serif;background-color: black;}
 /* 滑順滾動 */
