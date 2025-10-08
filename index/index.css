@@ -11,7 +11,7 @@
 /* 讓除背景 canvas 以外的內容都顯示在前面 */
 body > :not(#bg-canvas) {position: relative;z-index: 1;}
  /*單間行距 跟 全域字體*/
-body {line-height:1.6; font-family: Arial, Helvetica, sans-serif;}
+body {line-height:1.6; font-family: Arial, Helvetica, sans-serif;background-color: black;}
 /* 滑順滾動 */
 html { scroll-behavior: smooth; }
 
@@ -109,7 +109,7 @@ nav.scrolled .nav-list a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3% 5%;
+  padding: 3% 0% 3% 5%;
   position: fixed;
   width: 100%;
   height: auto;   /* 可以設一個最小高度 */
