@@ -22,7 +22,7 @@ const app = createApp({
       isScrolled: false, // 追蹤是否已經滾動過 About 區塊
       menuActive: false,
       menuItems: [
-        { name: "關於我們", link: "about.html" },
+        { name: "關於我們", link: "#about" },
         { name: "服務項目", link: "#solutions" },
         { name: "聯絡我們", link: "#contact" },
       ],
