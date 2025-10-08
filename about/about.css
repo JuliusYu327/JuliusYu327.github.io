@@ -1,0 +1,397 @@
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-color: #ffffff;
+}
+
+/* 讓除背景 canvas 以外的內容都顯示在前面 */
+body > :not(#bg-canvas) {position: relative;z-index: 1;}
+ /*單間行距 跟 全域字體*/
+body {line-height:1.6; font-family: Arial, Helvetica, sans-serif;}
+/* 滑順滾動 */
+html { scroll-behavior: smooth; }
+
+/* ---------------------------------全局卡片樣式---------------------------------- */
+.v-card {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
+
+
+
+
+/*---------------------------------- Header------------------------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5% 10%  1% 10%;
+  position: fixed;
+  width: 100%;
+  background:rgba(14, 14, 14, 0.98);
+  z-index: 1000;
+}
+
+header img {
+  height: 50px;
+}
+
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2px;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1100;
+  margin-right: 20px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #3ba0ff;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  transform-origin: center;
+}
+
+nav {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none  ;
+  margin: 0;
+  padding: 0;
+
+}
+
+.nav-list li {
+  margin-left: 40px;
+}
+
+.nav-list a {
+  font-size: 18px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: 6px 12px; /* 給點空間讓底色看起來舒適 */
+  border-radius: 6px; /* 可選，讓底色圓角 */
+}
+
+/* ------------header rwd----- */
+@media (max-width: 768px) {
+  header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3% 5%;
+  position: fixed;
+  width: 100%;
+  height: auto;   /* 可以設一個最小高度 */
+  z-index: 1000;
+  background:linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 1) 100%);
+  }
+
+ header img {
+  width: auto;
+  max-width: 140px;
+  height: auto;
+}
+  .hamburger {display: flex;}
+
+
+  /* 漢堡打開變叉叉 */
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(9px);
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-9px);
+  }
+  body.nav-open {
+    overflow: hidden;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(63, 63, 63, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 50px;
+    transition: right 0.4s ease;
+    z-index: 1050;
+  }
+
+  nav.active {
+    right: 0; /* 展開時滑入 */
+  }
+
+  .nav-list {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .nav-list li {
+    margin: 20px 0;
+  }
+  .nav-list a {
+    font-size: 24px;
+  }
+  .hamburger span {
+    height: 4px;  /* 漢堡線粗細 */
+  }
+}
+
+
+
+
+/* --------------------------------------------About------------------------------------------- */
+
+.about {
+    padding: 10% 10%;
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(0, 0, 0) 10%);
+    min-height: 100vh;    /* 讓 Hero 區塊至少佔滿一個螢幕高度 */
+}
+
+.about-section {
+    gap: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+    align-items: center; /* 垂直置中 */
+}
+
+.about-card {
+    background-color: transparent;
+    width: 100%;
+    white-space: pre-line;
+}
+
+
+
+.about-left h2 {
+    font-size: clamp(28px, 3vw, 32px);
+    margin: 0;
+    text-align: left; /* 桌面版靠左 */
+    background: linear-gradient(45deg, #000000, #797979);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* 右側文字 */
+.about-right p {
+    font-size: clamp(14px, 2.2vw, 18px);
+    line-height: 1.8;
+    color: #000000;
+    text-align: left; /* 桌面版靠左 */
+}
+
+/* ---------about rwd------------- */
+@media screen and (max-width: 768px) {
+    .about {padding: 25% 0% 10% 0%;text-align: center;}
+    .about-section {grid-template-columns: 1fr;justify-items: center;text-align: center;}
+    .about-left .about-card {display: block;text-align: center;}
+    .about-left h2 {margin: 0 auto;text-align: center;font-size: 28px;}
+    .about-right {text-align: center;margin: 0 auto;}
+    .about-right p {text-align: left;font-size: 16px;}
+}
+
+
+
+
+
+
+/* -----------------------------------------Contact----------------------------------------- */
+.contact {
+  display: flex;
+  justify-content: center;
+  padding: 5% 7% 5% 7%  ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #ffffff;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.contact-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.contact-main-img {
+  width: 100%; 
+  border-radius: 12px;
+}
+
+.contact-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  line-height: 1.8;
+}
+
+.icon-title {
+  max-width: 250px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contact-item img {
+  width: 36px;
+  height: 36px;
+}
+
+.contact-item h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.contact-item p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* 可點擊連結 */
+.contact-link {
+  color: #000000;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.contact-link:hover {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+
+/* -----------contact rwd -------------------*/
+@media (max-width: 1024px) {
+  .contact{padding-bottom: 20%;}
+  .contact-wrapper {flex-direction: column;gap: 40px;align-items: flex-start;}
+  .contact-left {justify-content: flex-start;align-items: flex-start;}
+  .contact-right {width: 100%;text-align: left;}
+  .contact-item {justify-content: left;}
+}
+
+
+
+
+/* -----------back to top button -------------------*/
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background-color: #0055ff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+}
+
+.back-to-top:hover {
+  background-color: #0b7dff;
+  transform: scale(1.2);
+}
+
+.back-to-top[v-cloak], .back-to-top[style*="display: none"] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ----------- ----------------*/
+/* 小螢幕手機、平板 */
+@media (max-width: 768px) {
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+
+
+
+
+
+/* ----------------------------------------Footer ------------------------------*/
+footer { 
+  position: relative;
+  text-align:center; 
+  padding:1% 0% 1% 0%; 
+  font-size: large;
+  
+  background:rgb(0, 0, 0); 
+  color:#ffffff; 
+}
+
+
+
+
+
+/*---------------------------------------- AOS 特效 -----------------------------------*/
+[data-aos] {
+  opacity: 0;
+  transform: translateY(50px);
+  transition-property: opacity, transform;
+  transition-duration: 0.6s;
+  transition-timing-function: ease-in-out;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;   
+  transform: translateY(0);
+}
