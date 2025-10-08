@@ -5,6 +5,7 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
+  background-color: #000000;
 }
 
 /* 讓除背景 canvas 以外的內容都顯示在前面 */
@@ -827,7 +828,7 @@ nav.scrolled .nav-list a {
   visibility: visible;
 }
 
-/* -----------響應式設定 ----------------*/
+/* ----------- ----------------*/
 /* 小螢幕手機、平板 */
 @media (max-width: 768px) {
   .back-to-top {
@@ -836,17 +837,6 @@ nav.scrolled .nav-list a {
     font-size: 20px;
     bottom: 20px;
     right: 20px;
-  }
-}
-
-/* 更小的手機 */
-@media (max-width: 480px) {
-  .back-to-top {
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-    bottom: 50px;
-    right: 30px;
   }
 }
 

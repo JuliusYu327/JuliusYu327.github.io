@@ -255,6 +255,8 @@ const app = createApp({
 handleScroll() {
   const aboutSection = document.querySelector('#about');
   const scrollY = window.scrollY || window.pageYOffset;
+    // 控制回到頂端按鈕
+  this.showBackToTop = scrollY > 100; // 滾動超過 300px 才顯示
 
   // 控制 logo
   if (aboutSection) {
@@ -269,8 +271,7 @@ handleScroll() {
     }
   }
 
-  // 控制回到頂端按鈕
-  this.showBackToTop = scrollY > 300; // 滾動超過 300px 才顯示
+
 },
     //回到頂部
     scrollToTop() {
