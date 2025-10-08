@@ -1,37 +1,31 @@
 #bg-canvas {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
- 
+  inset: 0;
   z-index: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
 }
-body > *:not(#bg-canvas) {
-  position: relative;
-  z-index: 1;
-}
 
-body {
-  font-family: "Microsoft JhengHei", 
-  sans-serif;
-  margin:0; 
-  padding:0; 
-  line-height:1.6; 
-  color:#2b2b2b;
-  font-family: Arial, Helvetica, sans-serif; /*全域字體樣式*/
-  background: #000000; /*全域背景顏色*/
-  scroll-behavior: smooth;
-}
+/* 讓除背景 canvas 以外的內容都顯示在前面 */
+body > :not(#bg-canvas) {position: relative;z-index: 1;}
+ /*單間行距 跟 全域字體*/
+body {line-height:1.6; font-family: Arial, Helvetica, sans-serif;}
+/* 滑順滾動 */
 html { scroll-behavior: smooth; }
 
-/* ---------------------------------全局卡片樣式------------------------ */
+/* ---------------------------------全局卡片樣式---------------------------------- */
 .v-card {
-  background: transparent !important;
+  background-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
 }
 
-/*---------------------------------- Header---------------------------- */
+
+
+
+
+/*---------------------------------- Header------------------------------------- */
 header {
   display: flex;
   justify-content: space-between;
@@ -41,7 +35,6 @@ header {
   width: 100%;
   background:rgba(14, 14, 14, 0.98);
   z-index: 1000;
-  /* border-radius: 0 0 30px 30px; 左下與右下圓角 */
 }
 
 header img {
@@ -50,16 +43,16 @@ header img {
 
 
 .hamburger {
-  display: none;              /* 這樣就不會消失 */
+  display: none;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;    /* 線條靠左，不會黏右邊 */
-  gap: 2px;                   /* 每條之間的間隔 */
-  width: 30px;                /* 漢堡按鈕的寬度 */
-  height: 22px;               /* 漢堡按鈕的高度 */
+  align-items: flex-start;
+  gap: 2px;
+  width: 30px;
+  height: 22px;
   cursor: pointer;
   z-index: 1100;
-  margin-right: 20px;         /* 與右邊邊界留空間 */
+  margin-right: 20px;
 }
 
 .hamburger span {
@@ -107,30 +100,30 @@ nav.scrolled .nav-list a {
   color: #27a9ff; /* 捲動後顏色 */
 }
 
-/* 響應 */
+
+/* ------------header rwd----- */
 @media (max-width: 768px) {
   header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1% 5% 1% 5%;
+  padding: 3% 5%;
   position: fixed;
   width: 100%;
-  height: 60px;   /* 可以設一個最小高度 */
+  height: auto;   /* 可以設一個最小高度 */
   z-index: 1000;
-  background:linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(252, 252, 252, ) 100%);/* About 區塊漸層 */
+  background:linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 1) 100%);
   }
 
-  header img {
+ header img {
+  width: auto;
+  max-width: 140px;
   height: auto;
-  width: 40%;
-  }
+}
+  .hamburger {display: flex;}
 
-  .hamburger {
-    display: flex;
-  }
 
-  /* 漢堡打開時變叉叉 */
+  /* 漢堡打開變叉叉 */
   .hamburger.open span:nth-child(1) {
     transform: rotate(45deg) translateY(9px);
   }
@@ -142,7 +135,9 @@ nav.scrolled .nav-list a {
   .hamburger.open span:nth-child(3) {
     transform: rotate(-45deg) translateY(-9px);
   }
-
+  body.nav-open {
+    overflow: hidden;
+  }
   nav {
     position: fixed;
     top: 0;
@@ -174,9 +169,11 @@ nav.scrolled .nav-list a {
     font-size: 24px;
   }
   .hamburger span {
-    height: 4px;  /* 漢堡線變粗 */
+    height: 4px;  /* 漢堡線粗細 */
   }
 }
+
+
 
 
 
@@ -193,9 +190,6 @@ nav.scrolled .nav-list a {
     padding: 0 5%;        /* 小螢幕留一些內距 */
     box-sizing: border-box;
     border: 0px ;
-    border-radius: 0 0 100px 100px; /* 左下與右下圓角 */
-
-    
 } 
 .hero-bg {
   position: absolute;
@@ -213,12 +207,13 @@ nav.scrolled .nav-list a {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.466) 40%, rgba(0, 0, 0, 0) 80%); /* 遮罩顏色可調整 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.466) 40%, rgba(0, 0, 0, 0) 80%);
   z-index: 0;
 }
+
+
+
 /* Hero文字區塊 */
-
-
 .hero-text {
     display: flex;
     flex-direction: column; /* 讓 h1 和 p 上下排列 */
@@ -227,7 +222,7 @@ nav.scrolled .nav-list a {
 }
 /* Hero文字區塊第一行英文 */
 .hero-text h1 {
-  font-size: 52px;       /* 調整標題大小 */
+  font-size: 52px;      
   font-weight: bold;
   margin: 0;
   justify-content: center;
@@ -235,22 +230,22 @@ nav.scrolled .nav-list a {
 }
 /* Hero文字區塊第二行 */
 .hero-text h2 {
-  font-size: 46px;       /* 調整字體大小 */
-  font-weight: normal;  /* h2粗體調整normal 或 bold */
+  font-size: 46px;       
+  font-weight: normal;
   margin: 10px 0;
 }
 /* Hero文字區塊第三行有橫線的小標題 */
 .hero-subtitle {
-  display: flex;           /* 讓 hr 和文字同一行 */
-  align-items: center;     /* 垂直置中 */
-  justify-content: center; /* 水平置中 */
-  gap: 10px;               /* 線與文字間距 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 /* Hero文字區塊第三行的橫線*/
 .hero-subtitle .line {
-  width: 80px;             /* 線長度 */
-  height: 2px;             /* 線粗細 */
-  background-color: #ffffff;  /* 線顏色 */
+  width: 80px;
+  height: 2px;
+  background-color: #ffffff;
   border: none;            /* 去掉預設邊框 */
 }
 /* Hero文字區塊第三行的小標題文字 */
@@ -258,48 +253,30 @@ nav.scrolled .nav-list a {
   display: inline-block;
   line-height: 1;          /* 與線高度一致 */
   vertical-align: middle;  /* 垂直置中 */
-  font-size: 32px;         /* 字體大小 */
+  font-size: 32px;
 }
-/* ----------------- hero響應式 ------------------- */
-
-
+/* ----------- hero rwd ------------- */
 @media (max-width: 768px) {
-  .hero {
-    border-radius: 0 0 50px 50px; /* 左下與右下圓角 */
-  }
-  .hero-bg {
-    border-radius: 0 0 50px 50px;
-  }
-  .hero-text h1 {
-    font-size: 24px;
-  }
-  .hero-text h2 {
-    font-size: 20px;
-  }
-  .hero-subtitle span {
-    font-size: 18px;
-  }
-  .hero-subtitle .line {
-    width: 32px;
-  }
+  .hero {border-radius: 0 0 50px 50px;}
+  .hero-bg {border-radius: 0 0 50px 50px;}
+  .hero-text h1 {font-size: 24px;}
+  .hero-text h2 {font-size: 20px;}
+  .hero-subtitle span {font-size: 18px;}
+  .hero-subtitle .line {width: 32px;}
 }
 
 @media (max-width: 480px) {
-  .hero-text h1 {
-    font-size: 20px;
-  }
-  .hero-text h2 {
-    font-size: 20px;
-  }
-  .hero-subtitle span {
-    font-size: 18px;
-  }
-  .hero-subtitle .line {
-    width: 28px;
-  }
+  .hero-text h1 {font-size: 20px;}
+  .hero-text h2 {font-size: 20px;}
+  .hero-subtitle span {font-size: 18px;}
+  .hero-subtitle .line {width: 28px;}
 }
 
-/* -------------------------------About-------------------------------- */
+
+
+
+
+/* --------------------------------------------About------------------------------------------- */
 
 .about {
     padding: 10% 0;
@@ -348,49 +325,21 @@ nav.scrolled .nav-list a {
     text-align: left; /* 桌面版靠左 */
 }
 
-/* ----------------響應式: 小螢幕 ---------------- */
+/* ---------about rwd------------- */
 @media screen and (max-width: 768px) {
-    .about {
-        padding: 25% 0% 10% 0%;
-        text-align: center;
-    }
-
-    .about-section {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-    }
-
-    /* 左側標題改為置中 */
-    .about-left .about-card {
-        display: block;
-        text-align: center;
-    }
-
-    .about-left h2 {
-        margin: 0 auto;
-        text-align: center;
-        font-size: 28px;
-        
-    }
-        /* 右側文字改為置中 */
-    .about-right {
-        text-align: center;  /* 容器置中 */
-        margin: 0 auto;      /* 讓區塊居中 */
-    }
-
-    /* 右側文字改為置中 */
-    .about-right p {
-        text-align: left;
-        font-size: 16px;
-        
-    }
+    .about {padding: 25% 0% 10% 0%;text-align: center;}
+    .about-section {grid-template-columns: 1fr;justify-items: center;text-align: center;}
+    .about-left .about-card {display: block;text-align: center;}
+    .about-left h2 {margin: 0 auto;text-align: center;font-size: 28px;}
+    .about-right {text-align: center;margin: 0 auto;}
+    .about-right p {text-align: left;font-size: 16px;}
 }
 
 
 
 
-/* -------------------------------pain--------------------------------- */
+
+/* --------------------------------------------pain------------------------------------------- */
 .pain-points {
   display: flex;
   justify-content: center;
@@ -413,7 +362,7 @@ nav.scrolled .nav-list a {
 }
 
 .pain-points-column h2 {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
@@ -472,7 +421,7 @@ nav.scrolled .nav-list a {
   font-size: 14px;
 }
 
-/* 響應式 */
+/* ---------pain rwd----------- */
 @media (max-width: 768px) {
   .pain-points .container {
     flex-direction: column;
@@ -496,11 +445,16 @@ nav.scrolled .nav-list a {
   .pain-points-column h3 {
     text-align: center;
   }
+  .pain-point-text p {
+  margin: 4px 0 0;
+  color: #363636;
+  font-size: 14px;
+}
 }
 
 
 
-/* -------------------------------Solutions---------------------------- */
+/* -----------------------------------------Solutions------------------------------------ */
 .solutions {
   
     background:linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(179, 205, 235, 0.95) 70%);/* Solutions 區塊漸層 */
@@ -613,10 +567,11 @@ nav.scrolled .nav-list a {
   color: #333;
   padding: 0% 5% 0% 5%;
 }
+/* -------------solutions rwd ------------------*/
 @media screen and (max-width: 768px){
   .solutions {
     padding: 20% 5% 10% 5%;
-    border-radius: 0 0 20px 20px; /* 左下與右下圓角 */
+    border-radius: 0 0 20px 20px;
   }
   .solutions h2 {
   text-align: center;
@@ -625,26 +580,16 @@ nav.scrolled .nav-list a {
   font-weight: bold;
   letter-spacing: 2px;
   padding-bottom: 5%;
+}
+}
 
-}
-}
+
+
 
 
 /*-------------------------------------map-------------------------------*/
-.map-section {
-  padding: 60px 20px;
-  text-align: center;
- 
-  
-}
-
-.map-section h2 {
-  font-size: 36px;
-  margin-bottom: 40px;
-  color: #222;
-  
-}
-
+.map-section {padding: 60px 20px;text-align: center;}
+.map-section h2 {font-size: 36px;margin-bottom: 40px;color: #222;}
 .map-wrapper {
   width: 100%;
   max-width: 1200px;
@@ -660,7 +605,7 @@ nav.scrolled .nav-list a {
   border: 0;
   position: relative;
 }
-
+/* -----------map rwd ---------------*/
 @media (max-width: 768px) {
   .map-wrapper iframe {
     height: 300px;
@@ -668,14 +613,14 @@ nav.scrolled .nav-list a {
 }
 
 
-/* -------------------------------------Partners ---------------------- */
-.logos {padding: 5% 0 5% 0; background: transparent; text-align: center;}
 
+
+
+/* -------------------------------------Partners -------------------------------- */
+.logos {padding: 5% 0 5% 0; background: transparent; text-align: center;}
 .logos h2 {
   font-size: 48px;
-  
   margin-bottom: 20px;
-  /* 漸層 */
   background: linear-gradient(90deg, #fda2da, #ffffff); /* 漸層色 */
 
 }
@@ -686,7 +631,7 @@ nav.scrolled .nav-list a {
   white-space: nowrap;
   box-sizing: border-box;
   width: 100%;
-  background: transparent; /* 你可以換成透明或其他顏色 */
+  background: transparent;
 }
 
 .logo-track {
@@ -694,32 +639,23 @@ nav.scrolled .nav-list a {
   flex-wrap: nowrap;
   gap: 40px;
   width: max-content; /* 寬度自動擴展 */
-  animation: marquee 60s linear infinite; /* 可調整速度 */
-  
+  animation: marquee 60s linear infinite; /* 調整跑馬燈速度 */
 }
 
-.logo-marquee:hover .logo-track {
-  animation-play-state: paused; /* 滑鼠停在區塊上暫停 */
-}
-
+.logo-marquee:hover .logo-track {animation-play-state: paused;} /* 滑鼠停在區塊上暫停 */
 .logo-box {
   flex: 0 0 auto;
-  width: 200px;   /* logo格子寬度 */
-  height: 150px;  /* logo格子高度 */
+  width: 200px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
   border-radius: 10px;
-  overflow: hidden; /* 超出格子部分隱藏 */
+  overflow: hidden;
 }
 
-.logo-box img {
-  max-width: 100%;   /* 寬度不能超過格子 */
-  max-height: 100%;  /* 高度不能超過格子 */
-  object-fit: contain; /* 保持比例，不變形 */
-  display: block;
-}
+.logo-box img {max-width: 100%;max-height: 100%;object-fit: contain;display: block;}
 
 /* 無縫滑動動畫 */
 @keyframes marquee {
@@ -731,7 +667,7 @@ nav.scrolled .nav-list a {
   }
 }
 
-/* 響應式調整 */
+/* ----------------Partners rwd-------------- */
 @media (max-width: 768px) {
   .logo-box {
     width: 120px;
@@ -743,7 +679,11 @@ nav.scrolled .nav-list a {
   }
 }
 
-/* ---------------------------------Contact--------------------------- */
+
+
+
+
+/* -----------------------------------------Contact----------------------------------------- */
 .contact {
   display: flex;
   justify-content: center;
@@ -764,21 +704,19 @@ nav.scrolled .nav-list a {
   max-width: 1200px;
 }
 
-/* 左邊圖片區 */
 .contact-left {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .contact-main-img {
-  width: 100%;
-  max-width: 700px; /* 圖片最大寬度 */
+  width: 100%; 
   border-radius: 12px;
 }
 
-/* 右邊聯絡資訊 */
 .contact-right {
   flex: 1;
   display: flex;
@@ -789,7 +727,6 @@ nav.scrolled .nav-list a {
 
 .icon-title {
   max-width: 250px;
-  margin-bottom: 10px;
 }
 
 .contact-item {
@@ -813,7 +750,7 @@ nav.scrolled .nav-list a {
   margin: 0;
 }
 
-/* 可點擊連結樣式 */
+/* 可點擊連結 */
 .contact-link {
   color: #000000;
   text-decoration: none;
@@ -824,31 +761,13 @@ nav.scrolled .nav-list a {
   text-decoration: underline;
 }
 
-/* 響應式：小螢幕改為直向排列 */
+/* -----------contact rwd -------------------*/
 @media (max-width: 1024px) {
-  .contact{
-    padding-bottom: 20%;
-  }
-  .contact-wrapper {
-    flex-direction: column;
-    gap: 40px;
-    align-items: flex-start; /* 整體靠左 */
-  }
-
-  .contact-left {
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-
-  .contact-right {
-    width: 100%;
-    text-align: left;
-  }
-  
-
-  .contact-item {
-    justify-content: left;
-  }
+  .contact{padding-bottom: 20%;}
+  .contact-wrapper {flex-direction: column;gap: 40px;align-items: flex-start;}
+  .contact-left {justify-content: flex-start;align-items: flex-start;}
+  .contact-right {width: 100%;text-align: left;}
+  .contact-item {justify-content: left;}
 }
 
 
@@ -868,7 +787,11 @@ footer {
   color:#ffffff; 
 }
 
-/* AOS 特效 */
+
+
+
+
+/*---------------------------------------- AOS 特效 -----------------------------------*/
 [data-aos] {
   opacity: 0;
   transform: translateY(50px);
