@@ -229,8 +229,8 @@ const app = createApp({
 
         telSrc: "image/icon/tel.png", telAlt: "Phone Icon",
 
-        tel: "Tel:04 2375-8388",
-        fex: "Fax:04 2375-9399",
+        tel: "Tel:04 2375 8388",
+        fex: "Fax:04 2375 9399",
 
         locationSrc: "image/icon/location.png", locationAlt: "Location Icon",
         location: "台中市西區忠明南路270號10樓之4",  
