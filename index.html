@@ -1,171 +1,36 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sinwei Yu 的資訊技術與資安專案作品集。" />
-  <meta name="theme-color" content="#09111f" />
-  <title>Sinwei Yu｜資訊技術專案作品集</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Sinwei Yu 的資訊技術與資安個人網站">
+  <title>Sinwei Yu｜資訊技術與資安</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <header class="nav-wrap">
-    <nav class="nav shell" aria-label="主要導覽">
-      <a class="brand" href="#top" aria-label="回到首頁"><span>SY</span> / PORTFOLIO</a>
-      <div class="nav-links">
-        <a href="#projects">專案</a>
-        <a href="#skills">技能</a>
-        <a href="#about">關於我</a>
-      </div>
-    </nav>
-  </header>
-
-  <main id="top">
-    <section class="hero shell">
-      <div class="hero-copy reveal">
+  <header class="nav-wrap"><nav class="nav shell">
+    <a class="brand" href="./"><span>SY</span> / WEB</a>
+    <div class="nav-links"><a href="projects/">專案</a><a href="skills/">技術</a><a href="notes/">筆記</a><a href="about/">About</a></div>
+  </nav></header>
+  <main>
+    <section class="hero shell root-hero">
+      <div class="hero-copy">
         <p class="eyebrow"><span class="status-dot"></span> INFORMATION TECHNOLOGY · CYBERSECURITY</p>
-        <h1>把複雜的<br /><em>資訊系統</em><br />整理成可落地的方案。</h1>
-        <p class="intro">我是 Sinwei Yu，專注於網路安全、基礎架構與系統整合。從需求釐清、架構規劃，到現場部署與問題排除，讓技術真正支援使用情境。</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#projects">查看專案經驗 <span>↘</span></a>
-          <a class="button ghost" href="#about">認識我</a>
-        </div>
-      </div>
-      <aside class="hero-panel reveal" aria-label="專業領域摘要">
-        <div class="panel-top"><span>SYSTEM OVERVIEW</span><span>2026</span></div>
-        <div class="radar" aria-hidden="true">
-          <span class="orbit one"></span><span class="orbit two"></span><span class="orbit three"></span>
-          <span class="radar-line"></span><span class="radar-core">SY</span>
-        </div>
-        <div class="metrics">
-          <div><strong>06+</strong><span>核心專案</span></div>
-          <div><strong>05</strong><span>技術領域</span></div>
-          <div><strong>01</strong><span>整合思維</span></div>
-        </div>
-      </aside>
-    </section>
-
-    <section id="projects" class="section shell">
-      <div class="section-heading reveal">
-        <div><p class="section-index">01 / SELECTED WORK</p><h2>專案經驗</h2></div>
-        <p>聚焦在實際問題、執行內容與技術成果。</p>
-      </div>
-
-      <div class="filters reveal" role="group" aria-label="依技術領域篩選">
-        <button class="filter active" data-filter="all">全部</button>
-        <button class="filter" data-filter="security">網路資安</button>
-        <button class="filter" data-filter="system">系統平台</button>
-        <button class="filter" data-filter="solution">方案規劃</button>
-      </div>
-
-      <div class="project-grid">
-        <article class="project-card feature reveal" data-category="security">
-          <div class="project-number">01</div>
-          <div class="project-content">
-            <div class="project-meta"><span>NETWORK SECURITY</span><span>FortiGate 91G</span></div>
-            <h3>企業防火牆移轉與 FortiLink 整合</h3>
-            <p>將舊防火牆的網路介面、物件、Policy 與 FortiLink 設定手動移轉至新設備，並針對 FortiSwitch 註冊與授權異常進行診斷。</p>
-            <ul class="tags"><li>Firewall Migration</li><li>FortiLink</li><li>FortiSwitch</li><li>Troubleshooting</li></ul>
-          </div>
-          <button class="project-open" aria-label="查看企業防火牆移轉專案詳情" data-project="firewall">↗</button>
-        </article>
-
-        <article class="project-card reveal" data-category="security">
-          <div class="project-number">02</div>
-          <div class="project-content">
-            <div class="project-meta"><span>WIRELESS</span><span>FortiAP</span></div>
-            <h3>企業無線網路漫遊優化</h3>
-            <p>分析用戶端斷線與 Deauthentication 紀錄，調整 802.11v、Sticky Client Removal 與頻道配置，改善裝置黏著遠端 AP 的狀況。</p>
-            <ul class="tags"><li>802.11v</li><li>Roaming</li><li>Log Analysis</li></ul>
-          </div>
-          <button class="project-open" aria-label="查看無線網路漫遊專案詳情" data-project="wifi">↗</button>
-        </article>
-
-        <article class="project-card reveal" data-category="system">
-          <div class="project-number">03</div>
-          <div class="project-content">
-            <div class="project-meta"><span>VIRTUALIZATION</span><span>Proxmox VE</span></div>
-            <h3>伺服器虛擬化平台部署</h3>
-            <p>透過 BMC Remote Console 與虛擬媒體完成 PVE 安裝規劃，處理 ISO 掛載、開機模式、KVM 虛擬化與 Linux Boot Manager 問題。</p>
-            <ul class="tags"><li>Proxmox VE</li><li>KVM</li><li>BMC</li></ul>
-          </div>
-          <button class="project-open" aria-label="查看虛擬化平台專案詳情" data-project="pve">↗</button>
-        </article>
-
-        <article class="project-card reveal" data-category="solution">
-          <div class="project-number">04</div>
-          <div class="project-content">
-            <div class="project-meta"><span>STORAGE</span><span>Dell PowerVault ME5024</span></div>
-            <h3>SAN 儲存架構規劃</h3>
-            <p>依客戶容量、效能與可用性需求，規劃雙控制器 SAN Storage、主機連線、交換器與多路徑架構，並製作提案簡報。</p>
-            <ul class="tags"><li>SAN</li><li>High Availability</li><li>ME5024</li></ul>
-          </div>
-          <button class="project-open" aria-label="查看 SAN 架構專案詳情" data-project="san">↗</button>
-        </article>
-
-        <article class="project-card reveal" data-category="solution">
-          <div class="project-number">05</div>
-          <div class="project-content">
-            <div class="project-meta"><span>SURVEILLANCE</span><span>CCTV</span></div>
-            <h3>CCTV 與 VMS 解決方案設計</h3>
-            <p>比較 DVR、NVR、NAS + VMS 架構，針對電子廠碼頭長期保存與 AI 辨識情境，整理通道、容量、授權與擴充性規劃。</p>
-            <ul class="tags"><li>VMS</li><li>NVR</li><li>Retention</li><li>AI Analytics</li></ul>
-          </div>
-          <button class="project-open" aria-label="查看 CCTV 方案專案詳情" data-project="cctv">↗</button>
-        </article>
-
-        <article class="project-card reveal" data-category="security">
-          <div class="project-number">06</div>
-          <div class="project-content">
-            <div class="project-meta"><span>SECURITY POLICY</span><span>FortiGate</span></div>
-            <h3>企業上網政策與連線問題排除</h3>
-            <p>檢視 Web Filter 與防火牆政策，追查 iCloud Private Relay、mask-api.icloud.com 等服務造成的阻擋現象，提出符合使用情境的調整方式。</p>
-            <ul class="tags"><li>Web Filter</li><li>Policy</li><li>DNS</li></ul>
-          </div>
-          <button class="project-open" aria-label="查看上網政策專案詳情" data-project="policy">↗</button>
-        </article>
+        <h1>把複雜的<br><em>資訊系統</em><br>整理成可落地的方案。</h1>
+        <p class="intro">我是 Sinwei Yu。網站內容依照用途分開存放，專案、技術、筆記與個人介紹都有自己的資料夾與頁面。</p>
       </div>
     </section>
-
-    <section id="skills" class="section skills-section">
-      <div class="shell">
-        <div class="section-heading light reveal">
-          <div><p class="section-index">02 / CAPABILITIES</p><h2>技術能力</h2></div>
-          <p>從網路層、系統層到提案溝通，形成完整的執行能力。</p>
-        </div>
-        <div class="skill-grid">
-          <div class="skill-column reveal"><span class="skill-no">A</span><h3>網路與資安</h3><p>FortiGate · FortiSwitch · FortiAP<br />Firewall Policy · VLAN · FortiLink<br />Wireless Roaming · Log Analysis</p></div>
-          <div class="skill-column reveal"><span class="skill-no">B</span><h3>系統與虛擬化</h3><p>Proxmox VE · KVM · Linux<br />BMC Remote Management<br />Windows Server · Troubleshooting</p></div>
-          <div class="skill-column reveal"><span class="skill-no">C</span><h3>儲存與解決方案</h3><p>SAN · NAS · Dell PowerVault<br />CCTV · NVR · VMS<br />需求訪談 · 架構規劃 · 簡報製作</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section shell about">
-      <div class="about-mark reveal">SY</div>
-      <div class="about-copy reveal">
-        <p class="section-index">03 / ABOUT</p>
-        <h2>技術不只要能運作，<br />也要能被理解與維護。</h2>
-        <p>我的工作橫跨企業網路、資訊安全、伺服器與儲存設備。面對問題時，我會先還原現況、確認影響範圍，再透過設定與紀錄逐步定位原因；在方案規劃上，則將技術差異轉換成客戶能理解的架構與選擇。</p>
+    <section class="section shell">
+      <div class="section-heading"><div><p class="section-index">WEB / ROOT</p><h2>網站目錄</h2></div><p>選擇資料夾查看對應內容。</p></div>
+      <div class="folder-grid">
+        <a class="folder-card" href="projects/"><span class="folder-icon"></span><small>01 / PROJECTS</small><h3>專案</h3><p>建置、移轉、規劃與問題排除經驗。</p></a>
+        <a class="folder-card" href="skills/"><span class="folder-icon"></span><small>02 / SKILLS</small><h3>技術</h3><p>網路、資安、虛擬化與儲存能力。</p></a>
+        <a class="folder-card" href="notes/"><span class="folder-icon"></span><small>03 / NOTES</small><h3>筆記</h3><p>技術觀念、指令與排錯紀錄。</p></a>
+        <a class="folder-card" href="about/"><span class="folder-icon"></span><small>04 / ABOUT</small><h3>About</h3><p>工作方式、方向與個人介紹。</p></a>
       </div>
     </section>
   </main>
-
-  <footer>
-    <div class="shell footer-inner"><span>© <span id="year"></span> SINWEI YU</span><span>IT · SECURITY · INFRASTRUCTURE</span></div>
-  </footer>
-
-  <dialog class="project-dialog" id="projectDialog" aria-labelledby="dialogTitle">
-    <button class="dialog-close" aria-label="關閉">×</button>
-    <p class="dialog-kicker" id="dialogKicker"></p>
-    <h2 id="dialogTitle"></h2>
-    <div class="dialog-body" id="dialogBody"></div>
-  </dialog>
-
+  <footer><div class="shell footer-inner"><span>© <span id="year"></span> SINWEI YU</span><span>IT · SECURITY · INFRASTRUCTURE</span></div></footer>
   <script src="script.js"></script>
 </body>
 </html>
