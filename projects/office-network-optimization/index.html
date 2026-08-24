@@ -18,7 +18,7 @@
       <p class="page-path"><a href="../../">首頁</a> / <a href="../">專案</a> / 辦公網路優化</p>
       <p class="case-label">NETWORK OPTIMIZATION｜客戶資訊已匿名處理</p>
       <h1>多樓層辦公網路<br>核心與存取層優化</h1>
-      <p class="case-lead">針對使用者連接 NAS、印表機及網際網路時頻繁斷線的問題，盤點原有家用 Hub 多層串接架構，重新規劃 Aruba 1930 核心交換器與六台 Zyxel GS1200-8 存取交換器，並將迴路防護與非授權 DHCP 防護納入核心設定。</p>
+      <p class="case-lead">針對 NAS、印表機與網際網路速度極慢及無預警斷線的問題，透過網管交換器日誌與實體線路勘查，確認 1F 至 4F 均存在 Network Loop，並發現非標準網路線分接。依據檢測結果重新規劃 Aruba 1930 核心交換器、六台 Zyxel GS1200-8 存取交換器及二層網路防護。</p>
       <div class="case-meta">
         <div><span>專案類型</span><strong>企業網路優化</strong></div>
         <div><span>主要設備</span><strong>Aruba / Zyxel</strong></div>
@@ -51,7 +51,22 @@
     </section>
 
     <section class="case-section shell">
-      <div class="case-heading"><span>03</span><div><p>ARCHITECTURE</p><h2>規劃後的分層網路架構</h2></div></div>
+      <div class="case-heading"><span>03</span><div><p>ON-SITE DIAGNOSIS</p><h2>現場檢測與問題證據</h2></div></div>
+      <div class="case-copy two-column">
+        <div><h3>網管交換器檢測</h3><p>將既有 Hub 替換為 Zyxel GS1200-8 進行區域測試後，該區域立即中斷，管理介面同時顯示 Loop。進一步檢查發現不是單一樓層，而是 1F 至 4F 都出現迴圈封包。</p></div>
+        <div><h3>實體線路勘查</h3><p>在弱電與設備區域發現部分網路線被拆開後一分為二，再以膠帶接續。這種接法破壞雙絞線結構與抗干擾能力，也讓線路對接關係難以追蹤。</p></div>
+      </div>
+      <div class="risk-table">
+        <div class="risk-row risk-head"><span>檢測方式</span><span>實際發現</span><span>技術判讀</span></div>
+        <div class="risk-row"><strong>交換器日誌與 Loop Detection</strong><p>GS1200-8 接入後立即觸發 Loop，1F 至 4F 均偵測到迴圈封包。</p><p>既有二層路徑形成重複迴路，廣播封包持續複製，導致 Broadcast Storm、卡頓甚至全網中斷。</p></div>
+        <div class="risk-row"><strong>替換既有 Hub 測試</strong><p>原有 Hub 換成具備防護能力的網管交換器後，該區域立即斷網。</p><p>斷線是交換器偵測迴圈後的保護結果，反而證明問題原本就存在，只是舊設備無法呈現與阻擋。</p></div>
+        <div class="risk-row"><strong>實體線路檢查</strong><p>發現標準網路線被拆線並分成兩條路徑，以非標準方式接續。</p><p>可能使原本 1Gbps 連線降至 100Mbps 以下，增加封包遺失、干擾與接線錯亂形成迴圈的風險。</p></div>
+      </div>
+      <blockquote>現場網路緩慢不是單純的設備效能不足，而是二層迴圈與不合規線路共同造成。若只更換交換器而不先修正線路，Loop 保護會持續觸發，網路仍無法正常上線。</blockquote>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>04</span><div><p>ARCHITECTURE</p><h2>規劃後的分層網路架構</h2></div></div>
       <div class="topology" aria-label="辦公網路核心與存取層架構">
         <div class="topology-row single"><div class="topology-node upstream"><small>SECURITY EDGE</small><strong>既有防火牆</strong><span>Internet Gateway</span></div></div>
         <div class="topology-link vertical"></div>
@@ -69,7 +84,7 @@
     </section>
 
     <section class="case-section shell">
-      <div class="case-heading"><span>04</span><div><p>EQUIPMENT</p><h2>設備配置與選擇</h2></div></div>
+      <div class="case-heading"><span>05</span><div><p>EQUIPMENT</p><h2>設備配置與選擇</h2></div></div>
       <div class="phase-grid">
         <article><span>CORE / 01</span><h3>Aruba Instant On 1930</h3><p>新增一台核心交換器，提供 Gigabit 連線、SFP+ 擴充空間與集中式網頁／行動管理，並承擔 STP Root、上行與內網轉發角色。</p></article>
         <article><span>ACCESS / 06</span><h3>Zyxel GS1200-8</h3><p>六台網管型存取交換器分布於各樓層前後區域，支援 VLAN、QoS 與基礎流量管理，取代原本不易管理的家用 Hub。</p></article>
@@ -79,7 +94,7 @@
     </section>
 
     <section class="case-section shell">
-      <div class="case-heading"><span>05</span><div><p>CORE CONFIGURATION</p><h2>核心交換器設定規劃</h2></div></div>
+      <div class="case-heading"><span>06</span><div><p>CORE CONFIGURATION</p><h2>核心交換器設定規劃</h2></div></div>
       <div class="risk-table">
         <div class="risk-row risk-head"><span>設定項目</span><span>用途</span><span>本案規劃</span></div>
         <div class="risk-row"><strong>VLAN 與 Port Mapping</strong><p>建立可追蹤的樓層上行與管理方式。</p><p>VLAN 1 作為設備管理；防火牆使用核心上行，各樓層前後區域分配獨立實體埠，並保留擴充埠。</p></div>
@@ -91,7 +106,7 @@
 
     <section class="case-section dark-section">
       <div class="shell">
-        <div class="case-heading light-heading"><span>06</span><div><p>DESIGN DECISIONS</p><h2>這次規劃的判斷重點</h2></div></div>
+        <div class="case-heading light-heading"><span>07</span><div><p>DESIGN DECISIONS</p><h2>這次規劃的判斷重點</h2></div></div>
         <div class="diagnosis-grid">
           <article><span>STABILITY FIRST</span><h3>先處理穩定，再追求速度</h3><ul><li>先移除不易管理的家用 Hub 串接。</li><li>讓交換器承擔有線資料轉發。</li><li>確立核心與樓層節點後，再觀察 Wi-Fi 與頻寬需求。</li></ul></article>
           <article><span>MANAGEABILITY</span><h3>讓每條上行都可以被辨識</h3><ul><li>建立樓層與實體埠對照。</li><li>保留維護及未來擴充介面。</li><li>透過 STP、BPDU Guard 與 DHCP Snooping 降低人為接線風險。</li></ul></article>
@@ -100,7 +115,7 @@
     </section>
 
     <section class="case-section shell">
-      <div class="case-heading"><span>07</span><div><p>EXPECTED OUTCOME</p><h2>預期改善與交付成果</h2></div></div>
+      <div class="case-heading"><span>08</span><div><p>EXPECTED OUTCOME</p><h2>檢測結論、預期改善與交付成果</h2></div></div>
       <div class="result-grid">
         <article><strong>01</strong><h3>提升內外網穩定度</h3><p>以分層交換架構取代家用 Hub 多層串接，降低封包壅塞與單一節點異常擴散。</p></article>
         <article><strong>02</strong><h3>改善 NAS 與列印連線</h3><p>將 NAS、印表機與電腦接回網管交換器，減少大型傳輸或列印工作中途斷線的風險。</p></article>
@@ -111,15 +126,17 @@
     </section>
 
     <section class="case-section shell">
-      <div class="case-heading"><span>08</span><div><p>MY RESPONSIBILITIES</p><h2>我的負責範圍</h2></div></div>
+      <div class="case-heading"><span>09</span><div><p>MY RESPONSIBILITIES</p><h2>我的負責範圍</h2></div></div>
       <div class="responsibility-list">
         <div><span>01</span><p>整理使用者回饋，歸納 NAS、印表機、Wi-Fi 與網際網路的斷線情境。</p></div>
-        <div><span>02</span><p>盤點既有樓層網路、家用 Hub、AP、終端與防火牆之間的連接關係。</p></div>
-        <div><span>03</span><p>規劃核心／存取分層架構，以及 Aruba 1930 與 Zyxel GS1200-8 的設備配置。</p></div>
-        <div><span>04</span><p>製作核心交換器 Port Mapping、STP Root、BPDU Guard、PortFast 與 DHCP Snooping 設定文件。</p></div>
-        <div><span>05</span><p>整理原架構問題、改善原則、設備功能、預期成果與網路架構圖。</p></div>
+        <div><span>02</span><p>以 Zyxel GS1200-8 進行區域替換測試，檢查管理日誌與 Loop Detection 狀態。</p></div>
+        <div><span>03</span><p>勘查 1F 至 4F 實體線路，確認跨樓層迴圈與非標準分線接法。</p></div>
+        <div><span>04</span><p>盤點既有樓層網路、家用 Hub、AP、終端與防火牆之間的連接關係。</p></div>
+        <div><span>05</span><p>規劃核心／存取分層架構，以及 Aruba 1930 與 Zyxel GS1200-8 的設備配置。</p></div>
+        <div><span>06</span><p>製作核心交換器 Port Mapping、STP Root、BPDU Guard、PortFast 與 DHCP Snooping 設定文件。</p></div>
+        <div><span>07</span><p>整理現場檢測證據、原架構問題、改善原則、設備功能、預期成果與網路架構圖。</p></div>
       </div>
-      <div class="tech-stack"><span>Aruba Instant On 1930</span><span>Zyxel GS1200-8</span><span>VLAN</span><span>STP</span><span>Root Bridge</span><span>BPDU Guard</span><span>PortFast</span><span>DHCP Snooping</span><span>QoS</span><span>SFP+</span><span>Port Mapping</span><span>Network Documentation</span></div>
+      <div class="tech-stack"><span>Aruba Instant On 1930</span><span>Zyxel GS1200-8</span><span>Loop Detection</span><span>Broadcast Storm</span><span>Packet Loss</span><span>VLAN</span><span>STP</span><span>Root Bridge</span><span>BPDU Guard</span><span>PortFast</span><span>DHCP Snooping</span><span>QoS</span><span>SFP+</span><span>Port Mapping</span><span>Network Documentation</span></div>
     </section>
 
     <section class="case-next shell"><p>PROJECT INDEX</p><a href="../">返回所有專案 <span>→</span></a></section>
