@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="多樓層辦公網路核心交換器、存取交換器與網路防護規劃案例。">
+  <title>多樓層辦公網路核心與存取層優化｜Sinwei Yu</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <header class="nav-wrap"><nav class="nav shell">
+    <a class="brand" href="../../"><span>SY</span> / PROJECT</a>
+    <div class="nav-links"><a href="../">專案</a><a href="../../skills/">技術</a><a href="../../notes/">筆記</a><a href="../../about/">About</a></div>
+  </nav></header>
+
+  <main>
+    <section class="case-hero shell">
+      <p class="page-path"><a href="../../">首頁</a> / <a href="../">專案</a> / 辦公網路優化</p>
+      <p class="case-label">NETWORK OPTIMIZATION｜客戶資訊已匿名處理</p>
+      <h1>多樓層辦公網路<br>核心與存取層優化</h1>
+      <p class="case-lead">針對使用者連接 NAS、印表機及網際網路時頻繁斷線的問題，盤點原有家用 Hub 多層串接架構，重新規劃 Aruba 1930 核心交換器與六台 Zyxel GS1200-8 存取交換器，並將迴路防護與非授權 DHCP 防護納入核心設定。</p>
+      <div class="case-meta">
+        <div><span>專案類型</span><strong>企業網路優化</strong></div>
+        <div><span>主要設備</span><strong>Aruba / Zyxel</strong></div>
+        <div><span>核心技術</span><strong>STP / BPDU Guard / DHCP Snooping</strong></div>
+        <div><span>專案階段</span><strong>現況盤點、架構與設定規劃</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>01</span><div><p>BACKGROUND</p><h2>專案背景與使用者回饋</h2></div></div>
+      <div class="case-copy two-column">
+        <div><h3>實際使用問題</h3><p>辦公室使用者透過電腦或 Wi-Fi 存取 NAS 與網路印表機時，斷線頻率高；大量檔案傳輸或列印期間容易中斷，使用網際網路時也經常出現無法連線的狀況。</p></div>
+        <div><h3>改善優先順序</h3><p>本案先以網路穩定度為第一目標，重新整理交換與上行架構。網速與 Wi-Fi 體驗屬於後續優化項目，避免在基礎網路尚未穩定前同時更動過多因素。</p></div>
+      </div>
+      <div class="problem-strip">
+        <div><span>問題 01</span><strong>NAS 與印表機連線頻繁中斷</strong></div>
+        <div><span>問題 02</span><strong>辦公室上網連線不穩定</strong></div>
+        <div><span>問題 03</span><strong>多台家用 Hub 串接且缺乏防護</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section dark-section">
+      <div class="shell">
+        <div class="case-heading light-heading"><span>02</span><div><p>ROOT CAUSE</p><h2>原有架構為什麼不穩定</h2></div></div>
+        <div class="diagnosis-grid">
+          <article><span>ISSUE 01</span><h3>家用 Hub 多層串接</h3><ul><li>設備缺乏完整的流量與迴路管理能力。</li><li>多人同時傳輸時容易產生瓶頸與延遲。</li><li>線路若形成 Loop，可能引發廣播風暴並影響全網。</li><li>多層串接後難以定位是哪一個節點造成異常。</li></ul></article>
+          <article><span>ISSUE 02</span><h3>無線設備同時負責有線分流</h3><ul><li>部分 AP／無線分享器被當成 Hub 使用。</li><li>有線轉發與無線服務集中在同一設備，增加負載。</li><li>NAS 與印表機需要長時間穩定的有線連線，不適合依賴這種串接方式。</li><li>設備私接也可能帶入迴路或第二個 DHCP Server。</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>03</span><div><p>ARCHITECTURE</p><h2>規劃後的分層網路架構</h2></div></div>
+      <div class="topology" aria-label="辦公網路核心與存取層架構">
+        <div class="topology-row single"><div class="topology-node upstream"><small>SECURITY EDGE</small><strong>既有防火牆</strong><span>Internet Gateway</span></div></div>
+        <div class="topology-link vertical"></div>
+        <div class="topology-row single"><div class="topology-node lime-node"><small>CORE</small><strong>Aruba Instant On 1930</strong><span>核心交換與管理</span></div></div>
+        <div class="mesh-label">Managed Access Layer</div>
+        <div class="topology-bottom">
+          <div>1F / 2F</div><div>3F Front / Back</div><div>4F Front / Back</div>
+        </div>
+      </div>
+      <div class="architecture-notes">
+        <p><strong>核心層：</strong>在防火牆與內部網路之間加入 Aruba 1930，集中處理內網資料轉發、上行與管理。</p>
+        <p><strong>存取層：</strong>六個樓層節點改用 Zyxel GS1200-8，取代原有家用 Hub 串接。</p>
+        <p><strong>終端層：</strong>AP 專注提供無線服務；NAS、印表機與電腦由交換器提供穩定的有線連線。</p>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>04</span><div><p>EQUIPMENT</p><h2>設備配置與選擇</h2></div></div>
+      <div class="phase-grid">
+        <article><span>CORE / 01</span><h3>Aruba Instant On 1930</h3><p>新增一台核心交換器，提供 Gigabit 連線、SFP+ 擴充空間與集中式網頁／行動管理，並承擔 STP Root、上行與內網轉發角色。</p></article>
+        <article><span>ACCESS / 06</span><h3>Zyxel GS1200-8</h3><p>六台網管型存取交換器分布於各樓層前後區域，支援 VLAN、QoS 與基礎流量管理，取代原本不易管理的家用 Hub。</p></article>
+        <article><span>WIRELESS</span><h3>AP 回歸無線服務</h3><p>不再將 AP 當作主要有線分流設備，降低設備負載，也讓有線與無線問題可以分開管理及排查。</p></article>
+        <article><span>EXPANSION</span><h3>保留維護與光纖擴充</h3><p>核心交換器保留 MIS 臨時維護埠，SFP+ 埠則供未來樓層距離超過銅纜限制或伺服器需要 10G 連線時使用。</p></article>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>05</span><div><p>CORE CONFIGURATION</p><h2>核心交換器設定規劃</h2></div></div>
+      <div class="risk-table">
+        <div class="risk-row risk-head"><span>設定項目</span><span>用途</span><span>本案規劃</span></div>
+        <div class="risk-row"><strong>VLAN 與 Port Mapping</strong><p>建立可追蹤的樓層上行與管理方式。</p><p>VLAN 1 作為設備管理；防火牆使用核心上行，各樓層前後區域分配獨立實體埠，並保留擴充埠。</p></div>
+        <div class="risk-row"><strong>STP Root Priority</strong><p>決定生成樹根節點並防止二層迴路。</p><p>將核心交換器 Priority 設為 4096，使拓樸以核心為 Root Bridge 收斂。</p></div>
+        <div class="risk-row"><strong>BPDU Guard / PortFast</strong><p>防止未授權交換器接入後形成迴路。</p><p>未使用與終端型埠啟用基礎防護；若收到 BPDU，介面進入保護狀態。</p></div>
+        <div class="risk-row"><strong>DHCP Snooping</strong><p>避免私接設備對內網錯誤派發 IP。</p><p>僅信任防火牆上行來源，其餘存取埠維持非信任狀態。</p></div>
+      </div>
+    </section>
+
+    <section class="case-section dark-section">
+      <div class="shell">
+        <div class="case-heading light-heading"><span>06</span><div><p>DESIGN DECISIONS</p><h2>這次規劃的判斷重點</h2></div></div>
+        <div class="diagnosis-grid">
+          <article><span>STABILITY FIRST</span><h3>先處理穩定，再追求速度</h3><ul><li>先移除不易管理的家用 Hub 串接。</li><li>讓交換器承擔有線資料轉發。</li><li>確立核心與樓層節點後，再觀察 Wi-Fi 與頻寬需求。</li></ul></article>
+          <article><span>MANAGEABILITY</span><h3>讓每條上行都可以被辨識</h3><ul><li>建立樓層與實體埠對照。</li><li>保留維護及未來擴充介面。</li><li>透過 STP、BPDU Guard 與 DHCP Snooping 降低人為接線風險。</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>07</span><div><p>EXPECTED OUTCOME</p><h2>預期改善與交付成果</h2></div></div>
+      <div class="result-grid">
+        <article><strong>01</strong><h3>提升內外網穩定度</h3><p>以分層交換架構取代家用 Hub 多層串接，降低封包壅塞與單一節點異常擴散。</p></article>
+        <article><strong>02</strong><h3>改善 NAS 與列印連線</h3><p>將 NAS、印表機與電腦接回網管交換器，減少大型傳輸或列印工作中途斷線的風險。</p></article>
+        <article><strong>03</strong><h3>降低迴路與錯誤 DHCP 風險</h3><p>以 STP、BPDU Guard 與 DHCP Snooping 建立二層網路的基本防護。</p></article>
+        <article><strong>04</strong><h3>留下可維護的設定文件</h3><p>完成網路架構圖、核心 Port Mapping、STP、BPDU Guard、DHCP Snooping 與設定項目說明。</p></article>
+      </div>
+      <blockquote>這個專案不是單純把設備換新，而是把原本無法管理的串接方式，整理成有核心、有樓層分工，也能追蹤與防護的辦公網路。</blockquote>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>08</span><div><p>MY RESPONSIBILITIES</p><h2>我的負責範圍</h2></div></div>
+      <div class="responsibility-list">
+        <div><span>01</span><p>整理使用者回饋，歸納 NAS、印表機、Wi-Fi 與網際網路的斷線情境。</p></div>
+        <div><span>02</span><p>盤點既有樓層網路、家用 Hub、AP、終端與防火牆之間的連接關係。</p></div>
+        <div><span>03</span><p>規劃核心／存取分層架構，以及 Aruba 1930 與 Zyxel GS1200-8 的設備配置。</p></div>
+        <div><span>04</span><p>製作核心交換器 Port Mapping、STP Root、BPDU Guard、PortFast 與 DHCP Snooping 設定文件。</p></div>
+        <div><span>05</span><p>整理原架構問題、改善原則、設備功能、預期成果與網路架構圖。</p></div>
+      </div>
+      <div class="tech-stack"><span>Aruba Instant On 1930</span><span>Zyxel GS1200-8</span><span>VLAN</span><span>STP</span><span>Root Bridge</span><span>BPDU Guard</span><span>PortFast</span><span>DHCP Snooping</span><span>QoS</span><span>SFP+</span><span>Port Mapping</span><span>Network Documentation</span></div>
+    </section>
+
+    <section class="case-next shell"><p>PROJECT INDEX</p><a href="../">返回所有專案 <span>→</span></a></section>
+  </main>
+  <footer><div class="shell footer-inner"><span>© <span id="year"></span> SINWEI YU</span><span>IT · SECURITY · INFRASTRUCTURE</span></div></footer>
+  <script src="../../script.js"></script>
+</body>
+</html>
