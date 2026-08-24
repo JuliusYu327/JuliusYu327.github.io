@@ -81,6 +81,9 @@ h1 em { color: inherit; font-style: normal; }
 .story-body > p:not(.content-kicker) { margin: 0; color: var(--muted); line-height: 1.65; }
 .story-body > span { margin-top: auto; padding-top: 20px; color: var(--red); font-size: 13px; font-weight: 900; }
 .project-story:hover h2 { color: var(--red); }
+.wide-story { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr); }
+.wide-story .story-media { aspect-ratio: 16 / 8; }
+.wide-story .story-body { min-height: 0; padding: 26px 28px; border-top: 1px solid var(--ink); }
 .project-list-heading { margin-top: 58px; padding: 0 0 14px; border-bottom: 5px solid var(--ink); }
 .project-list-heading h2 { margin: 6px 0 0; font-size: clamp(27px, 3.5vw, 42px); line-height: 1; letter-spacing: -.045em; }
 .project-list-heading + .content-list { border-top: 0; }
@@ -98,6 +101,9 @@ h1 em { color: inherit; font-style: normal; }
 .case-meta span, .case-meta strong { display: block; }
 .case-meta span { color: var(--red); font-size: 13px; font-weight: 900; letter-spacing: .04em; }
 .case-meta strong { margin-top: 13px; font-size: 14px; }
+.case-cover { margin-top: 42px; }
+.case-cover img { display: block; width: 100%; height: auto; }
+.case-cover figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .case-section { padding: 72px 0; }
 .case-heading { margin-bottom: 35px; padding-bottom: 17px; display: grid; grid-template-columns: 48px 1fr; gap: 14px; border-bottom: 5px solid var(--ink); }
 .case-heading > span { color: var(--red); font-size: 18px; font-weight: 900; }
@@ -220,6 +226,9 @@ footer { color: white; background: var(--ink); }
   .section-heading { align-items: start; flex-direction: column; gap: 9px; }
   .folder-grid, .phase-grid, .result-grid { grid-template-columns: 1fr; }
   .project-feature-grid { grid-template-columns: 1fr; gap: 34px; }
+  .wide-story { grid-column: auto; display: block; }
+  .wide-story .story-media { aspect-ratio: 16 / 10; }
+  .wide-story .story-body { min-height: 220px; padding: 20px 2px 24px; border-top: 0; }
   .story-body { min-height: 220px; }
   .project-list-heading { margin-top: 44px; }
   .folder-card { min-height: 250px; }
