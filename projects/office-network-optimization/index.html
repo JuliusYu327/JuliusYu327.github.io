@@ -65,22 +65,12 @@
       <blockquote>現場網路緩慢不是單純的設備效能不足，而是二層迴圈與不合規線路共同造成。若只更換交換器而不先修正線路，Loop 保護會持續觸發，網路仍無法正常上線。</blockquote>
     </section>
 
-    <section class="case-section shell">
+    <section class="case-section shell" id="architecture">
       <div class="case-heading"><span>04</span><div><p>ARCHITECTURE</p><h2>規劃後的分層網路架構</h2></div></div>
-      <div class="topology" aria-label="辦公網路核心與存取層架構">
-        <div class="topology-row single"><div class="topology-node upstream"><small>SECURITY EDGE</small><strong>既有防火牆</strong><span>Internet Gateway</span></div></div>
-        <div class="topology-link vertical"></div>
-        <div class="topology-row single"><div class="topology-node lime-node"><small>CORE</small><strong>Aruba Instant On 1930</strong><span>核心交換與管理</span></div></div>
-        <div class="mesh-label">Managed Access Layer</div>
-        <div class="topology-bottom">
-          <div><strong>Zyxel GS1200-8</strong><span>1F</span></div>
-          <div><strong>Zyxel GS1200-8</strong><span>2F</span></div>
-          <div><strong>Zyxel GS1200-8</strong><span>3F Front</span></div>
-          <div><strong>Zyxel GS1200-8</strong><span>3F Back</span></div>
-          <div><strong>Zyxel GS1200-8</strong><span>4F Front</span></div>
-          <div><strong>Zyxel GS1200-8</strong><span>4F Back</span></div>
-        </div>
-      </div>
+      <figure class="architecture-figure">
+        <img src="../../assets/office-network-architecture.svg" alt="防火牆、HPE 1930 核心交換器與六台 Zyxel GS1200-8 組成的多樓層辦公網路架構圖">
+        <figcaption>防火牆與核心交換器位於 1F 資訊機箱，六台 Zyxel GS1200-8 分別服務 1F、2F、3F Front、3F Back、4F Front 與 4F Back。</figcaption>
+      </figure>
       <div class="architecture-notes">
         <p><strong>核心層：</strong>在防火牆與內部網路之間加入 Aruba 1930，集中處理內網資料轉發、上行與管理。</p>
         <p><strong>存取層：</strong>六個樓層節點改用 Zyxel GS1200-8，取代原有家用 Hub 串接。</p>
