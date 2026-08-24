@@ -133,7 +133,7 @@ h1 em { color: inherit; font-style: normal; }
 .case-section.shell .topology-bottom span { color: var(--muted); }
 .architecture-figure { width: 100%; max-width: 860px; margin: 0 auto; border: 0; outline: 0; }
 .architecture-figure img { display: block; width: 100%; height: auto; border: 0 !important; outline: 0; box-shadow: none; background: white; }
-.architecture-figure figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.architecture-figure figcaption { margin-top: 14px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 
 /* Planning, risks and timeline */
 .phase-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
