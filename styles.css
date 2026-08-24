@@ -131,7 +131,7 @@ h1 em { color: inherit; font-style: normal; }
 .case-section.shell .topology-node { border-color: var(--ink); }
 .case-section.shell .topology-bottom div { color: var(--ink); border-color: var(--ink); }
 .case-section.shell .topology-bottom span { color: var(--muted); }
-.architecture-figure { margin: 0; }
+.architecture-figure { width: 100%; max-width: 860px; margin: 0 auto; }
 .architecture-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--ink); background: white; }
 .architecture-figure figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 
