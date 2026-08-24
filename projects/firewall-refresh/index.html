@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="FortiGate 60F 至 71G 的跨版本防火牆汰換、設定重建、多據點 VPN 與 FSSO 問題排除案例。">
+  <title>企業防火牆汰換與多據點 VPN 復原｜Julius Yu</title>
+  <link rel="stylesheet" href="../../styles.css?v=20260824-5">
+</head>
+<body>
+  <header class="nav-wrap">
+    <nav class="nav shell">
+      <a class="brand" href="../../"><span>JY</span> / PROJECT</a>
+      <div class="nav-links"><a href="../">專案</a><a href="../../skills/">技術</a><a href="../../notes/">筆記</a><a href="../../about/">About</a></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="case-hero shell">
+      <p class="page-path"><a href="../../">首頁</a> / <a href="../">專案</a> / 防火牆汰換</p>
+      <p class="case-label">專案紀錄｜客戶與連線資訊已匿名處理</p>
+      <h1>企業防火牆汰換與多據點 VPN 復原</h1>
+      <p class="case-lead">將既有 FortiGate 60F 的企業網路設定移轉至 FortiGate 71G。因型號與 FortiOS 版本跨度較大，無法直接套用舊設定，我改採手動重建、分段升級與兩次現場切換，最後完成政策路由、AD、FSSO、SD-WAN 及多據點 IPsec VPN 的完整驗證。</p>
+      <div class="case-meta">
+        <div><span>專案類型</span><strong>防火牆汰換與設定移轉</strong></div>
+        <div><span>主要設備</span><strong>FortiGate 60F → 71G</strong></div>
+        <div><span>核心技術</span><strong>VPN / FSSO / SD-WAN</strong></div>
+        <div><span>我的角色</span><strong>設定重建、切換、排錯、驗證</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>01</span><div><p>BACKGROUND</p><h2>不是把設定檔倒進去就結束</h2></div></div>
+      <div class="case-copy two-column">
+        <div><h3>專案需求</h3><p>客戶需要汰換既有防火牆，同時保留原有的企業內外網、各據點 VPN、AD 身分驗證、FSSO、雙 WAN 備援與資安政策。切換期間會停止全部網路服務，因此可用的維護時間十分有限。</p></div>
+        <div><h3>移轉難點</h3><p>舊設備使用 FortiOS 7.4.4，新設備目標版本為 7.6.6，且硬體型號不同。直接匯入舊 Config 可能造成物件、政策順序與路由邏輯異常，因此決定先於相近版本手動重建，再循官方升級路徑逐段更新。</p></div>
+      </div>
+      <div class="problem-strip">
+        <div><span>限制 01</span><strong>維護窗口僅約一小時</strong></div>
+        <div><span>限制 02</span><strong>跨型號與跨版本移轉</strong></div>
+        <div><span>限制 03</span><strong>多據點 VPN 必須全部恢復</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section dark-section">
+      <div class="shell">
+        <div class="case-heading light-heading"><span>02</span><div><p>MIGRATION FLOW</p><h2>設定重建與升級路徑</h2></div></div>
+        <figure class="architecture-figure">
+          <img src="../../assets/firewall-refresh-workflow.svg" alt="FortiGate 60F 設定盤點、7.4.6 手動重建、分段升級至 7.6.6 並移轉到 FortiGate 71G 的流程圖">
+          <figcaption>公開版流程圖僅保留移轉邏輯；實際 IP、VPN 金鑰、帳號與客戶識別資訊均未揭露。</figcaption>
+        </figure>
+        <div class="architecture-notes">
+          <p><strong>來源盤點：</strong>整理介面、VLAN、物件、政策、路由、VPN、身分驗證及資安服務。</p>
+          <p><strong>手動重建：</strong>先在 FortiOS 7.4.6 建立可控基線，避免直接匯入舊 Config 的相容性風險。</p>
+          <p><strong>分段升級：</strong>依 7.4.6 → 7.4.9 → 7.4.12 → 7.6.6 升級，每一階段備份並核對設定。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>03</span><div><p>CONFIGURATION</p><h2>重建的設定範圍</h2></div></div>
+      <div class="phase-grid">
+        <article><span>NETWORK</span><h3>介面與基礎網路</h3><p>建立 LACP 聚合、VLAN、WAN、DMZ、DNS、靜態路由、政策路由與 Virtual IP，並核對多介面政策需求。</p></article>
+        <article><span>CONNECTIVITY</span><h3>跨據點與線路備援</h3><p>重建多條 IPsec VPN 與雙 WAN SD-WAN，設定健康檢查與優先路徑，確保各據點及雲端服務可連通。</p></article>
+        <article><span>IDENTITY</span><h3>AD 與 FSSO</h3><p>恢復網域整合、身分群組與 FSSO 外部連接器，讓既有以使用者身分為基礎的上網政策繼續運作。</p></article>
+        <article><span>SECURITY</span><h3>資安與可觀測性</h3><p>重建防毒、網站過濾、應用程式控制、SSL 檢查、排程、QoS、SNMP 與相關記錄設定。</p></article>
+      </div>
+      <div class="risk-table">
+        <div class="risk-row risk-head"><span>風險</span><span>可能影響</span><span>控制方式</span></div>
+        <div class="risk-row"><strong>直接匯入舊設定</strong><p>政策、物件或路由邏輯可能因版本差異失效。</p><p>不直接套用 Config，改採盤點後手動重建，並逐項比對。</p></div>
+        <div class="risk-row"><strong>韌體跨版升級</strong><p>升級後可能出現政策順序或功能行為改變。</p><p>依建議路徑分段升級，每階段保留備份與驗證點。</p></div>
+        <div class="risk-row"><strong>切換時間不足</strong><p>無法在維護窗口內完成排錯，影響營運。</p><p>事前預建、列出驗證清單，並保留快速回復舊設備的程序。</p></div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>04</span><div><p>CUTOVER</p><h2>兩次上架的完整經過</h2></div></div>
+      <div class="timeline">
+        <div class="timeline-item"><time>上架前</time><div><h3>離線重建與分段升級</h3><p>在新設備上手動建立設定，完成韌體升級路徑，並準備服務、VPN 與回復檢查表。</p></div></div>
+        <div class="timeline-item alert"><time>第一次切換</time><div><h3>政策順序與多項服務異常</h3><p>中午將線路移至新防火牆後，出現內網不通、政策排序異常、VPN 無法連線、AD 與 FSSO 連接失敗。因維護窗口僅一小時，依計畫先回復舊設備。</p></div></div>
+        <div class="timeline-item"><time>離線排查</time><div><h3>重做韌體與政策基線</h3><p>確認 VPN 可在測試環境正常運作，排除硬體邏輯問題；再重新更新韌體並手動建立政策，避免先設定後升級造成的政策邏輯偏移。</p></div></div>
+        <div class="timeline-item"><time>第二次切換</time><div><h3>核心服務恢復，留下兩個邊界問題</h3><p>政策、內網與 AD 均恢復正常，但少數 VPN 據點仍無法連通，FSSO 外部連接器也因憑證相容性無法完成連線。</p></div></div>
+        <div class="timeline-item success"><time>完成驗證</time><div><h3>修正連線參數與憑證處理方式</h3><p>核對後發現部分據點的預共享金鑰資料與實際環境不一致，修正後 VPN 全數恢復；FSSO 先以非憑證模式驗證功能，再由客戶更新相容憑證。</p></div></div>
+      </div>
+    </section>
+
+    <section class="case-section dark-section">
+      <div class="shell">
+        <div class="case-heading light-heading"><span>05</span><div><p>TROUBLESHOOTING</p><h2>問題不只一層，必須拆開驗證</h2></div></div>
+        <div class="diagnosis-grid">
+          <article><span>ISSUE 01</span><h3>為什麼第一次切換後政策會失效？</h3><ul><li>設定最初在較低版本建立，升級至目標版本後政策順序與邏輯出現偏移。</li><li>不能只看設定是否存在，還要驗證實際比對順序、路由結果與流量行為。</li><li>重新建立韌體與政策基線後，第二次切換的內外網與 AD 恢復正常。</li></ul></article>
+          <article><span>ISSUE 02</span><h3>為什麼仍有部分 VPN 與 FSSO 不通？</h3><ul><li>VPN 隧道本身可正常建立，問題集中在少數據點的連線參數。</li><li>重新核對後確認預共享金鑰資料不一致，修正後所有據點恢復連線。</li><li>FSSO 則是舊憑證與新版本相容性問題，先驗證非憑證連線，再更新憑證。</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>06</span><div><p>RESULT</p><h2>專案結果</h2></div></div>
+      <div class="result-grid">
+        <article><strong>01</strong><h3>新防火牆完成上架</h3><p>FortiGate 71G 與目標 FortiOS 版本正式承接既有企業網路服務。</p></article>
+        <article><strong>02</strong><h3>政策與路由恢復正常</h3><p>內外網、VLAN、SD-WAN、政策路由與資安服務完成逐項驗證。</p></article>
+        <article><strong>03</strong><h3>多據點 VPN 全數連通</h3><p>修正不一致的連線參數後，各據點 IPsec VPN 均可正常通訊。</p></article>
+        <article><strong>04</strong><h3>AD 與 FSSO 功能恢復</h3><p>AD 整合正常，FSSO 完成功能驗證，憑證則交由客戶更新為相容版本。</p></article>
+      </div>
+      <blockquote>這次移轉的關鍵不是「把設定搬過去」，而是先建立可驗證的設定基線，再把韌體、政策、VPN 與身分整合拆成獨立的測試項目。</blockquote>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>07</span><div><p>MY RESPONSIBILITIES</p><h2>我的實際負責範圍</h2></div></div>
+      <div class="responsibility-list">
+        <div><span>01</span><p>盤點舊防火牆介面、VLAN、政策、路由、VPN、AD、FSSO 與資安功能。</p></div>
+        <div><span>02</span><p>評估跨型號、跨版本直接匯入的風險，制定手動重建與分段升級方式。</p></div>
+        <div><span>03</span><p>在新設備重建 LACP、SD-WAN、DMZ、政策路由、Virtual IP 與安全設定。</p></div>
+        <div><span>04</span><p>執行兩次現場切換、回復及服務驗證，控制維護窗口對營運的影響。</p></div>
+        <div><span>05</span><p>排查政策順序、VPN 預共享金鑰、AD 與 FSSO 憑證相容性問題。</p></div>
+        <div><span>06</span><p>完成設定文件與公開案例整理，敏感資訊均經匿名及移除處理。</p></div>
+      </div>
+      <div class="tech-stack">
+        <span>FortiGate 60F</span><span>FortiGate 71G</span><span>FortiOS 7.4 / 7.6</span><span>LACP</span><span>VLAN</span><span>SD-WAN</span><span>IPsec VPN</span><span>Policy Route</span><span>AD</span><span>FSSO</span><span>Web Filter</span><span>Application Control</span><span>SNMP</span>
+      </div>
+    </section>
+
+    <section class="case-next shell">
+      <p>PROJECT INDEX</p>
+      <a href="../">返回所有專案 <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer><div class="shell footer-inner"><span>© <span id="year"></span> JULIUS YU</span><span>IT · SECURITY · INFRASTRUCTURE</span></div></footer>
+  <script src="../../script.js"></script>
+</body>
+</html>
