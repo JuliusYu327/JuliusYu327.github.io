@@ -131,6 +131,9 @@ h1 em { color: inherit; font-style: normal; }
 .case-section.shell .topology-node { border-color: var(--ink); }
 .case-section.shell .topology-bottom div { color: var(--ink); border-color: var(--ink); }
 .case-section.shell .topology-bottom span { color: var(--muted); }
+.architecture-figure { margin: 0; }
+.architecture-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--ink); background: white; }
+.architecture-figure figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 
 /* Planning, risks and timeline */
 .phase-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
@@ -219,6 +222,8 @@ footer { color: white; background: var(--ink); }
   .timeline::before { left: 6px; }
   .timeline-item { min-height: 0; padding: 0 0 30px 29px; grid-template-columns: 1fr; gap: 6px; }
   .timeline-item::before { left: 1px; }
+  .architecture-figure { overflow-x: auto; }
+  .architecture-figure img { min-width: 760px; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
