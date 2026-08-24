@@ -4,7 +4,7 @@
   --paper: #fff;
   --soft: #f2f2f2;
   --line: #cfcfcf;
-  --red: #e21b2d;
+  --red: #b6a27a;
   --dark: #161616;
 }
 * { box-sizing: border-box; }
@@ -30,11 +30,11 @@ a { color: inherit; text-decoration: none; }
 h1 { max-width: 850px; margin: 16px 0 18px; font-size: clamp(38px, 5vw, 64px); line-height: 1.02; letter-spacing: -.055em; font-weight: 900; }
 h1 em { color: inherit; font-style: normal; }
 .intro { max-width: 650px; margin: 0; color: #d4d4d4; font-size: 16px; line-height: 1.7; }
-.hero-feature { min-height: 450px; padding: 34px; display: flex; flex-direction: column; color: white; background: var(--red); }
+.hero-feature { min-height: 450px; padding: 34px; display: flex; flex-direction: column; color: var(--ink); background: var(--red); }
 .hero-feature > span { font-size: 10px; font-weight: 900; letter-spacing: .1em; }
 .hero-feature > strong { margin-top: auto; font-size: clamp(27px, 3vw, 42px); line-height: 1.08; letter-spacing: -.045em; }
 .hero-feature p { margin: 18px 0 28px; line-height: 1.65; }
-.hero-feature b { padding-top: 16px; border-top: 1px solid rgba(255,255,255,.55); font-size: 11px; letter-spacing: .08em; }
+.hero-feature b { padding-top: 16px; border-top: 1px solid rgba(11,11,11,.45); font-size: 11px; letter-spacing: .08em; }
 .hero-feature:hover b { padding-left: 8px; transition: padding .18s ease; }
 
 /* Section index */
@@ -52,6 +52,7 @@ h1 em { color: inherit; font-style: normal; }
 .folder-card:nth-child(3) .folder-icon::after { content: "03"; }
 .folder-card:nth-child(4) .folder-icon::after { content: "04"; }
 .folder-card:nth-child(2) .folder-icon, .folder-card:nth-child(3) .folder-icon { background: var(--red); }
+.folder-card:nth-child(2) .folder-icon::after, .folder-card:nth-child(3) .folder-icon::after { color: var(--ink); }
 .folder-card small { color: var(--red); font-size: 10px; font-weight: 900; letter-spacing: .08em; }
 .folder-card h3 { margin: 12px 0 8px; font-size: 28px; line-height: 1; letter-spacing: -.035em; }
 .folder-card p { margin: auto 0 0; color: var(--muted); line-height: 1.6; }
@@ -102,21 +103,21 @@ h1 em { color: inherit; font-style: normal; }
 .dark-section { width: 100%; max-width: none; color: white; background: var(--dark); }
 .dark-section > .shell { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
 .light-heading { border-color: white; }
-.light-heading > span, .light-heading p { color: #ff4050; }
+.light-heading > span, .light-heading p { color: #cbbb98; }
 .topology { padding: 12px 0 0; }
 .topology-row.single { display: flex; justify-content: center; }
 .topology-node { min-width: 250px; padding: 20px; border: 1px solid #666; text-align: center; }
 .topology-node small, .topology-node strong, .topology-node span { display: block; }
 .topology-node small { color: #aaa; font-size: 9px; font-weight: 900; letter-spacing: .08em; }
 .topology-node strong { margin: 8px 0 5px; font-size: 19px; }
-.topology-node span { color: #ff4050; font-size: 11px; font-weight: 800; }
+.topology-node span { color: #cbbb98; font-size: 11px; font-weight: 800; }
 .topology-node.upstream { min-width: 300px; }
 .topology-link.vertical { width: 1px; height: 34px; margin: 0 auto; background: #888; }
 .topology-pair { display: grid; grid-template-columns: 1fr 150px 1fr; align-items: center; gap: 18px; }
 .peer-link { height: 1px; position: relative; background: var(--red); text-align: center; }
 .peer-link span { padding: 5px 8px; position: relative; top: -12px; color: white; background: var(--dark); font-size: 9px; }
 .lime-node { border-color: #999; }
-.mesh-label { width: max-content; margin: 28px auto; padding: 7px 11px; color: white; background: var(--red); font-size: 10px; font-weight: 900; }
+.mesh-label { width: max-content; margin: 28px auto; padding: 7px 11px; color: var(--ink); background: var(--red); font-size: 10px; font-weight: 900; }
 .topology-bottom { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; }
 .topology-bottom div { padding: 15px; border: 1px solid #555; color: #bbb; font-size: 12px; }
 .architecture-notes { margin-top: 38px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
@@ -146,7 +147,7 @@ h1 em { color: inherit; font-style: normal; }
 .timeline-item.success::before { background: #3d8a56; box-shadow: 0 0 0 1px #3d8a56; }
 .diagnosis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #555; border: 1px solid #555; }
 .diagnosis-grid article { padding: 28px; background: var(--dark); }
-.diagnosis-grid span { color: #ff4050; font-size: 10px; font-weight: 900; }
+.diagnosis-grid span { color: #cbbb98; font-size: 10px; font-weight: 900; }
 .diagnosis-grid h3 { margin: 34px 0 18px; font-size: 22px; line-height: 1.35; }
 .diagnosis-grid ul { padding-left: 19px; color: #bbb; line-height: 1.7; }
 .result-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
