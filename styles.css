@@ -120,12 +120,17 @@ h1 em { color: inherit; font-style: normal; }
 .mesh-label { width: max-content; margin: 28px auto; padding: 8px 12px; color: var(--ink); background: var(--red); font-size: 13px; font-weight: 900; }
 .topology-bottom { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; }
 .topology-bottom div { padding: 15px; border: 1px solid #555; color: #bbb; font-size: 12px; }
+.topology-bottom strong, .topology-bottom span { display: block; }
+.topology-bottom strong { font-size: 15px; }
+.topology-bottom span { margin-top: 7px; font-size: 13px; }
 .architecture-notes { margin-top: 38px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .architecture-notes p { margin: 0; color: #aaa; line-height: 1.7; }
 .architecture-notes strong { display: block; margin-bottom: 8px; color: white; }
 .case-section.shell .architecture-notes p { color: var(--muted); }
 .case-section.shell .architecture-notes strong { color: var(--ink); }
 .case-section.shell .topology-node { border-color: var(--ink); }
+.case-section.shell .topology-bottom div { color: var(--ink); border-color: var(--ink); }
+.case-section.shell .topology-bottom span { color: var(--muted); }
 
 /* Planning, risks and timeline */
 .phase-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
