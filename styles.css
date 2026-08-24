@@ -123,6 +123,9 @@ h1 em { color: inherit; font-style: normal; }
 .architecture-notes { margin-top: 38px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .architecture-notes p { margin: 0; color: #aaa; line-height: 1.7; }
 .architecture-notes strong { display: block; margin-bottom: 8px; color: white; }
+.case-section.shell .architecture-notes p { color: var(--muted); }
+.case-section.shell .architecture-notes strong { color: var(--ink); }
+.case-section.shell .topology-node { border-color: var(--ink); }
 
 /* Planning, risks and timeline */
 .phase-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
