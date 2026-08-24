@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="雙 FortiGate HA、雙 FortiSwitch MCLAG 與核心網路備援建置案例。">
+  <title>企業核心網路高可用性建置｜Sinwei Yu</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <header class="nav-wrap">
+    <nav class="nav shell">
+      <a class="brand" href="../../"><span>SY</span> / PROJECT</a>
+      <div class="nav-links"><a href="../">專案</a><a href="../../skills/">技術</a><a href="../../notes/">筆記</a><a href="../../about/">About</a></div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="case-hero shell">
+      <p class="page-path"><a href="../../">WEB</a> / <a href="../">PROJECTS</a> / CORE NETWORK HA</p>
+      <p class="case-label">FEATURED PROJECT · CLIENT DETAILS ANONYMIZED</p>
+      <h1>企業核心網路<br><em>高可用性建置</em></h1>
+      <p class="case-lead">從既有單點架構出發，規劃雙 FortiGate 91G Active-Passive HA、雙 FortiSwitch FS-424E MCLAG 與 10G FortiLink 交叉備援；並在現場面對 HA 同步異常及非授權 DHCP 干擾時，以營運優先原則完成服務復原與根因定位。</p>
+      <div class="case-meta">
+        <div><span>專案類型</span><strong>核心網路備援</strong></div>
+        <div><span>主要設備</span><strong>FortiGate / FortiSwitch</strong></div>
+        <div><span>核心技術</span><strong>HA / MCLAG / FortiLink</strong></div>
+        <div><span>我的角色</span><strong>規劃、建置、排錯、文件</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>01</span><div><p>BACKGROUND</p><h2>專案前因</h2></div></div>
+      <div class="case-copy two-column">
+        <div><h3>原始環境</h3><p>客戶的核心網路承載辦公區、各樓層接取交換器、Server Farm、虛擬機、儲存設備與對外網路。既有架構中，防火牆與核心交換層缺乏完整的設備及路徑備援，任一核心設備或上行鏈路故障，都可能擴大成全場斷線。</p></div>
+        <div><h3>建置目標</h3><p>在不影響既有營運的前提下，新增備援防火牆與第二台核心交換器，消除單點故障；同時建立可驗證、可回復的施工程序，讓故障切換不只存在於架構圖，而能經過實際測試。</p></div>
+      </div>
+      <div class="problem-strip">
+        <div><span>單點風險 01</span><strong>防火牆故障將中斷閘道服務</strong></div>
+        <div><span>單點風險 02</span><strong>核心交換器故障影響全場網路</strong></div>
+        <div><span>單點風險 03</span><strong>上行路徑缺少交叉備援</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section dark-section">
+      <div class="shell">
+        <div class="case-heading light-heading"><span>02</span><div><p>ARCHITECTURE</p><h2>規劃後的高可用性架構</h2></div></div>
+        <div class="topology" aria-label="核心網路高可用性架構示意">
+          <div class="topology-row single"><div class="topology-node upstream"><small>UPSTREAM</small><strong>既有對外網路</strong></div></div>
+          <div class="topology-link vertical"></div>
+          <div class="topology-pair">
+            <div class="topology-node"><small>PRIMARY</small><strong>FortiGate 91G</strong><span>Active</span></div>
+            <div class="peer-link"><span>Heartbeat</span></div>
+            <div class="topology-node"><small>SECONDARY</small><strong>FortiGate 91G</strong><span>Passive</span></div>
+          </div>
+          <div class="mesh-label">10G FortiLink Cross-Connect</div>
+          <div class="topology-pair">
+            <div class="topology-node lime-node"><small>CORE 01</small><strong>FortiSwitch FS-424E</strong><span>All-Fiber</span></div>
+            <div class="peer-link lime-link"><span>MCLAG ICL</span></div>
+            <div class="topology-node lime-node"><small>CORE 02</small><strong>FortiSwitch FS-424E</strong><span>All-Fiber</span></div>
+          </div>
+          <div class="topology-link vertical"></div>
+          <div class="topology-bottom">
+            <div>各樓層 Access Switch</div><div>Server Farm</div><div>VM / Storage / ESXi</div>
+          </div>
+        </div>
+        <div class="architecture-notes">
+          <p><strong>防火牆層：</strong>兩台 FortiGate 採 Active-Passive，透過 Heartbeat 交換狀態與設定。</p>
+          <p><strong>核心交換層：</strong>兩台 FS-424E 以專用埠建立 ICL，形成 MCLAG 雙主動核心。</p>
+          <p><strong>路徑層：</strong>防火牆分別交叉連接兩台核心交換器，降低單一設備或鏈路故障的影響。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>03</span><div><p>PLANNING</p><h2>施工規劃與風險控制</h2></div></div>
+      <div class="phase-grid">
+        <article><span>PHASE 01</span><h3>建立防火牆 HA</h3><p>完成授權與韌體版本對齊、備份主機設定，離線確認 HA 模式、群組與優先權，再接上 Heartbeat，避免空白備機反向覆蓋營運中主機。</p></article>
+        <article><span>PHASE 02</span><h3>核心交換器納管</h3><p>採單機漸進式接入，先完成 FortiLink 授權與基本拓樸確認，再加入第二台設備，降低未授權設備或 STP 尚未收斂造成廣播風暴的風險。</p></article>
+        <article><span>PHASE 03</span><h3>建立 MCLAG 骨幹</h3><p>使用指定光纖埠建立 ICL Peer Link，確認雙向認證、Keepalive 與 MCLAG 狀態，再補上交叉上行鏈路。</p></article>
+        <article><span>PHASE 04</span><h3>驗證與故障切換</h3><p>比對 HA Checksum、檢查 ICL 成員埠、執行雙向流量測試，並模擬單一設備或鏈路中斷，驗證服務連續性。</p></article>
+      </div>
+      <div class="risk-table">
+        <div class="risk-row risk-head"><span>風險</span><span>可能影響</span><span>預防與復原方式</span></div>
+        <div class="risk-row"><strong>HA 同步方向錯誤</strong><p>備機空白組態覆蓋主機，造成全網中斷。</p><p>離線雙重確認 Priority 與同步方向，施工前保留完整設定備份。</p></div>
+        <div class="risk-row"><strong>Heartbeat 中斷</strong><p>可能形成 Split-Brain，引發 MAC Flapping。</p><p>預先規劃實體隔離、Console 登入、線路修復及重新同步程序。</p></div>
+        <div class="risk-row"><strong>MCLAG／STP 未收斂</strong><p>可能引發廣播風暴或特定 VLAN 中斷。</p><p>採逐步上線，不一次插滿所有線路；先授權、驗證，再加入備援路徑。</p></div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>04</span><div><p>ON-SITE EXECUTION</p><h2>施工當天發生了什麼</h2></div></div>
+      <div class="timeline">
+        <div class="timeline-item"><time>10:00</time><div><h3>工程團隊進場</h3><p>啟動核心網路升級，依計畫先處理防火牆 HA，再進行核心交換器備援。</p></div></div>
+        <div class="timeline-item"><time>10:10–13:00</time><div><h3>HA 叢集成形，但顯示未完全同步</h3><p>兩台防火牆已完成 Active-Passive 選舉，Heartbeat 通訊正常，Primary／Secondary 角色也已建立；但系統仍顯示同步異常，Checksum 比對發現 Global 與 All 區域不一致。</p></div></div>
+        <div class="timeline-item"><time>同時進行</time><div><h3>CoreSW 納管與 MCLAG 建立</h3><p>第二台核心交換器完成授權，兩台 FS-424E 透過 ICL 成員埠形成 MCLAG，Keepalive 封包雙向收發，叢集骨幹成功建立。</p></div></div>
+        <div class="timeline-item"><time>13:20–16:00</time><div><h3>整線、標籤與 HA 深入除錯</h3><p>完成機櫃線路整理與標籤化，同時比對主備設定校驗碼、HA 狀態與同步差異，避免在狀態未明時直接進行切換。</p></div></div>
+        <div class="timeline-item alert"><time>16:30</time><div><h3>啟動服務復原機制</h3><p>考量廠區營運優先，先保留 HA 異常現場，將網路復原至可穩定提供服務的架構，而不是為了完成施工而持續擴大中斷時間。</p></div></div>
+        <div class="timeline-item"><time>17:20–18:30</time><div><h3>有線恢復，但無線網路仍異常</h3><p>有線端點測試正常；無線端點取得的 IP 網段卻不屬於核心防火牆所派發的 VLAN。透過封包與 DHCP 行為判斷，現場存在非授權 DHCP Server。</p></div></div>
+        <div class="timeline-item alert"><time>18:30–19:30</time><div><h3>定位非授權 DHCP 來源</h3><p>逐層進行實體環境排查，找到接入企業網路的家用 Wi-Fi 分享器並隔離，終止錯誤 DHCP Offer 與 IP 派發衝突。</p></div></div>
+        <div class="timeline-item success"><time>19:30–20:00</time><div><h3>服務恢復與驗收</h3><p>廠區網際網路與內網恢復穩定，逐一完成核心、樓層接取及終端連線驗證。</p></div></div>
+      </div>
+    </section>
+
+    <section class="case-section dark-section">
+      <div class="shell">
+        <div class="case-heading light-heading"><span>05</span><div><p>TROUBLESHOOTING</p><h2>兩個問題，兩條判斷路徑</h2></div></div>
+        <div class="diagnosis-grid">
+          <article><span>ISSUE 01</span><h3>HA 為什麼「有成形」卻「未同步」？</h3><ul><li>角色選舉成功，不等於所有組態已同步。</li><li>Heartbeat 正常，只能證明節點間通訊存在。</li><li>必須再比對 Cluster Checksum；本案 Root 區域相同，但 Global 與 All 不一致。</li><li>因此保留現場狀態並繼續除錯，而不是直接宣告 HA 完成。</li></ul></article>
+          <article><span>ISSUE 02</span><h3>為什麼有線正常、Wi-Fi 卻拿到錯誤 IP？</h3><ul><li>先區分實體連線、VLAN 與 DHCP 三個層次。</li><li>終端取得的網段不屬於核心防火牆，排除單純 AP 訊號問題。</li><li>封包行為指向同一廣播域內存在第二個 DHCP Server。</li><li>透過逐區隔離與實體排查，定位家用分享器並移除。</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>06</span><div><p>RESULT</p><h2>專案成果與真實狀態</h2></div></div>
+      <div class="result-grid">
+        <article><strong>01</strong><h3>MCLAG 核心骨幹完成</h3><p>雙核心交換器完成納管、ICL 建立及 Keepalive 驗證，具備後續交叉備援與故障切換基礎。</p></article>
+        <article><strong>02</strong><h3>HA 架構完成成形</h3><p>主備角色與 Heartbeat 正常，但校驗結果仍存在差異；因此成果如實標示為「叢集成形、同步異常待處理」。</p></article>
+        <article><strong>03</strong><h3>現場網路恢復穩定</h3><p>成功排除非授權 DHCP 干擾，恢復有線、無線、內網與對外連線，完成各節點驗證。</p></article>
+        <article><strong>04</strong><h3>留下可維護文件</h3><p>完成作業計畫、接線資訊、風險應變、施工事件紀錄、架構圖、診斷輸出與驗收 SOP。</p></article>
+      </div>
+      <blockquote>這個專案最重要的成果，不是把每一個步驟寫成「成功」，而是在異常出現時能判斷完成到哪一層、保護營運、留下證據，再把真正的根因找出來。</blockquote>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-heading"><span>07</span><div><p>MY RESPONSIBILITIES</p><h2>我的實際負責範圍</h2></div></div>
+      <div class="responsibility-list">
+        <div><span>01</span><p>盤點原始網路環境，整理防火牆、核心交換器、樓層接取與 Server Farm 關係。</p></div>
+        <div><span>02</span><p>製作高可用性架構圖、作業計畫、接線表、風險分析與復原程序。</p></div>
+        <div><span>03</span><p>執行 FortiGate HA 參數設定、Heartbeat 狀態及 Cluster Checksum 檢查。</p></div>
+        <div><span>04</span><p>完成 FortiSwitch 授權、MCLAG ICL 設定、Keepalive 與叢集狀態驗證。</p></div>
+        <div><span>05</span><p>參與機櫃整線、線路標籤、服務切換、端點測試與施工事件紀錄。</p></div>
+        <div><span>06</span><p>針對無線網路異常分析 DHCP 派發來源，定位並隔離非授權分享器。</p></div>
+      </div>
+      <div class="tech-stack">
+        <span>FortiGate 91G</span><span>FortiSwitch FS-424E</span><span>Active-Passive HA</span><span>Heartbeat</span><span>FortiLink</span><span>MCLAG</span><span>ICL</span><span>LACP</span><span>Checksum</span><span>DHCP Analysis</span><span>Failover Test</span><span>Network Documentation</span>
+      </div>
+    </section>
+
+    <section class="case-next shell">
+      <p>PROJECT INDEX</p>
+      <a href="../">返回所有專案 <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer><div class="shell footer-inner"><span>© <span id="year"></span> SINWEI YU</span><span>IT · SECURITY · INFRASTRUCTURE</span></div></footer>
+  <script src="../../script.js"></script>
+</body>
+</html>
