@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="雙 FortiGate HA、雙 FortiSwitch MCLAG 與核心網路備援建置案例。">
   <title>企業核心網路高可用性建置｜Julius Yu</title>
-  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../styles.css?v=20260824-4">
 </head>
 <body>
   <header class="nav-wrap">
@@ -42,28 +42,13 @@
       </div>
     </section>
 
-    <section class="case-section dark-section">
+    <section class="case-section dark-section" id="architecture">
       <div class="shell">
         <div class="case-heading light-heading"><span>02</span><div><p>ARCHITECTURE</p><h2>規劃後的高可用性架構</h2></div></div>
-        <div class="topology" aria-label="核心網路高可用性架構示意">
-          <div class="topology-row single"><div class="topology-node upstream"><small>UPSTREAM</small><strong>既有對外網路</strong></div></div>
-          <div class="topology-link vertical"></div>
-          <div class="topology-pair">
-            <div class="topology-node"><small>PRIMARY</small><strong>FortiGate 91G</strong><span>Active</span></div>
-            <div class="peer-link"><span>Heartbeat</span></div>
-            <div class="topology-node"><small>SECONDARY</small><strong>FortiGate 91G</strong><span>Passive</span></div>
-          </div>
-          <div class="mesh-label">10G FortiLink Cross-Connect</div>
-          <div class="topology-pair">
-            <div class="topology-node lime-node"><small>CORE 01</small><strong>FortiSwitch FS-424E</strong><span>All-Fiber</span></div>
-            <div class="peer-link lime-link"><span>MCLAG ICL</span></div>
-            <div class="topology-node lime-node"><small>CORE 02</small><strong>FortiSwitch FS-424E</strong><span>All-Fiber</span></div>
-          </div>
-          <div class="topology-link vertical"></div>
-          <div class="topology-bottom">
-            <div>各樓層 Access Switch</div><div>Server Farm</div><div>VM / Storage / ESXi</div>
-          </div>
-        </div>
+        <figure class="architecture-figure">
+          <img src="../../assets/core-network-ha-architecture.svg" alt="雙 FortiGate HA、雙 FortiSwitch MCLAG、Server Farm 與各樓層交換器組成的高可用性網路架構圖">
+          <figcaption>雙 FortiGate Active-Passive HA、雙 FS-424E MCLAG、Server Farm，以及六個樓層接取節點的完整連線架構。</figcaption>
+        </figure>
         <div class="architecture-notes">
           <p><strong>防火牆層：</strong>兩台 FortiGate 採 Active-Passive，透過 Heartbeat 交換狀態與設定。</p>
           <p><strong>核心交換層：</strong>兩台 FS-424E 以專用埠建立 ICL，形成 MCLAG 雙主動核心。</p>
