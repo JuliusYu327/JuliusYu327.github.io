@@ -1,0 +1,21 @@
+disabled = false
+locale = "zh-TW"
+label = "繁體中文"
+weight = 1
+title = "Julius Yu"
+
+[params]
+  displayName = "繁中"
+  isoCode = "zh-TW"
+  rtl = false
+  dateFormat = "2006 年 1 月 2 日"
+  description = "企業網路、資訊安全與基礎架構專案紀錄。"
+  copyright = "© Julius Yu"
+
+[params.author]
+  name = "Julius Yu"
+  headline = "IT Infrastructure / Cybersecurity"
+  bio = "企業網路、資訊安全、伺服器與儲存設備。"
+  links = [
+    { github = "https://github.com/JuliusYu327" }
+  ]

@@ -1,19 +1,22 @@
 # Julius Yu Portfolio
 
-本網站使用 Minimal Mistakes Jekyll 公版並由 GitHub Pages 自動產生。
+本網站使用 Hugo 與 Blowfish 公版，由 GitHub Pages 自動產生。
 
 ## 新增專案
 
-1. 複製 `_templates/project.md`。
-2. 將副本放進 `_projects/`，檔名使用英文，例如 `new-firewall-project.md`。
-3. 修改檔案最上方的 `title`、`excerpt`、`order`、`permalink` 與圖片路徑。
-4. 在 `assets/` 上傳封面或架構圖。
-5. 使用 Markdown 撰寫內容並儲存，GitHub Pages 會自動更新網站。
+1. 複製 `archetypes/projects.md` 的內容。
+2. 在 `content/projects/` 新增一個英文資料夾，例如 `new-firewall-project/`。
+3. 將內容存成該資料夾內的 `index.md`。
+4. 把封面圖片放進同一個資料夾，檔名使用 `feature.jpg`、`feature.png` 或 `feature.svg`。
+5. 修改 `title`、`description`、`summary`、`weight` 與專案內容。
+6. 儲存後 GitHub Pages 會自動更新。
 
 ## 主要資料夾
 
-- `_projects/`：專案內容。
-- `_pages/`：專案總覽、技術、筆記與 About。
-- `_data/navigation.yml`：上方選單。
-- `assets/`：圖片與自訂樣式。
-- `_config.yml`：網站名稱、公版與全站設定。
+- `content/projects/`：每個專案一個資料夾。
+- `content/skills/`：技術頁面。
+- `content/notes/`：筆記頁面。
+- `content/about/`：關於我。
+- `static/assets/`：專案內文使用的圖片。
+- `config/_default/`：網站名稱、導覽與版型設定。
+- `assets/css/custom.css`：卡其色與文字排版設定。

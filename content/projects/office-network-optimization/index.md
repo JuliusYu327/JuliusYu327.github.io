@@ -1,11 +1,11 @@
 ---
 title: "多樓層辦公網路核心與存取層優化"
-excerpt: "從多樓層迴圈與非標準分線問題開始，重新規劃核心交換、存取層與二層網路保護。"
-order: 2
-permalink: /projects/office-network-optimization/
-header:
-  teaser: /assets/office-network-architecture.svg
-  image: /assets/office-network-architecture.svg
+description: "從多樓層迴圈與非標準分線問題開始，重新規劃核心交換、存取層與二層網路保護。"
+summary: "從四個樓層的 Network Loop 與非標準分線開始，重新規劃核心、存取層及二層網路保護。"
+weight: 2
+showHero: true
+heroStyle: "big"
+showTableOfContents: true
 ---
 
 這個專案從使用者反映 NAS、印表機與 Internet 速度不穩開始。經過現場盤點後，確認問題不是單一設備效能不足，而是多樓層接線、網路迴圈與存取層管理方式共同造成。

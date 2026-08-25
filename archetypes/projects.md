@@ -1,11 +1,11 @@
 ---
 title: "專案名稱"
-excerpt: "用一至兩句話說明問題、做法與成果。"
-order: 99
-permalink: /projects/project-slug/
-header:
-  teaser: /assets/project-cover.jpg
-  image: /assets/project-cover.jpg
+description: "用一至兩句話說明問題、做法與成果。"
+summary: "用一至兩句話說明問題、做法與成果。"
+weight: 99
+showHero: true
+heroStyle: "big"
+showTableOfContents: true
 ---
 
 用一小段話交代專案的範圍與價值。
@@ -17,7 +17,6 @@ header:
 | 客戶情境 | 產業或使用場景 |
 | 專案目標 | 要解決的核心問題 |
 | 技術範圍 | 設備、平台與技術 |
-| 執行期間 | 年份或專案階段 |
 
 ## 背景與需求
 
@@ -25,25 +24,16 @@ header:
 
 ## 架構或執行方式
 
-![專案架構圖](/assets/project-architecture.png)
-
-說明架構選擇與主要設計考量。
+將圖片放在專案資料夾，檔名使用 `feature.jpg`，並在這裡加入架構圖。
 
 ## 問題與處理
 
-### 問題一
-
-描述觀察到的現象、判斷過程、根因與處理方式。
-
-### 問題二
-
-記錄另一個值得保留的技術決策或故障排除經驗。
+記錄觀察到的現象、判斷過程、根因與處理方式。
 
 ## 成果
 
 - 可量化或可驗證的成果。
 - 對可靠性、效能、安全性或維運的改善。
-- 留下的文件、標準或後續價值。
 
 ## 我的職責
 

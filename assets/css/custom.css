@@ -1,0 +1,42 @@
+:root {
+  --color-primary-50: 250 248 243;
+  --color-primary-100: 242 237 225;
+  --color-primary-200: 228 218 194;
+  --color-primary-300: 211 196 158;
+  --color-primary-400: 194 175 123;
+  --color-primary-500: 182 162 122;
+  --color-primary-600: 142 120 74;
+  --color-primary-700: 112 93 57;
+  --color-primary-800: 86 72 47;
+  --color-primary-900: 67 57 40;
+}
+
+html {
+  font-family: Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+body {
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, .font-extrabold {
+  letter-spacing: -0.035em;
+}
+
+.prose {
+  max-width: 76ch;
+}
+
+.prose h2 {
+  border-bottom: 1px solid rgb(229 229 229);
+  padding-bottom: 0.35em;
+}
+
+.prose img {
+  border-radius: 0.25rem;
+}
+
+article.group {
+  border: 1px solid rgb(229 229 229);
+  box-shadow: none;
+}

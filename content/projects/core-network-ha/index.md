@@ -1,11 +1,11 @@
 ---
 title: "企業核心網路高可用性建置"
-excerpt: "雙 FortiGate HA、雙 FortiSwitch MCLAG 與全網備援；也完整記錄第一次上架失敗的原因與修正過程。"
-order: 1
-permalink: /projects/core-network-ha/
-header:
-  teaser: /assets/core-network-ha-architecture.svg
-  image: /assets/core-network-ha-architecture.svg
+description: "雙 FortiGate HA、雙 FortiSwitch MCLAG 與全網備援；完整記錄第一次上架失敗的原因與修正過程。"
+summary: "雙 FortiGate HA、雙 FortiSwitch MCLAG、全網備援，以及第一次上架失敗原因的完整處理紀錄。"
+weight: 1
+showHero: true
+heroStyle: "big"
+showTableOfContents: true
 ---
 
 這是一個從單點核心走向高可用性的企業網路改造專案。工作不只包含設備上架，也涵蓋架構盤點、風險控制、失敗回復與第二次正式切換。

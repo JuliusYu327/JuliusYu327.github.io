@@ -1,11 +1,11 @@
 ---
 title: "企業防火牆汰換與多據點 VPN 復原"
-excerpt: "FortiGate 60F 汰換為 71G，重建政策、SD-WAN、IPsec VPN 與 AD/FSSO，並完成兩次切換與回復。"
-order: 3
-permalink: /projects/firewall-refresh/
-header:
-  teaser: /assets/firewall-refresh-cover.jpg
-  image: /assets/firewall-refresh-cover.jpg
+description: "FortiGate 60F 汰換為 71G，重建政策、SD-WAN、IPsec VPN 與 AD/FSSO，並完成兩次切換與回復。"
+summary: "FortiGate 60F 汰換為 71G，重建政策、SD-WAN、IPsec VPN 與 AD/FSSO，完成兩次切換與回復。"
+weight: 3
+showHero: true
+heroStyle: "big"
+showTableOfContents: true
 ---
 
 這是一個企業邊界防火牆汰換與多據點連線復原專案。除了將舊 FortiGate 60F 更新為 FortiGate 71G，也必須在短暫停機窗口內重建既有政策、SD-WAN、IPsec VPN、AD/FSSO 與對外服務。

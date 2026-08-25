@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">FortiGate 防火牆汰換與設定重建流程</title>
+  <desc id="desc">從舊 FortiGate 60F 盤點設定，於 7.4.6 手動重建，依序升級韌體至 7.6.6，再切換至 FortiGate 71G，最後驗證企業網路、VPN、AD 與 FSSO。</desc>
+  <rect width="1200" height="700" fill="#161616"/>
+  <text x="64" y="74" fill="#cbbb98" font-family="Arial, Noto Sans TC, sans-serif" font-size="20" font-weight="700" letter-spacing="2">FIREWALL REFRESH / CONFIG REBUILD</text>
+  <text x="64" y="126" fill="#ffffff" font-family="Arial, Noto Sans TC, sans-serif" font-size="38" font-weight="800">跨型號、跨版本的防火牆移轉</text>
+
+  <g font-family="Arial, Noto Sans TC, sans-serif">
+    <rect x="64" y="188" width="236" height="218" fill="#ffffff"/>
+    <text x="88" y="222" fill="#b6a27a" font-size="15" font-weight="800">01 / SOURCE</text>
+    <text x="88" y="278" fill="#0b0b0b" font-size="27" font-weight="800">FortiGate 60F</text>
+    <text x="88" y="310" fill="#666666" font-size="17">FortiOS 7.4.4</text>
+    <line x1="88" y1="338" x2="276" y2="338" stroke="#0b0b0b"/>
+    <text x="88" y="370" fill="#0b0b0b" font-size="16">盤點政策、路由、VPN</text>
+    <text x="88" y="394" fill="#0b0b0b" font-size="16">AD / FSSO 與網路服務</text>
+
+    <path d="M300 297 H348" stroke="#b6a27a" stroke-width="4"/>
+    <path d="M340 287 L352 297 L340 307" fill="none" stroke="#b6a27a" stroke-width="4"/>
+
+    <rect x="352" y="188" width="236" height="218" fill="#b6a27a"/>
+    <text x="376" y="222" fill="#0b0b0b" font-size="15" font-weight="800">02 / REBUILD</text>
+    <text x="376" y="278" fill="#0b0b0b" font-size="27" font-weight="800">FortiOS 7.4.6</text>
+    <text x="376" y="310" fill="#0b0b0b" font-size="17">手動重建設定</text>
+    <line x1="376" y1="338" x2="564" y2="338" stroke="#0b0b0b"/>
+    <text x="376" y="370" fill="#0b0b0b" font-size="16">避免直接匯入造成</text>
+    <text x="376" y="394" fill="#0b0b0b" font-size="16">政策與路由邏輯錯誤</text>
+
+    <path d="M588 297 H636" stroke="#b6a27a" stroke-width="4"/>
+    <path d="M628 287 L640 297 L628 307" fill="none" stroke="#b6a27a" stroke-width="4"/>
+
+    <rect x="640" y="188" width="236" height="218" fill="#ffffff"/>
+    <text x="664" y="222" fill="#b6a27a" font-size="15" font-weight="800">03 / UPGRADE</text>
+    <text x="664" y="278" fill="#0b0b0b" font-size="27" font-weight="800">韌體升級路徑</text>
+    <text x="664" y="310" fill="#666666" font-size="17">7.4.6 → 7.4.9</text>
+    <text x="664" y="338" fill="#666666" font-size="17">→ 7.4.12 → 7.6.6</text>
+    <line x1="664" y1="362" x2="852" y2="362" stroke="#0b0b0b"/>
+    <text x="664" y="394" fill="#0b0b0b" font-size="16">每一階段備份與核對</text>
+
+    <path d="M876 297 H924" stroke="#b6a27a" stroke-width="4"/>
+    <path d="M916 287 L928 297 L916 307" fill="none" stroke="#b6a27a" stroke-width="4"/>
+
+    <rect x="928" y="188" width="208" height="218" fill="#ffffff"/>
+    <text x="952" y="222" fill="#b6a27a" font-size="15" font-weight="800">04 / TARGET</text>
+    <text x="952" y="278" fill="#0b0b0b" font-size="27" font-weight="800">FortiGate 71G</text>
+    <text x="952" y="310" fill="#666666" font-size="17">FortiOS 7.6.6</text>
+    <line x1="952" y1="338" x2="1112" y2="338" stroke="#0b0b0b"/>
+    <text x="952" y="370" fill="#0b0b0b" font-size="16">完成切換與驗證</text>
+
+    <rect x="64" y="466" width="1072" height="152" fill="#0b0b0b" stroke="#555555"/>
+    <text x="88" y="501" fill="#cbbb98" font-size="14" font-weight="800">VALIDATION</text>
+    <g fill="#ffffff" font-size="18" font-weight="700">
+      <text x="88" y="555">企業內外網</text>
+      <text x="318" y="555">多據點 IPsec VPN</text>
+      <text x="600" y="555">AD / FSSO</text>
+      <text x="805" y="555">SD-WAN / 路由</text>
+      <text x="1030" y="555" text-anchor="end">資安政策</text>
+    </g>
+    <g fill="#b6a27a">
+      <circle cx="88" cy="584" r="5"/><circle cx="318" cy="584" r="5"/><circle cx="600" cy="584" r="5"/><circle cx="805" cy="584" r="5"/><circle cx="1030" cy="584" r="5"/>
+    </g>
+  </g>
+</svg>

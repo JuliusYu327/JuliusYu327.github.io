@@ -1,0 +1,57 @@
+colorScheme = "one-light"
+defaultAppearance = "light"
+autoSwitchAppearance = false
+enableSearch = true
+enableCodeCopy = true
+enableStructuredBreadcrumbs = true
+mainSections = ["projects"]
+disableImageOptimization = false
+disableImageOptimizationMD = true
+thumbnailAspectRatio = "1.6"
+highlightCurrentMenuArea = true
+smartTOC = true
+
+[header]
+  layout = "floating"
+
+[footer]
+  showMenu = false
+  showCopyright = true
+  showThemeAttribution = false
+  showAppearanceSwitcher = false
+  showScrollToTop = true
+
+[homepage]
+  layout = "landing"
+  homepageImage = "firewall-refresh-cover.jpg"
+  showRecent = true
+  showRecentItems = 6
+  showMoreLink = true
+  showMoreLinkDest = "/projects/"
+  cardView = true
+  cardViewScreenWidth = false
+
+[article]
+  showDate = false
+  showAuthor = false
+  showHero = true
+  heroStyle = "big"
+  showBreadcrumbs = true
+  showHeadingAnchors = true
+  showPagination = true
+  showReadingTime = false
+  showReadingProgress = true
+  showTableOfContents = true
+  showWordCount = false
+  showZenMode = false
+
+[list]
+  showHero = false
+  showBreadcrumbs = true
+  showSummary = true
+  showCards = true
+  orderByWeight = true
+  groupByYear = false
+  cardView = true
+  cardViewScreenWidth = false
+  constrainItemsWidth = false

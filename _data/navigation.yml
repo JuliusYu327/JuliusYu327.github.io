@@ -1,9 +1,0 @@
-main:
-  - title: "專案"
-    url: /projects/
-  - title: "技術"
-    url: /skills/
-  - title: "筆記"
-    url: /notes/
-  - title: "About"
-    url: /about/
