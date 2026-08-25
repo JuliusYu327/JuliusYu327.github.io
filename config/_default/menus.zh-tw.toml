@@ -17,8 +17,3 @@
   name = "About"
   pageRef = "about"
   weight = 40
-
-[[main]]
-  identifier = "search"
-  pre = "search"
-  weight = 50

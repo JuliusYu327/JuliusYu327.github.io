@@ -8,6 +8,7 @@ mainSections = ["projects"]
 disableImageOptimization = false
 disableImageOptimizationMD = true
 thumbnailAspectRatio = "1.6"
+defaultSocialImage = "/firewall-refresh-cover.jpg"
 highlightCurrentMenuArea = true
 smartTOC = true
 
