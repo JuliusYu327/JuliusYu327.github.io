@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="FortiGate 60F 至 71G 的跨版本防火牆汰換、設定重建、多據點 VPN 與 FSSO 問題排除案例。">
   <title>企業防火牆汰換與多據點 VPN 復原｜Julius Yu</title>
-  <link rel="stylesheet" href="../../styles.css?v=20260824-8">
+  <link rel="stylesheet" href="../../styles.css?v=20260825-1">
 </head>
 <body>
   <header class="nav-wrap">
@@ -35,7 +35,7 @@
     </figure>
 
     <section class="case-section shell">
-      <div class="case-heading"><span>01</span><div><p>BACKGROUND</p><h2>設定黨匯入以及後續更多項目</h2></div></div>
+      <div class="case-heading"><span>01</span><div><p>BACKGROUND</p><h2>不是把設定檔倒進去就結束</h2></div></div>
       <div class="case-copy two-column">
         <div><h3>專案需求</h3><p>客戶需要汰換既有防火牆，同時保留原有的企業內外網、各據點 VPN、AD 身分驗證、FSSO、雙 WAN 備援與資安政策。切換期間會停止全部網路服務，因此可用的維護時間十分有限。</p></div>
         <div><h3>移轉難點</h3><p>舊設備使用 FortiOS 7.4.4，新設備目標版本為 7.6.6，且硬體型號不同。直接匯入舊 Config 可能造成物件、政策順序與路由邏輯異常，因此決定先於相近版本手動重建，再循官方升級路徑逐段更新。</p></div>
@@ -91,7 +91,7 @@
 
     <section class="case-section dark-section">
       <div class="shell">
-        <div class="case-heading light-heading"><span>05</span><div><p>TROUBLESHOOTING</p><h2>多項問題，需拆開驗證</h2></div></div>
+        <div class="case-heading light-heading"><span>05</span><div><p>TROUBLESHOOTING</p><h2>問題不只一層，必須拆開驗證</h2></div></div>
         <div class="diagnosis-grid">
           <article><span>ISSUE 01</span><h3>為什麼第一次切換後政策會失效？</h3><ul><li>設定最初在較低版本建立，升級至目標版本後政策順序與邏輯出現偏移。</li><li>不能只看設定是否存在，還要驗證實際比對順序、路由結果與流量行為。</li><li>重新建立韌體與政策基線後，第二次切換的內外網與 AD 恢復正常。</li></ul></article>
           <article><span>ISSUE 02</span><h3>為什麼仍有部分 VPN 與 FSSO 不通？</h3><ul><li>VPN 隧道本身可正常建立，問題集中在少數據點的連線參數。</li><li>重新核對後確認預共享金鑰資料不一致，修正後所有據點恢復連線。</li><li>FSSO 則是舊憑證與新版本相容性問題，先驗證非憑證連線，再更新憑證。</li></ul></article>
