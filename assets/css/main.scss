@@ -1,0 +1,17 @@
+---
+# Only the main Sass file needs front matter.
+---
+@charset "utf-8";
+$primary-color: #b6a27a;
+$link-color: #8a7448;
+$masthead-link-color: #111111;
+$masthead-link-color-hover: #8a7448;
+$sans-serif: Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+$global-transition: none;
+$intro-transition: none;
+@import "minimal-mistakes/skins/air";
+@import "minimal-mistakes";
+.page__title, .archive__item-title { letter-spacing: -0.035em; }
+.page__content h2 { margin-top: 2.2em; padding-bottom: 0.35em; border-bottom: 1px solid #d8d8d8; }
+.page__content img { border-radius: 0; }
+.notice--info { border-left-color: #b6a27a; }
