@@ -12,3 +12,7 @@ showHero: false
 ## 工作方式
 
 在方案規劃上，我會將技術差異轉換成客戶能理解的架構與選擇；在部署與排錯上，則保留可追蹤的步驟與判斷依據。
+
+## 專業技能
+
+TCP/IP、Firewall、Switch、Fortinet、HPE、Synology、Mailserver
