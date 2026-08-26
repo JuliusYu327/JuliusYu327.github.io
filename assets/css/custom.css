@@ -42,8 +42,13 @@ article.group {
 }
 
 .brand-ticker {
-  width: 100vw;
-  margin: 3rem 0 0 calc(50% - 50vw);
+  position: relative;
+  left: 50%;
+  width: 100vw !important;
+  max-width: none !important;
+  margin-top: 3rem;
+  margin-right: -50vw !important;
+  margin-left: -50vw !important;
   overflow: hidden;
   border-top: 2px solid rgb(34 211 238);
   background: #111;
