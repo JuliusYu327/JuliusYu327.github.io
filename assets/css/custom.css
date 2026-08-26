@@ -103,6 +103,8 @@ article.group {
   display: flex;
   flex-shrink: 0;
   align-items: center;
+  justify-content: space-around;
+  min-width: 100vw;
 }
 
 .brand-ticker__group span {
