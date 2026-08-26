@@ -41,6 +41,16 @@ article.group {
   box-shadow: none;
 }
 
+.main-menu > a[href="/"] {
+  overflow: visible;
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: 2rem !important;
+  font-weight: 900 !important;
+  line-height: 1;
+  letter-spacing: -0.08em;
+  color: #080808 !important;
+}
+
 .landing-rise-3 a[href="/projects/"] {
   border: 1px solid rgb(112 93 57) !important;
   background: rgb(142 120 74) !important;
