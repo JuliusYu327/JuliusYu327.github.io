@@ -45,7 +45,17 @@ h1, h2, h3, .font-extrabold {
 
 #main-content > article > #single_header {
   width: 100%;
-  max-width: 76ch;
+  max-width: 72rem;
+}
+
+#main-content > article > section.prose {
+  width: 100%;
+  max-width: 72rem;
+}
+
+#main-content > article > section.prose .article-content {
+  width: 100%;
+  max-width: 48rem;
 }
 
 article.group {
