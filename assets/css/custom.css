@@ -46,9 +46,7 @@ article.group {
   left: 50%;
   width: 100vw !important;
   max-width: none !important;
-  margin-top: 3rem;
-  margin-right: -50vw !important;
-  margin-left: -50vw !important;
+  margin: 0 0 3rem -50vw !important;
   overflow: hidden;
   border-top: 2px solid rgb(34 211 238);
   background: #111;
@@ -92,7 +90,7 @@ article.group {
 
 @media (max-width: 640px) {
   .brand-ticker {
-    margin-top: 2.25rem;
+    margin-bottom: 2.25rem !important;
   }
 
   .brand-ticker__group span {
