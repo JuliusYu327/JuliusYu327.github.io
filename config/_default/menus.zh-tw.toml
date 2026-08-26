@@ -9,11 +9,6 @@
   weight = 20
 
 [[main]]
-  name = "筆記"
-  pageRef = "notes"
-  weight = 30
-
-[[main]]
   name = "About"
   pageRef = "about"
   weight = 40
