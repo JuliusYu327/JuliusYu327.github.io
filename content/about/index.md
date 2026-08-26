@@ -1,6 +1,6 @@
 ---
 title: "About"
-description: "技術不只要能運作，也要能被理解與維護。"
+description: "技術能運作，也要能理解與維護。"
 showTableOfContents: false
 showHero: false
 ---
