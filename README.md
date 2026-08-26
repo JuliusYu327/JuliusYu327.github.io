@@ -1,7 +1,4 @@
 # Julius Yu Portfolio
-
-本網站使用 Hugo 與 Blowfish 公版，由 GitHub Pages 自動產生。
-
 ## 新增專案
 
 1. 複製 `archetypes/projects.md` 的內容。
