@@ -36,6 +36,18 @@ h1, h2, h3, .font-extrabold {
   border-radius: 0.25rem;
 }
 
+#main-content > article > #single_header,
+#main-content > article > section.prose,
+#main-content > article > footer {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#main-content > article > #single_header {
+  width: 100%;
+  max-width: 76ch;
+}
+
 article.group {
   border: 1px solid rgb(229 229 229);
   box-shadow: none;
