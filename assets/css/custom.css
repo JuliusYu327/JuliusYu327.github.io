@@ -41,6 +41,23 @@ article.group {
   box-shadow: none;
 }
 
+.landing-rise-3 a[href="/projects/"] {
+  border: 1px solid rgb(112 93 57) !important;
+  background: rgb(142 120 74) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 22px rgb(67 57 40 / 28%) !important;
+}
+
+.landing-rise-3 a[href="/projects/"]:hover {
+  border-color: rgb(86 72 47) !important;
+  background: rgb(112 93 57) !important;
+  color: #fff !important;
+}
+
+.landing-rise-3 a[href="/projects/"]:focus-visible {
+  outline-color: rgb(112 93 57) !important;
+}
+
 .brand-ticker {
   position: relative;
   left: 50%;
