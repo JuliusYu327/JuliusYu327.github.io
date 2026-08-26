@@ -1,4 +1,9 @@
 :root {
+  /* 跑馬燈：手動調整這兩個值即可 */
+  --ticker-line-color: #b6a27a;
+  --ticker-item-gap: 2.25rem;
+  --ticker-item-width: 8rem;
+
   --color-primary-50: 250 248 243;
   --color-primary-100: 242 237 225;
   --color-primary-200: 228 218 194;
@@ -97,7 +102,7 @@ article.group {
   max-width: none !important;
   margin: 0 0 3rem -50vw !important;
   overflow: hidden;
-  border-top: 2px solid rgb(34 211 238);
+  border-top: 2px solid var(--ticker-line-color);
   background: #111;
   color: #a3a3a3;
 }
@@ -113,13 +118,14 @@ article.group {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  justify-content: space-around;
+  gap: var(--ticker-item-gap);
   min-width: 100vw;
+  padding-right: var(--ticker-item-gap);
 }
 
 .brand-ticker__group span {
   display: grid;
-  min-width: 185px;
+  min-width: var(--ticker-item-width);
   height: 46px;
   place-items: center;
   padding: 0 1.5rem;
@@ -145,7 +151,7 @@ article.group {
   }
 
   .brand-ticker__group span {
-    min-width: 150px;
+    min-width: 7rem;
     height: 42px;
     padding: 0 1rem;
     font-size: 0.76rem;
