@@ -36,13 +36,13 @@ showTableOfContents: true
 
 1F 至 4F 的存取交換器之間存在未文件化的交叉連線。當兩條路徑同時啟用時，網路會形成迴圈，造成廣播封包持續放大，進而拖慢 NAS、印表機與 Internet 連線。
 
-![loop畫面](/assets/loop_picture.png)
+![loop畫面](/assets/loop_picture.png?v=20260827)
 
 ### 非標準分線
 
 部分網路線曾以拆分線對的方式同時服務兩個端點。這種作法限制速度，也增加接觸不良與查修困難。此次施工將其改回標準八芯端接，並重新整理配線與標示。
 
-![非標準分線](/assets/Duble_Head.png)
+![非標準分線](/assets/Duble_Head.png?v=20260827)
 
 ## 優化設計
 
