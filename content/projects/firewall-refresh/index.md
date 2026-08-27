@@ -8,7 +8,7 @@ heroStyle: "big"
 showTableOfContents: true
 ---
 
-這是一個企業邊界防火牆汰換與多據點連線復原專案。除了將舊 FortiGate 60F 更新為 FortiGate 71G，也必須在短暫停機窗口內重建既有政策、SD-WAN、IPsec VPN、AD/FSSO 與對外服務。
+這是一個企業邊界防火牆汰換與多據點連線復原專案。將舊 FortiGate 60F 更新為 FortiGate 71G，在短暫停機窗口內重建既有政策、SD-WAN、IPsec VPN、AD/FSSO 與對外服務。
 
 ## 專案摘要
 
@@ -21,7 +21,7 @@ showTableOfContents: true
 
 ## 背景與挑戰
 
-舊設備承擔 Internet、DMZ、內部 VLAN、多條站點對站點 VPN 與身分驗證服務。新舊設備跨越硬體平台與 FortiOS 版本，不能只依賴直接還原設定；如果介面名稱、物件、憑證或版本行為不同，可能導致政策與 VPN 看似存在卻無法通訊。
+舊設備承擔 Internet、DMZ、內部 VLAN、多條站點對站點 VPN 與身分驗證服務。新舊設備跨越硬體平台與 FortiOS 版本，如果介面名稱、物件、憑證或版本行為不同，可能導致政策與 VPN 看似存在卻無法通訊，因此在轉移過程中以手動設定為主。
 
 ## 汰換與復原流程
 
@@ -41,7 +41,7 @@ showTableOfContents: true
 
 ## 第一次切換與回復
 
-第一次正式切換後，內部連線、部分政策、VPN 與 AD/FSSO 驗證未全部符合預期。為控制停機時間，依照事前規劃回復到 FortiGate 60F，讓營運先恢復，再離線比對設定與流量路徑。
+第一次正式切換後，部分政策、VPN 與 AD/FSSO 驗證未全部符合預期。為控制停機時間，依照事前規劃回復到 FortiGate 60F，讓營運先恢復，再離線比對設定與流量路徑。
 
 這次切換確認了幾個問題：部分政策與物件的相依關係未完整對應；VPN 資料中的預共享金鑰資訊有誤；舊 FSSO 憑證也無法直接沿用於新環境。
 
