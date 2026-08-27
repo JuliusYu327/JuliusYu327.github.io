@@ -8,7 +8,7 @@ heroStyle: "big"
 showTableOfContents: true
 ---
 
-這個專案從使用者反映 NAS、印表機與 Internet 速度不穩開始。經過現場盤點後，確認問題不是單一設備效能不足，而是多樓層接線、網路迴圈與存取層管理方式共同造成。
+這個專案從使用者反映 NAS、印表機與 Internet 速度不穩開始。經過現場盤點後，確認問題是多樓層接線、網路迴圈與存取層管理方式共同造成。
 
 ## 專案摘要
 
@@ -39,6 +39,7 @@ showTableOfContents: true
 ### 非標準分線
 
 部分網路線曾以拆分線對的方式同時服務兩個端點。這種作法限制速度，也增加接觸不良與查修困難。此次施工將其改回標準八芯端接，並重新整理配線與標示。
+(/assets/office-network-architecture.svg)
 
 ## 優化設計
 
