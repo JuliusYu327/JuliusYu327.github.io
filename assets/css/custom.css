@@ -1,4 +1,4 @@
-F:root {
+:root {
   /* 跑馬燈：手動調整這兩個值即可 */
   --ticker-line-color: #b6a27a;
   --ticker-item-gap: 2.25rem;
@@ -119,7 +119,7 @@ article.group {
   flex-shrink: 0;
   align-items: center;
   gap: var(--ticker-item-gap);
-  min-width: 100vw;
+  width: max-content;
   padding-right: var(--ticker-item-gap);
 }
 
