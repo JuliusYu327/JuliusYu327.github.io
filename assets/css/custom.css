@@ -1,4 +1,4 @@
-:root {
+F:root {
   /* 跑馬燈：手動調整這兩個值即可 */
   --ticker-line-color: #b6a27a;
   --ticker-item-gap: 2.25rem;
@@ -110,7 +110,7 @@ article.group {
 .brand-ticker__track {
   display: flex;
   width: max-content;
-  animation: brand-ticker-scroll 24s linear infinite;
+  animation: brand-ticker-scroll 40s linear infinite;
   will-change: transform;
 }
 
