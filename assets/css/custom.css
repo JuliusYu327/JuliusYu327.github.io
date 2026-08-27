@@ -110,7 +110,7 @@ article.group {
 .brand-ticker__track {
   display: flex;
   width: max-content;
-  animation: brand-ticker-scroll 40s linear infinite;
+  animation: brand-ticker-scroll 30s linear infinite;
   will-change: transform;
 }
 
