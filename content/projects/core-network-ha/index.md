@@ -55,7 +55,7 @@ showTableOfContents: true
 
 這次事件讓後續流程增加了明確的施工前檢核：新增了核對設備型號，以及確認硬體世代、序號、韌體版本與 HA 相容矩陣。更換為正確世代的設備後，設定同步與 HA 建立才恢復正常。
 
-![企業核心網路高可用性架構圖](/assets/HA_Fail.png)
+![HA同步失敗](/assets/HA_Fail.png)
 
 ## 非預期 DHCP 問題
 
