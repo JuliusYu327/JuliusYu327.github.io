@@ -39,7 +39,7 @@ showTableOfContents: true
 ### 非標準分線
 
 部分網路線曾以拆分線對的方式同時服務兩個端點。這種作法限制速度，也增加接觸不良與查修困難。此次施工將其改回標準八芯端接，並重新整理配線與標示。
-![非標準分線](/assets/office-network-architecture.svg)
+![非標準分線](/assets/Duble_Head.png)
 
 ## 優化設計
 
