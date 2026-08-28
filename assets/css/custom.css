@@ -95,6 +95,14 @@ article.group {
   outline-color: rgb(112 93 57) !important;
 }
 
+.landing-rise-3 a .icon {
+  display: none !important;
+}
+
+.landing-rise-3 a {
+  gap: 0 !important;
+}
+
 .brand-ticker {
   position: relative;
   left: 50%;
