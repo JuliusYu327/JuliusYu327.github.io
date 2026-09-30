@@ -1,6 +1,6 @@
 ---
 title: "About"
-description: "技術能運作，也要能理解與維護。"
+description: "任何東西要能夠長期運作，脫離不了記錄與維護。"
 showTableOfContents: false
 showHero: false
 ---
