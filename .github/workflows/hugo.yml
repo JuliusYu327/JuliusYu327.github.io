@@ -23,6 +23,20 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Scan source for committed secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInIE \
+            --exclude-dir=.git \
+            --exclude-dir=public \
+            --exclude-dir=resources \
+            --exclude='*.min.js' \
+            '(AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9_]{36,}|xox[baprs]-[A-Za-z0-9-]{20,}|AIza[0-9A-Za-z_-]{35}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----)' .; then
+            echo "Potential secret detected. Remove it before publishing."
+            exit 1
+          fi
+
       - name: Setup Go
         uses: actions/setup-go@v6
         with:
@@ -40,6 +54,14 @@ jobs:
 
       - name: Build
         run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Verify generated security policy
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f public/index.html
+          grep -Fq 'Content-Security-Policy' public/index.html
+          grep -Fq 'strict-origin-when-cross-origin' public/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
