@@ -64,7 +64,7 @@ jobs:
           grep -Fq 'strict-origin-when-cross-origin' public/index.html
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./public
 
