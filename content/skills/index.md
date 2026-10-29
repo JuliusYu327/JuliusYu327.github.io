@@ -23,4 +23,4 @@ SAN、NAS、CCTV、NVR、VMS 、ISCSI、基礎架構規劃
 
 ## 品牌
 
-Fortinet、HPE、HPE Aruba、Paloalto、Synology、Lenovo、ShareTech、ASUS、HP
+Fortinet、Paloalto、HPE、Lenovo、HPE Aruba、Synology、ShareTech、ASUS、HP、MSI
