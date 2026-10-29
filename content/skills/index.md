@@ -17,6 +17,6 @@ Proxmox VE、KVM、Linux與 Windows Server
 
 SAN、NAS、CCTV、NVR、VMS 、ISCSI、基礎架構規劃
 
-## 
+## 品牌
 
 Fortinet、HPE、HPE Aruba、Paloalto、Synology、Lenovo、ShareTech
