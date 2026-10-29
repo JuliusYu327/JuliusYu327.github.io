@@ -7,11 +7,11 @@ showHero: false
 
 ## 網路與資安
 
-TCP/IP、Firewakk、Switch、CCNA、Access Point、Policy、VLAN、FortiLink、HA、MCLAG、LACP
+TCP/IP、Firewall、Switch、CCNA、Access Point、Policy、VLAN、FortiLink、HA、MCLAG、LACP
 
 ## 系統與虛擬化
 
-Proxmox VE、KVM、Linux與 Windows Server
+ProxmoxVE、KVM、Linux與 Windows Server
 
 ## 儲存與方案
 
