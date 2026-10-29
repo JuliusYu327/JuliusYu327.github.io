@@ -7,16 +7,16 @@ showHero: false
 
 ## 網路與資安
 
-TCP/IP、FortiGate、FortiSwitch、CCNA、Access Point、Policy、VLAN、FortiLink、HA、MCLAG、LACP。
+TCP/IP、Firewakk、Switch、CCNA、Access Point、Policy、VLAN、FortiLink、HA、MCLAG、LACP
 
 ## 系統與虛擬化
 
-Proxmox VE、KVM、Linux與 Windows Server。
+Proxmox VE、KVM、Linux與 Windows Server
 
 ## 儲存與方案
 
-SAN、NAS、CCTV、NVR、VMS 、ISCSI、基礎架構規劃。
+SAN、NAS、CCTV、NVR、VMS 、ISCSI、基礎架構規劃
 
-## 工作站硬體
+## 
 
-工作站、硬體規劃、設備組裝
+Fortinet、HPE、HPE Aruba、Paloalto、Synology、Lenovo、ShareTech
