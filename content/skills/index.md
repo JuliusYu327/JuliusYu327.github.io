@@ -15,7 +15,7 @@ Proxmox VE、KVM、Linux與 Windows Server
 
 ## 儲存與方案
 
-SAN、NAS、CCTV、NVR、VMS 、ISCSI、基礎架構規劃
+SAN、NAS、CCTV、NVR、VMS 、ISCSI、RAID、基礎架構規劃
 
 ## 硬體
 
